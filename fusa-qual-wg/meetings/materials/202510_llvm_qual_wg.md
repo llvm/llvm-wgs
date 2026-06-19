@@ -73,9 +73,9 @@ Document the process in [QualGroup docs](https://llvm.org/docs/QualGroup.html) f
 
 ![Workflow 1](../img/202509_workflow1.png)
 
-** _References_ **
-IEC 61508 Part 3 - Annex H__
-ISO 26262 Part 8 - Chapter 11
+_**References**_
+- IEC 61508 Part 3 - Annex H__
+- ISO 26262 Part 8 - Chapter 11
 
 See also slides 11 to 14 in AsiaLLVM 2025’s [presentation](https://llvm.org/devmtg/2025-06/slides/technical-talk/urribarri-automotive.pdf)
 
