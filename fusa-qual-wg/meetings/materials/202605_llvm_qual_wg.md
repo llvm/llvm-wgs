@@ -9,11 +9,11 @@
 
 ⚠️ Reminder: [Description of active contributors](https://llvm.org/docs/QualGroup.html#contribution-principles) ⚠️
 
-**Timezone**: Italy (GMT+2)
-**Affiliation**: ResilTech S.r.l.
-**Job**: Safety Engineer for about 10 years Safety Assessor for the past 5 years
-**Interests related to the WG**: Mainly interested in understanding how the group is approaching the challenge of reconciling the open-source nature of LLVM with the requirements of standards like ISO 26262 and CENELEC
-**Potential contributions**: Reviewing or giving feedback on proposals Participating in technical discussions Sharing real-world qualification experience Helping with documentation
+- **Timezone**: Italy (GMT+2)
+- **Affiliation**: ResilTech S.r.l.
+- **Job**: Safety Engineer for about 10 years Safety Assessor for the past 5 years
+- **Interests related to the WG**: Mainly interested in understanding how the group is approaching the challenge of reconciling the open-source nature of LLVM with the requirements of standards like ISO 26262 and CENELEC
+- **Potential contributions**: Reviewing or giving feedback on proposals Participating in technical discussions Sharing real-world qualification experience Helping with documentation
 
 ### Summary of last month’s PRs
 
