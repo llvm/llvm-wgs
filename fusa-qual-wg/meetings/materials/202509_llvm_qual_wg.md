@@ -115,14 +115,14 @@ How do we want to proceed?
 
 ⚠️ Reminder: [Description of Active Members](https://mypads2.framapad.org/p/group-composition-pqp2g9zl) ⚠️
 
-**Timezone**: Asia/Jakarta (GMT+7)
-**Affiliation**: None (coming as an individual)
-**Job**:
-- Developer & Security Engineer
-- Final year undergraduate EE student working on a government project on verification and standardization for cars 
-- Experience working as a C++ software engineer and likes compilers
-**Interests related to the WG**: Sanitizers, fuzzers
-**Potential contributions**: Participating in technical discussions, helping with documentation
+- **Timezone**: Asia/Jakarta (GMT+7)
+- **Affiliation**: None (coming as an individual)
+- **Job**:
+  - Developer & Security Engineer
+  - Final year undergraduate EE student working on a government project on verification and standardization for cars 
+  - Experience working as a C++ software engineer and likes compilers
+- **Interests related to the WG**: Sanitizers, fuzzers
+- **Potential contributions**: Participating in technical discussions, helping with documentation
 
 ### Communications: Opinions from the WG?
 
