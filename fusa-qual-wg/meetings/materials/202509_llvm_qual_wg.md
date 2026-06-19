@@ -13,9 +13,9 @@
 
 ![Workflow 3](../img/202509_workflow3.png)
 
-** _References_ **
-IEC 61508 Part 3 - Annex H__
-ISO 26262 Part 8 - Chapter 11
+_**References**_
+- IEC 61508 Part 3 - Annex H__
+- ISO 26262 Part 8 - Chapter 11
 
 See also slides 11 to 14 in AsiaLLVM 2025’s [presentation](https://llvm.org/devmtg/2025-06/slides/technical-talk/urribarri-automotive.pdf)
 
@@ -57,7 +57,7 @@ Users (OEMs, Tier1s,...) must integrate this kit into their own _**safety case**
 
 ### Three stages of compiler design
 
-[![Workflow 1](../img/202509_workflow1.png)](https://christianbaghai.medium.com/understanding-the-three-stages-of-compiler-design-front-end-middle-end-and-back-end-890f43cf0d40)
+[![Workflow 1](../img/202509_scd.png)](https://christianbaghai.medium.com/understanding-the-three-stages-of-compiler-design-front-end-middle-end-and-back-end-890f43cf0d40)
 
 ### Tool qualification approach for LLVM in open source
 
@@ -85,8 +85,10 @@ Users (OEMs, Tier1s,...) must integrate this kit into their own _**safety case**
      - Challenge: time that it takes for triage, root-cause analysis, documenting issues, adding in issue tracker…
    - Others?
 
-+Other subjects not yet explored → Pieces of the confidence-in-use puzzle__
-Should we change our initial focus (Clang conformance)?__
++Other subjects not yet explored → Pieces of the confidence-in-use puzzle
+
+Should we change our initial focus (Clang conformance)?
+
 How do we want to proceed?
 
 ## Non-technical topics: Miscellaneous
@@ -137,7 +139,7 @@ How do we want to proceed?
   - Invitation to their [community meetup in Japan](https://www.eventbrite.com/e/eclipse-sdv-community-meetup-japan-co-hosted-by-bosch-group-tickets-1540218427779)
   - Invitation to give a talk about the LLVM initiative
   - Contact person: Director of the SDV Ecosystem Development
-3. **Poster at [Innovations in Compiler Technology](https://compilertech.org/) (Bangalore)
+3. **Poster at [Innovations in Compiler Technology](https://compilertech.org/)** (Bangalore)
   - _Practical Challenges in Upstream Open-Source Compiler Qualification_
   - Connect with researchers in compilers to explore new ideas for the WG
 4. **Insights from a conversation with an ELISA project member on resources & funding**
