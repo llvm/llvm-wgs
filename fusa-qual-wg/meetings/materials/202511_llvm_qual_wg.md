@@ -37,12 +37,12 @@ Notes 📝
 - GitHub is durable, Drive is collaborative — use both? web link + PDF archive
 - If Infra re-enables slide storage, keep the hybrid? (web + PDF)
 
-💡 **Note**__
+💡 **Note**
 - These slides aren’t about “polish”, they’re about clarity, speed, and inclusivity across time zones, with a tiny, repeatable prep cost. If a given month doesn’t benefit, we can skip them.
 - Slides summarize, minutes hold detail. We’re not duplicating work, just giving a clear front page for the meeting.
 - Visual structure reduces rambling, and is friendlier than reading raw minutes 🤓☝️
 
-🌐 **If GitHub archival comes back**__
+🌐 **If GitHub archival comes back**
 If Infra allows storing slide sources again, then
 - Keep Google Slides for collaboration/live presenting
 - After final, export PDF to repo and keep Google link as “live version”
