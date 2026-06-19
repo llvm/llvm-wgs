@@ -14,7 +14,7 @@
 ![Workflow 3](../img/202509_workflow3.png)
 
 _**References**_
-- IEC 61508 Part 3 - Annex H__
+- IEC 61508 Part 3 - Annex H
 - ISO 26262 Part 8 - Chapter 11
 
 See also slides 11 to 14 in AsiaLLVM 2025’s [presentation](https://llvm.org/devmtg/2025-06/slides/technical-talk/urribarri-automotive.pdf)
@@ -115,13 +115,13 @@ How do we want to proceed?
 
 ⚠️ Reminder: [Description of Active Members](https://mypads2.framapad.org/p/group-composition-pqp2g9zl) ⚠️
 
-**Timezone**: Asia/Jakarta (GMT+7)__
-**Affiliation**: None (coming as an individual)__
+**Timezone**: Asia/Jakarta (GMT+7)
+**Affiliation**: None (coming as an individual)
 **Job**:
 - Developer & Security Engineer
 - Final year undergraduate EE student working on a government project on verification and standardization for cars 
 - Experience working as a C++ software engineer and likes compilers
-**Interests related to the WG**: Sanitizers, fuzzers__
+**Interests related to the WG**: Sanitizers, fuzzers
 **Potential contributions**: Participating in technical discussions, helping with documentation
 
 ### Communications: Opinions from the WG?
