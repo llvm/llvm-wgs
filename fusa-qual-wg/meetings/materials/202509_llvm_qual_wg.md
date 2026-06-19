@@ -57,7 +57,7 @@ Users (OEMs, Tier1s,...) must integrate this kit into their own _**safety case**
 
 ### Three stages of compiler design
 
-[![Workflow 1](../img/202509_scd.png)](https://christianbaghai.medium.com/understanding-the-three-stages-of-compiler-design-front-end-middle-end-and-back-end-890f43cf0d40)
+[![Stages of compiler design](../img/202509_scd.png)](https://christianbaghai.medium.com/understanding-the-three-stages-of-compiler-design-front-end-middle-end-and-back-end-890f43cf0d40)
 
 ### Tool qualification approach for LLVM in open source
 
