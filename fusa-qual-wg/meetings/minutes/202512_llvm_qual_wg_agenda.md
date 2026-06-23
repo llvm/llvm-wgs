@@ -4,13 +4,7 @@ Hello all,
 
 Our next sync-up meeting will be dedicated to a special topic: Function-Level Qualification Methodology for libc/libc++ ([@petbernt](https://discourse.llvm.org/u/petbernt) ’s proposal)
 
-Slides (open for comments):
-
-[docs.google.com](https://docs.google.com/presentation/d/1YX_MBtN77px0wRwn9Iz1eySgoIQ0Ad1uyIoToZiI2Vc/edit?slide=id.p1#slide=id.p1)
-
-### [llvm\_qual\_grp\_lib\_qual](https://docs.google.com/presentation/d/1YX_MBtN77px0wRwn9Iz1eySgoIQ0Ad1uyIoToZiI2Vc/edit?slide=id.p1#slide=id.p1)
-
-LLVM Qualification WG By Petter Berntsson November 2025 Topic: Function-based Qualification of C/C++ Standard Library Functions
+Slides (open for comments): [llvm\_qual\_grp\_lib\_qual](https://docs.google.com/presentation/d/1YX_MBtN77px0wRwn9Iz1eySgoIQ0Ad1uyIoToZiI2Vc/edit?slide=id.p1#slide=id.p1)
 
 [@petbernt](https://discourse.llvm.org/u/petbernt) will tell us more about why standard libraries matter for qualification, giving us a walkthrough illustrated with examples from the slide deck:
 
