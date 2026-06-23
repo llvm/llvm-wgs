@@ -13,31 +13,13 @@
 
 ## Agenda
 
-![](https://sea1.discourse-cdn.com/flex021/user_avatar/discourse.llvm.org/uwendi/48/25075_2.png)
-
 [LLVM Qualification WG sync-ups meeting minutes](https://discourse.llvm.org/t/llvm-qualification-wg-sync-ups-meeting-minutes/87148/21) [Community](https://discourse.llvm.org/c/community/20)
-
-> LLVM Qualification Group’s February 2026 Sync-Up Agenda
-> Here’s the proposed agenda for our next sync-up meeting:
-> Ongoing Actions – Follow-up
-> Quick check-in on current actions: what’s progressing, what’s stuck, and what (if anything) needs help or re-prioritization.
-> Tool Qualification & Safety Standards – What’s Changing
-> Open discussion on recent and ongoing evolutions in safety standards related to tool qualification, and what they may imply for LLVM users and our group’s work.
-> Clang …
 
 ## Links
 
-[docs.google.com](https://docs.google.com/presentation/d/1hbXKpUSMP1PxCAEZGv8lqMS6EhGgDlOqcS_3PuGjp9k/edit?slide=id.p1#slide=id.p1)
+[202602\_llvm\_qual\_wg](https://docs.google.com/presentation/d/1hbXKpUSMP1PxCAEZGv8lqMS6EhGgDlOqcS_3PuGjp9k/edit?slide=id.p1#slide=id.p1)
 
-### [202602\_llvm\_qual\_wg](https://docs.google.com/presentation/d/1hbXKpUSMP1PxCAEZGv8lqMS6EhGgDlOqcS_3PuGjp9k/edit?slide=id.p1#slide=id.p1)
-
-LLVM Qualification WG Sync-up meeting #8 February 2026 Focus: WIP & Evolution of FuSa Standards
-
-
-![](https://us1.discourse-cdn.com/flex021/uploads/llvm/original/3X/0/b/0bccd9ec69dfe94c5e936d7dbff8edc6fa432189.png)
-[Google Drive](https://drive.google.com/drive/folders/1u5CqCaRz1-RBrsEHfxSuHHp0WPwXt-Hj)
-
-### [Templates - Google Drive](https://drive.google.com/drive/folders/1u5CqCaRz1-RBrsEHfxSuHHp0WPwXt-Hj)
+[Templates - Google Drive](https://drive.google.com/drive/folders/1u5CqCaRz1-RBrsEHfxSuHHp0WPwXt-Hj)
 
 ## Highlights
 
