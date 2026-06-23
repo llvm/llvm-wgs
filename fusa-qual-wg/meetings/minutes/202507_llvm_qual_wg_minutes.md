@@ -44,10 +44,6 @@
 
 [Mentimeter](https://www.menti.com/alistrrjqwbc)
 
-### [llvm-fusa-qual-wg-sync-up-1 - Mentimeter](https://www.menti.com/alistrrjqwbc)
-
-Be heard, collaborate, and share ideas—make meetings and classes more engaging with real conversations.
-
 ## Links
 
 - Code of Conduct: <https://mypads2.framapad.org/mypads/?/mypads/group/llvm-qualification-wg-cwt6z99x/pad/view/llvm-qualification-wg-code-of-conduct-2mt7z9lc>
