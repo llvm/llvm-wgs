@@ -19,12 +19,7 @@ Refer to [LLVM Qualification WG sync-ups meeting minutes - #14 by uwendi](https:
 
 ## Links
 
-[docs.google.com](https://docs.google.com/presentation/d/1syRmtUd3ARJxYAsYc7z7KCYjL6WdQDGWG80fojig82Q/edit?usp=sharing)
-
-### [202511\_llvm\_qual\_wg](https://docs.google.com/presentation/d/1syRmtUd3ARJxYAsYc7z7KCYjL6WdQDGWG80fojig82Q/edit?usp=sharing)
-
-LLVM Qualification WG Sync-up meeting #5 November 2025 Focus: Progress round-up
-
+- [202511\_llvm\_qual\_wg](https://docs.google.com/presentation/d/1syRmtUd3ARJxYAsYc7z7KCYjL6WdQDGWG80fojig82Q/edit?usp=sharing)
 - [[RFC] Collecting Community Input on Qualification of LLVM Tools & Libraries](https://discourse.llvm.org/t/rfc-collecting-community-input-on-qualification-of-llvm-tools-libraries/88569)
 - [RFC: Require Pull Requests for all llvm-project commits](https://discourse.llvm.org/t/rfc-require-pull-requests-for-all-llvm-project-commits/88164)
 - [Lighthouse SIG - OSS Practices](https://docs.google.com/spreadsheets/d/1jR0oGQpwJTdThJAOtWP70GrdWSz7K-ol84j5BWX2h8g/edit?gid=1722310808#gid=1722310808)
