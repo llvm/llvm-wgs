@@ -14,18 +14,9 @@
 
 ## Links
 
-[docs.google.com](https://docs.google.com/document/d/10YZZ72ba09Ck_OiJaP9C4-7DeUiveaIKTE3IkaSKjzA/edit)
+[Backlog - LLVM Qualification Working Group](https://docs.google.com/document/d/10YZZ72ba09Ck_OiJaP9C4-7DeUiveaIKTE3IkaSKjzA/edit)
 
-### [Backlog - LLVM Qualification Working Group](https://docs.google.com/document/d/10YZZ72ba09Ck_OiJaP9C4-7DeUiveaIKTE3IkaSKjzA/edit)
-
-Backlog LLVM Qualification Group This document serves as the central hub for our working group's current activities, including ongoing tech discussions, key challenges, and our prioritized backlog. This is a living document and will be updated as...
-
-
-[docs.google.com](https://docs.google.com/spreadsheets/d/1ShQjRBoAVWmIxdLpLZQWPAiwgOsxZTwg5gkBqidiau0/edit)
-
-### [Safety Model [WIP]](https://docs.google.com/spreadsheets/d/1ShQjRBoAVWmIxdLpLZQWPAiwgOsxZTwg5gkBqidiau0/edit)
-
-This Sheet is private
+[Safety Model [WIP]](https://docs.google.com/spreadsheets/d/1ShQjRBoAVWmIxdLpLZQWPAiwgOsxZTwg5gkBqidiau0/edit)
 
 ## Non-technical topics
 
