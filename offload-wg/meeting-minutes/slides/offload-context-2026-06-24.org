@@ -1,0 +1,189 @@
+#+TITLE: Offload Context API
+#+AUTHOR: Łukasz Plewa
+#+EMAIL: lukasz.plewa@intel.com
+#+DATE: 2026-06-24
+#+SUBTITLE: LLVM Offload Meeting
+
+* SYCL context
+#+begin_quote
+A context represents the runtime data structures and state required by a SYCL backend API to interact
+with a group of devices associated with a platform.
+#+end_quote
+- [[https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#sec:context-class][SYCL 2020: 4.6.3. Context class]]
+
+#+begin_quote
+Contexts: any SYCL backend resource that is acquired by the user is attached to a context.
+A context contains a collection of devices that the host can use and manages memory objects that can be shared between the devices.
+Devices belonging to the same context must be able to access each other’s global memory using some implementation-specific mechanism.
+A given context can only wrap devices owned by a single platform. A context is exposed to the user with a sycl::context object.
+#+end_quote
+- [[https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#_backend_resources_managed_by_the_sycl_application][SYCL 2020: 3.7.1.1. Backend resources managed by the SYCL application]]
+
+#+begin_src cpp
+  int main() { ​
+      // Pick all GPUs on the first platform ​
+      auto platform = sycl::platform::get_platforms().front(); ​
+      auto devices  = platform.get_devices(sycl::info::device_type::gpu); ​
+
+      sycl::context ctx{devices};​
+      // USM allocation is scoped to the context, not a single device. ​
+      // Every device in `ctx` can access this pointer. ​
+      int *shared = sycl::malloc_shared<int>(1024, devices[0], ctx);​
+      for (auto &d : devices) { ​
+          sycl::queue q{ctx, d};​
+          q.parallel_for(1024, [=](sycl::id<1> i) { shared[i] += 1; }).wait(); ​
+      }​
+
+      sycl::free(shared, ctx);   // freed against the context, not the device ​
+  }
+#+end_src
+** Backend interoperability
+SYCL 2020 allows the creation of a sycl::context from a backend native object or to retrieve one from an existing sycl::context.
+#+begin_src cpp
+  // SYCL - native: wrap an externally-created cl_context ​
+  cl_context externalClCtx = /* from another component */; ​
+  sycl::context ctx = ​
+      sycl::make_context<sycl::backend::opencl>(externalClCtx);
+  ​
+  // SYCL - native: hand the L0 driver the underlying ze_context ​
+  auto ze_ctx = sycl::get_native<sycl::backend::ext_oneapi_level_zero>(ctx); ​
+  // call ze_* APIs directly with ze_ctx
+#+end_src
+Here is a usage [[https://github.com/argonne-lcf/HPC-Patterns/blob/38bbe6e3320592840a8cfefe2cb47a8135acd0c3/sycl_omp_ze_interopt/interop_omp_ze_sycl.cpp#L37][example]] of interop between OpenMP and SYCL using this API.
+
+* API changes
+#+begin_src cpp
+  // New API
+  ol_result_t olCreateContext(size_t, ol_device_handle_t*, ol_context_handle_t*); ​
+  ol_result_t olDestroyContext(ol_context_handle_t); ​
+  ol_result_t olGetContextInfo(ol_context_handle_t, ol_context_info_t, size_t, void*);
+  ol_result_t olGetContextInfoSize(ol_context_handle_t, ol_context_info_t, size_t*);
+  ​// Existing API
+  ol_result_t olMemAlloc(ol_context_handle_t, ol_device_handle_t, ol_alloc_type_t, size_t, void**);
+  ol_result_t olMemFree(ol_context_handle_t, void*); ​
+  ol_result_t olGetMemInfo(ol_context_handle_t, const void*, ol_mem_info_t, size_t, void*);​
+  ol_result_t olGetMemInfoSize(ol_context_handle_t, const void*, ol_mem_info_t, size_t*);​
+
+  // missing in PR
+  ol_result_t olCreateQueue(ol_context_handle_t, ol_device_handle_t, ol_queue_handle_t*);
+  ol_result_t olCreateProgram(ol_context_handle_t, ol_device_handle_t, const void*, size_t, ol_program_handle_t*);
+#+end_src
+
+* Liboffload improvements
+Today liboffload keeps a global =AllocInfoMap= and a sorted =AllocBases= guarded by a
+mutex so it can recover (Device, Type, Base, End) from any pointer, plus a 50-try
+retry loop in =olMemAlloc= to avoid handing back a pointer that overlaps another
+plugin's allocation.
+
+** =OffloadContext= shrinks
+#+begin_src diff
+ struct OffloadContext {
+   ...
+   bool TracingEnabled = false;
+   bool ValidationEnabled = true;
+-  DenseMap<void *, AllocInfo> AllocInfoMap{};
+-  std::mutex AllocInfoMapMutex{};
+-  // Partitioned list of memory base addresses. Each element in this list is
+-  // a key in AllocInfoMap
+-  SmallVector<void *> AllocBases{};
+   SmallVector<std::unique_ptr<ol_platform_impl_t>, 4> Platforms{};
+   size_t RefCount;
+ };
+#+end_src
+
+** =olMemAlloc= / =olMemFree=: retry loop and global lookup gone
+#+begin_src diff
+-constexpr size_t MAX_ALLOC_TRIES = 50;
+-Error olMemAlloc_impl(ol_device_handle_t Device, ol_alloc_type_t Type,
+-                      size_t Size, void **AllocationOut) {
+-  SmallVector<void *> Rejects;
+-  // Repeat the allocation up to MAX_ALLOC_TRIES times. If it happens to
+-  // already be allocated (e.g. by a device from another vendor) throw it
+-  // away and try again.
+-  for (size_t Count = 0; Count < MAX_ALLOC_TRIES; Count++) {
+-    auto NewAlloc = Device->Device->dataAlloc(Size, nullptr, ...);
+-    ... lower_bound on AllocBases, overlap check, insert_or_assign ...
+-    Rejects.push_back(*NewAlloc);
+-  }
+-  return createOffloadError(ErrorCode::BACKEND_FAILURE,
+-                            "failed to allocate non-overlapping memory");
+-}
++Error olMemAlloc_impl(ol_context_handle_t Context, ol_device_handle_t Device,
++                      ol_alloc_type_t Type, size_t Size, void **AllocOut) {
++  if (!Context->contains(Device))
++    return createOffloadError(ErrorCode::INVALID_DEVICE, ...);
++  auto AllocOrErr = Context->allocate(Device, Size,
++                                      convertOlToPluginAllocTy(Type));
++  if (!AllocOrErr) return AllocOrErr.takeError();
++  *AllocOut = *AllocOrErr;
++  return Error::success();
++}
+
+-Error olMemFree_impl(void *Address) {
+-  std::lock_guard<std::mutex> Lock(OffloadContext::get().AllocInfoMapMutex);
+-  ... lookup AllocInfoMap, recover Device+Type, erase from map+bases ...
+-  return Device->Device->dataDelete(Address, ...);
+-}
++Error olMemFree_impl(ol_context_handle_t Context, void *Address) {
++  return Context->deallocate(Address);
++}
+#+end_src
+
+** =olGetMemInfo=: no more sorted-base binary search
+#+begin_src diff
+-Error olGetMemInfoImplDetail(const void *Ptr, ...) {
+-  std::lock_guard<std::mutex> Lock(OffloadContext::get().AllocInfoMapMutex);
+-  const AllocInfo *Alloc = nullptr;
+-  if (AllocInfoMap.contains(Ptr)) {
+-    Alloc = &AllocInfoMap.at(Ptr);          // fast path: base pointer
+-  } else {
+-    auto Loc = std::lower_bound(AllocBases.begin(), AllocBases.end(), Ptr,
+-                                [&](const void *I, const void *V) {
+-                                  return AllocInfoMap.at(I).End <= V;
+-                                });
+-    if (Loc == AllocBases.end() || Ptr < AllocInfoMap.at(*Loc).Start)
+-      return Plugin::error(ErrorCode::NOT_FOUND, ...);
+-    Alloc = &AllocInfoMap.at(*Loc);
+-  }
+-  ...
+-}
++Error olGetMemInfoImplDetail(ol_context_handle_t Context, const void *Ptr,
++                             ...) {
++  auto AllocOrErr = Context->getAllocInfo(Ptr);   // delegated to plugin
++  if (!AllocOrErr) return AllocOrErr.takeError();
++  const auto &Alloc = *AllocOrErr;
++  ...
++}
+#+end_src
+
+* Future changes
+** Splitting olMemAlloc
+Currently, =olMemAlloc(Device, Type, Size, **Out)= is one entry point for all
+three allocation kinds and takes a =Device= for each. For =OL_ALLOC_TYPE_HOST= the Device parameter is misleading -
+every device (from the same plugin) will have access to this allocation,
+but the API still requires it and =olGetMemInfo(OL_MEM_INFO_DEVICE)= returns whatever was passed in.
+
+Splitting per kind makes the signature match what each pool can actually support:
+#+begin_src cpp
+  // ol_result_t olMemAlloc(ol_context_handle_t, ol_device_handle_t, ol_alloc_type_t, size_t, void**);​
+  ol_result_t olMemAllocDevice(ol_context_handle_t, ol_device_handle_t, size_t, void**);​
+  ol_result_t olMemAllocHost(ol_context_handle_t, /* no Device handle */, size_t, void**);​
+  ol_result_t olMemAllocShared(ol_context_handle_t, ol_device_handle_t, size_t, void**);​
+#+end_src
+=olMemAllocHost= stops accepting a device argument, mirroring SYCL APIs.
+
+** Plugins without native context
+With the PR, AMDGPU / CUDA / host plugins do not need any further changes -
+the thin =*PluginContextTy= subclasses (forwarding =allocate=/=deallocate=
+to =GenericDeviceTy=, =getAllocInfo= via native pointer-query) are enough
+for liboffload to satisfy SYCL requirements.
+
+But we can do some extra optimizations:
+- Pin host memory (=cuMemHostRegister= / =hsa_amd_memory_lock=) only to the
+  devices that are actually in the context, instead of registering globally.
+- Reuse the context's native handle (CUDA =CUcontext=) instead of always
+  switching to the device's primary context. [[https://github.com/intel/llvm/blob/b0e5431aed9e1e97f28ac7a1a5a7f8f4e5b54ab2/unified-runtime/source/adapters/cuda/context.hpp#L30-L80][Example]]
+
+* References
+- Original RFC: [[https://github.com/llvm/llvm-project/issues/171129][llvm/llvm-project#171129]]
+- Pull request: [[https://github.com/llvm/llvm-project/pull/201398][llvm/llvm-project#201398]]
