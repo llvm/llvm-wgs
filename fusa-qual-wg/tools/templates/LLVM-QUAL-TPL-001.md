@@ -1,22 +1,18 @@
-<!--
-===============================================================================
-Template provided by: LLVM Qualification Working Group
-https://llvm.org/docs/QualGroup.html
-
-Document identifier: LLVM-QUAL-TPL-001
-Usage guide: LLVM-QUAL-TPL-001-guide.md
-
-This template is provided for guidance and does not replace applicable safety
-standards.
-===============================================================================
--->
+> [!NOTE]
+> **Template provided by:** [LLVM Qualification Working Group](https://llvm.org/docs/QualGroup.html)  
+> **Document identifier:** `LLVM-QUAL-TPL-001`  
+> **Usage guide:** [LLVM-QUAL-TPL-001-guide.md](LLVM-QUAL-TPL-001-guide.md)
+>
+> This template is provided for guidance and does not replace applicable
+> safety standards.
 
 # Determination of Need for Confidence in the Usage of `<Tool_Name>`
 
-<!--
-Text between angle brackets is a placeholder to be replaced with
-project-specific information.
--->
+> [!TIP]
+> Text between angle brackets, such as `<Tool_Name>`, is a placeholder to be
+> replaced with tool-specific information.
+>
+> Remove the instructional notes and tips when publishing a completed document.
 
 | Document information | Value |
 |---|---|
@@ -24,10 +20,9 @@ project-specific information.
 | Version | `<X.Y>` |
 | Date | `<YYYY-MM-DD>` |
 
-<!--
-List the roles involved in this document as applicable, for example authors,
-reviewers, or approvers. Add or remove rows as needed.
--->
+> [!TIP]
+> List the roles involved in this document as applicable, for example authors,
+> reviewers, or approvers. Add or remove rows as needed.
 
 | Role | Name |
 |---|---|
@@ -54,19 +49,21 @@ evaluation or qualification activities defined in functional safety standards.
 
 ## Questionnaire
 
-<!--
-Before completing the questionnaire, document:
-
-1. A description of the software tool and its intended or given usage.
-2. Assumptions about the development process in which the software tool will
-   be used, including reviews, checks, or verification activities applied to
-   relevant tool outputs.
-
-The questions below are derived from functional safety standards such as
-IEC 61508:2010, Part 3, Annex H, and ISO 26262:2018, Part 8, 11.4.1.
-
-See LLVM-QUAL-TPL-001-guide.md for detailed guidance.
--->
+> [!TIP]
+> Before completing the questionnaire, document:
+>
+> 1. A description of the software tool and its intended or given usage.
+> 2. Assumptions about the development process in which the software tool will
+>    be used, including reviews, checks, or verification activities applied to
+>    relevant tool outputs.
+>
+> The questions below are derived from functional safety standards such as
+> IEC 61508:2010, Part 3, Annex H, and ISO 26262:2018, Part 8, 11.4.1.
+>
+> See [LLVM-QUAL-TPL-001-guide.md](LLVM-QUAL-TPL-001-guide.md) for detailed
+> guidance.
+>
+> Remove this instruction when publishing a completed document.
 
 | Question | Answer | Rationale |
 |---|---|---|
@@ -89,14 +86,17 @@ undetectably affect a safety-related activity.
 
 **Further activities to establish confidence required:** `<Yes / No>`
 
-<!-- Optional: -->
+> [!TIP]
+> The summary rationale is optional. Remove this field if it is not needed.
 
-**Summary rationale:**  
+**Summary rationale:**
+
 `<Short summary of the main reasons for the decision>`
 
-> **Note:** If evidence of confidence is required, this determination is
-> expected to be followed by further activities such as tool specification,
-> tool evaluation, and, where applicable, tool qualification.
+> [!NOTE]
+> If evidence of confidence is required, this determination is expected to be
+> followed by further activities such as tool specification, tool evaluation,
+> and, where applicable, tool qualification.
 
 ## Validity and limitations
 
