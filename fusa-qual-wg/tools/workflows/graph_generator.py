@@ -1,17 +1,16 @@
+import argparse
 import base64
 import os
 import requests
 import glob
 import sys
 
-OUTPUT_DIR = "generated_graph"
-
-def render_mermaid_to_png(mmd_file_path):
+def render_mermaid_to_png(mmd_file_path, output_dir):
     # Extract just the filename without any folder paths or extensions
     base_name = os.path.splitext(os.path.basename(mmd_file_path))[0]
 
     # Route the output file into the new directory
-    output_png_path = os.path.join(OUTPUT_DIR, f"{base_name}.png")
+    output_png_path = os.path.join(output_dir, f"{base_name}.png")
     print(f"Processing: {mmd_file_path} -> {output_png_path}")
 
     try:
@@ -36,26 +35,51 @@ def render_mermaid_to_png(mmd_file_path):
         print(f"Error processing {mmd_file_path}: {e}", file=sys.stderr)
         return False
 
-if __name__ == '__main__':
-    # Create the target folder if it doesn't exist yet
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Render Mermaid (.mmd) diagrams to PNG using mermaid.ink."
+    )
+    parser.add_argument(
+        "files",
+        nargs="*",
+        metavar="FILE",
+        help="Specific .mmd files to render (default: every .mmd file in --source-dir)",
+    )
+    parser.add_argument(
+        "-s", "--source-dir",
+        default=os.getcwd(),
+        help="Directory to scan for .mmd files when no FILE is given (default: %(default)s)",
+    )
+    parser.add_argument(
+        "-o", "--output-dir",
+        default=os.path.join(os.getcwd(), "generated_graph"),
+        help="Directory to write the generated PNGs into (default: %(default)s)",
+    )
+    return parser.parse_args()
 
-    # Check if specific filenames were passed in the terminal
-    if len(sys.argv) > 1:
-        mmd_files = sys.argv[1:] 
-    else:
-        mmd_files = glob.glob("*.mmd") 
+if __name__ == '__main__':
+    args = parse_args()
+
+    # Resolve up front so every message reports a full path, even when the
+    # user passed a relative directory on the command line.
+    source_dir = os.path.abspath(args.source_dir)
+    output_dir = os.path.abspath(args.output_dir)
+
+    mmd_files = args.files or sorted(glob.glob(os.path.join(source_dir, "*.mmd")))
 
     if not mmd_files:
-        print("No .mmd files found to process.", file=sys.stderr)
+        print(f"No .mmd files found to process in '{source_dir}'.", file=sys.stderr)
         sys.exit(1)
+
+    # Create the target folder if it doesn't exist yet
+    os.makedirs(output_dir, exist_ok=True)
 
     failed = 0
     for file in mmd_files:
         if not os.path.exists(file):
             print(f"Error: The file '{file}' does not exist.", file=sys.stderr)
             failed += 1
-        elif not render_mermaid_to_png(file):
+        elif not render_mermaid_to_png(file, output_dir):
             failed += 1
 
     if failed:

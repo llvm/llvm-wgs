@@ -4,7 +4,8 @@
 1. Create your Mermaid graph in this directory and save it with a `.mmd` extension.
 2. Run the `graph_generator.py` script.
 
-The resulting graph images will be saved in the `generated_graph` folder using the same base filenames.
+By default, the resulting graph images are saved to the `generated_graph` folder, each keeping the base filename of its source `.mmd` file. Use `--output-dir` to write them somewhere else.
+Run `python3 graph_generator.py --help` to see all available options.
 
 ### Usage Examples
 
