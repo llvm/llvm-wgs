@@ -5,13 +5,13 @@ import requests
 import glob
 import sys
 
-def render_mermaid_to_png(mmd_file_path, output_dir):
+def render_mermaid_to_jpeg(mmd_file_path, output_dir):
     # Extract just the filename without any folder paths or extensions
     base_name = os.path.splitext(os.path.basename(mmd_file_path))[0]
 
     # Route the output file into the new directory
-    output_png_path = os.path.join(output_dir, f"{base_name}.png")
-    print(f"Processing: {mmd_file_path} -> {output_png_path}")
+    output_jpg_path = os.path.join(output_dir, f"{base_name}.jpg")
+    print(f"Processing: {mmd_file_path} -> {output_jpg_path}")
 
     try:
         with open(mmd_file_path, "r", encoding="utf-8") as f:
@@ -21,14 +21,20 @@ def render_mermaid_to_png(mmd_file_path, output_dir):
         base64_bytes = base64.urlsafe_b64encode(graphbytes)
         base64_string = base64_bytes.decode("ascii")
 
-        api_url = f"https://mermaid.ink/img/{base64_string}"
+        # JPEG is mermaid.ink's default, but ask for it explicitly so the
+        # saved extension cannot drift from what the server returns
+        api_url = f"https://mermaid.ink/img/{base64_string}?type=jpeg"
         response = requests.get(api_url)
-        response.raise_for_status() 
+        response.raise_for_status()
 
-        with open(output_png_path, "wb") as f_out:
+        content_type = response.headers.get("Content-Type", "")
+        if not content_type.startswith("image/jpeg"):
+            raise ValueError(f"expected a JPEG response, got '{content_type}'")
+
+        with open(output_jpg_path, "wb") as f_out:
             f_out.write(response.content)
 
-        print(f"Successfully saved: {output_png_path}")
+        print(f"Successfully saved: {output_jpg_path}")
         return True
 
     except Exception as e:
