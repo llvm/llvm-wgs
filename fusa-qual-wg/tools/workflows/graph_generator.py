@@ -30,9 +30,11 @@ def render_mermaid_to_png(mmd_file_path):
             f_out.write(response.content)
 
         print(f"Successfully saved: {output_png_path}")
+        return True
 
     except Exception as e:
-        print(f"Error processing {mmd_file_path}: {e}")
+        print(f"Error processing {mmd_file_path}: {e}", file=sys.stderr)
+        return False
 
 if __name__ == '__main__':
     # Create the target folder if it doesn't exist yet
@@ -45,10 +47,17 @@ if __name__ == '__main__':
         mmd_files = glob.glob("*.mmd") 
 
     if not mmd_files:
-        print("No .mmd files found to process.")
-    else:
-        for file in mmd_files:
-            if os.path.exists(file):
-                render_mermaid_to_png(file)
-            else:
-                print(f"Error: The file '{file}' does not exist.")
+        print("No .mmd files found to process.", file=sys.stderr)
+        sys.exit(1)
+
+    failed = 0
+    for file in mmd_files:
+        if not os.path.exists(file):
+            print(f"Error: The file '{file}' does not exist.", file=sys.stderr)
+            failed += 1
+        elif not render_mermaid_to_png(file):
+            failed += 1
+
+    if failed:
+        print(f"{failed} of {len(mmd_files)} file(s) failed.", file=sys.stderr)
+        sys.exit(1)
