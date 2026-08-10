@@ -186,7 +186,7 @@ The analysis is performed at the use-case level unless decomposition into releva
 > Use this format when each entry can remain concise. Add one row per malfunction. If the cells become paragraph-heavy or obscure the reasoning, it is recommended to use Format 1 instead.
 
 | ID, malfunction, and relevant conditions | Potential effect and propagation | Prevention measures | Detection measures | Confidence | Remaining concern and action |
-| --- | --- | --- | --- | --- | | --- |
+| --- | --- | --- | --- | --- | --- |
 | **`<M-ID>`** - `<Malfunction, inputs, conditions, or processing>` | `<Effect and reliance path>` | `<Measures>` | `<Measures>` | `<Rationale and limitations>` | `<Status, action, or constraint>` |
 
 #### Classification conclusion
