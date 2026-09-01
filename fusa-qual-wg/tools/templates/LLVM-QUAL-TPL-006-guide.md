@@ -4,18 +4,24 @@
 
 ## Purpose
 
-LLVM-QUAL-TPL-006 helps a software tool provider communicate why evidence of
-confidence in the usage of a software tool is not considered necessary under
-the assumptions documented using LLVM-QUAL-TPL-001.
+LLVM-QUAL-TPL-006 helps a software tool provider or tool user/integrator
+document why evidence of confidence in the usage of a software tool is not
+considered necessary under the assumptions documented using
+LLVM-QUAL-TPL-001.
 
-The resulting safety considerations provide users with a clear and reasoned
-description of:
+The resulting safety considerations provide a clear and reasoned description
+of:
 
 - the role of the tool in safety-related activities;
 - how its outputs are intended to be used;
 - relevant assumptions and usage constraints;
 - how tool outputs are expected to be handled or verified; and
-- the responsibilities that remain with tool users or integrators.
+- the responsibilities associated with the tool's use.
+
+For a tool provider, the safety considerations may be communicated to
+downstream users as part of the tool documentation. For a tool user/integrator,
+they may be retained as project-specific documentation of the rationale and
+assumptions associated with the given tool usage.
 
 The goal is transparency and informed usage, not justification by omission.
 
@@ -27,8 +33,8 @@ the usage of a software tool.
 First use LLVM-QUAL-TPL-001 to determine whether evidence of confidence in the
 usage of the software tool is required. Use LLVM-QUAL-TPL-006 when that
 determination concludes that such evidence is not required and the tool
-provider wishes to communicate the supporting rationale and assumptions to
-users.
+provider or tool user/integrator wishes to document the supporting rationale
+and assumptions.
 
 The safety considerations should be based on the documented answers and
 rationales for A1, A2, and A3 in LLVM-QUAL-TPL-001.
@@ -42,15 +48,34 @@ Use LLVM-QUAL-TPL-006 when:
 - the tool may reasonably be used in safety-critical or high-assurance
   development contexts; and
 - the tool provider wants to communicate the basis, assumptions, and
-  limitations of that conclusion to users.
+  limitations of that conclusion to downstream users, or the tool
+  user/integrator wants to document the corresponding project-specific
+  rationale.
 
-The template may be used for open-source or proprietary tools.
+The template may be used by tool providers and tool users/integrators, for
+open-source or proprietary tools.
 
-It is particularly useful for generic tools, tools intended for broad use, and
+### Tool provider perspective
+
+When completed by a tool provider, the safety considerations are generally
+based on the intended usage of the tool and assumptions about the development
+process in which downstream users may use it.
+
+This is particularly useful for generic tools, tools intended for broad use, and
 tools that may be reused across multiple projects. In these cases, the tool
 provider may have limited knowledge or visibility of the final system context,
 including the specific system, applicable safety requirements, or development
 process in which the tool will be used.
+
+### Tool user/integrator perspective
+
+When completed by a tool user/integrator, the safety considerations are
+generally based on the given usage of the tool in a particular project and the
+actual or planned development process surrounding that usage.
+
+The documented rationale should therefore reflect the relevant project-specific
+usage constraints, reviews, checks, verification activities, and other
+assumptions used in the LLVM-QUAL-TPL-001 determination.
 
 ## Writing the safety considerations
 
@@ -65,14 +90,15 @@ The text should cover the following topics as applicable.
 Describe what the tool does and which safety-related activities it may support.
 
 Do not overstate the importance of the tool or imply that it performs
-activities that remain the responsibility of the user.
+activities that remain outside the tool itself.
 
 ### 2. Dependency and decision-making
 
-Explain whether and how users rely on the tool outputs.
+Explain whether and how the tool outputs are relied upon in the assumed or
+given development process.
 
 Clarify whether the tool performs direct safety-relevant decisions, such as
-acceptance, rejection, or gating decisions, in the assumed development
+acceptance, rejection, or gating decisions, in the assumed or given development
 process.
 
 ### 3. Output handling and safeguards
@@ -104,9 +130,10 @@ tool is generic, intended for broad use, reusable across multiple projects, or
 distributed without the tool provider having knowledge or visibility of the
 final system context.
 
-### 5. User responsibility
+### 5. Responsibilities
 
-Clarify that users remain responsible for:
+When the document is prepared by a tool provider, clarify that downstream
+users remain responsible for:
 
 - assessing whether the tool is suitable for their specific safety context;
 - determining whether the documented assumptions hold in their development
@@ -114,6 +141,10 @@ Clarify that users remain responsible for:
 - deciding whether additional confidence, evaluation, or qualification
   activities are required; and
 - complying with applicable safety standards and project requirements.
+
+When the document is prepared by a tool user/integrator, document the
+corresponding project-specific responsibilities, checks, and constraints that
+support the conclusion.
 
 ## Writing style
 
@@ -148,10 +179,11 @@ These examples are not a complete safety-considerations section and should not
 be copied without checking that they accurately describe the tool and its
 assumed usage.
 
-## Use in tool documentation and user manuals
+## Use in documentation
 
-The completed document may be included, in whole or in part, as a dedicated
-chapter in the software tool's user manual or official documentation.
+When prepared by a tool provider, the completed document may be included, in
+whole or in part, as a dedicated chapter in the software tool's user manual or
+official documentation.
 
 Possible chapter titles include:
 
@@ -174,6 +206,12 @@ Including the safety considerations in user documentation:
 - supports good practice for communicating safety-related assumptions in
   open-source and proprietary tools.
 
+When prepared by a tool user/integrator, the completed document may instead be
+maintained as part of the project's safety, tool-confidence, qualification, or
+other relevant engineering documentation. In this case, its purpose is to
+preserve the project-specific rationale and assumptions supporting the
+determination that further confidence evidence is not required.
+  
 This is guidance rather than a documentation mandate. The level of detail may
 be adapted to the size, maturity, and expected usage of the tool.
 
