@@ -13,8 +13,7 @@ required.
 
 The resulting tool usage plan may include:
 
-- planning of the tool classification or evaluation and associated risk
-  analysis;
+- planning of the tool classification and associated risk analysis;
 - planning of qualification activities and methods, where applicable;
 - planning of the documentation needed to define the intended usage, operating
   conditions, constraints, and known limitations of the tool; and
@@ -49,8 +48,8 @@ The completed plan should establish:
 - the scope of tool usage for which confidence will be addressed;
 - the maximum pre-determined safety criticality covered by the plan;
 - the documentation and evidence that will be produced;
-- the tool classification or evaluation activities that will be performed;
-- the qualification methods that may be applied, depending on the evaluation
+- the tool classification activities that will be performed;
+- the qualification methods that may be applied, depending on the classification
   results;
 - the constraints and guidance that will be communicated to tool users;
 - review and independence expectations; and
@@ -107,7 +106,7 @@ Plan how tool inputs, expected outputs, configuration options, execution
 environment, dependencies, and technical constraints will be specified.
 
 The level of detail should be sufficient to identify the usage envelope covered
-by the evaluation and qualification evidence. A change outside that envelope
+by the classification and qualification evidence. A change outside that envelope
 may require the evidence to be reviewed or extended.
 
 ### Features and technical properties
@@ -149,8 +148,8 @@ reports rather than in LLVM-QUAL-TPL-002.
 
 The planning summary should state the overall approach clearly.
 
-Tool classification or evaluation is used to analyze the risks associated with
-the tool usage and determine the necessary confidence level or qualification
+Tool classification is based on an analysis of the risks associated with
+the tool usage and determines the necessary confidence level or qualification
 needs. Depending on the outcome, one or more qualification methods may then be
 selected and performed.
 
@@ -170,19 +169,19 @@ The LLVM Qualification Working Group template set uses the following mapping:
 | Work product | Template | Role |
 |---|---|---|
 | Tool usage plan | `LLVM-QUAL-TPL-002` | Plans the scope, activities, responsibilities, and evidence. |
-| Tool evaluation report | `LLVM-QUAL-TPL-003` | Documents tool classification or evaluation and the risk analysis of the tool usage. |
+| Tool classification report | `LLVM-QUAL-TPL-003` | Documents the classification and supporting risk analysis of the tool usage. |
 | Tool qualification report | `LLVM-QUAL-TPL-004` | Documents the selected qualification methods and the results of applying them. |
 | Safety manual | `LLVM-QUAL-TPL-005` | Communicates the usage envelope, assumptions, restrictions, limitations, and complementary measures. |
 
 Additional plans, specifications, manuals, test evidence, or
 configuration-management records may be referenced as appropriate.
 
-## Planning tool evaluation
+## Planning tool classification
 
-The tool evaluation activity should analyze potential tool failure modes and
-their effects in the intended or given usage context.
+The analysis supporting tool classification should examine potential tool
+failure modes and their effects in the intended or given usage context.
 
-The plan should identify how the evaluation will address, as applicable:
+The plan should identify how this analysis will address, as applicable:
 
 - potential tool malfunctions;
 - effects on safety-related development activities and work products;
@@ -257,8 +256,8 @@ products complete. At minimum, confirm that:
 
 ## Updates and change management
 
-Define the events that require the plan, evaluation, qualification evidence, or
-safety manual to be reviewed. Examples include:
+Define the events that require the plan, classification report, qualification
+evidence, or safety manual to be reviewed. Examples include:
 
 - a new tool version or significant tool change;
 - a change in configuration or feature subset;
@@ -277,7 +276,7 @@ activities must be repeated or extended.
 LLVM-QUAL-TPL-002 does not:
 
 - determine whether confidence evidence is required;
-- perform the tool evaluation or risk analysis;
+- classify the software tool usage;
 - qualify or certify the software tool;
 - demonstrate compliance with a functional safety standard;
 - demonstrate suitability for a particular safety integrity level; or

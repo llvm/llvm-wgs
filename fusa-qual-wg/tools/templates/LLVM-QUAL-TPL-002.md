@@ -217,9 +217,9 @@ be produced in order to:
 
 The following overall strategy is selected:
 
-- Tool classification or evaluation will be performed.
+- Tool classification will be performed.
 - Tool qualification will follow, depending on the results of tool
-  classification or evaluation.
+  classification.
 
 > [!TIP]
 > An alternative strategy may be described above.
@@ -238,7 +238,7 @@ The table below summarizes the planned work products and their purpose.
 | Work product | Template | Purpose |
 |---|---|---|
 | Tool usage plan | `LLVM-QUAL-TPL-002` | Defines scope, assumptions, and planned activities. |
-| Tool evaluation report | `LLVM-QUAL-TPL-003` | Documents the evaluation and risk analysis of the tool usage. |
+| Tool classification report | `LLVM-QUAL-TPL-003` | Documents the classification and supporting risk analysis of the tool usage. |
 | Tool qualification report | `LLVM-QUAL-TPL-004` | Documents the results of applying selected qualification methods, if applicable. |
 | Safety manual | `LLVM-QUAL-TPL-005` | Defines constraints, assumptions, and guidance for correct tool usage. |
 
@@ -261,13 +261,13 @@ This plan is considered complete when:
 This section describes the activities planned to ensure confidence in the usage
 of `<Tool_Name>`.
 
-### Tool classification or evaluation (risk analysis)
+### Tool classification (risk analysis)
 
 > [!TIP]
-> Plan the tool classification or evaluation activity used to analyze the risks
-> associated with the usage of the software tool.
+> Plan the analysis supporting classification of the software tool usage,
+> including the risks associated with that usage.
 >
-> The activity is expected to result in a tool evaluation report documenting,
+> The activity is expected to result in a tool classification report documenting,
 > in particular:
 >
 > - potential tool failure modes and their effects;
@@ -275,13 +275,13 @@ of `<Tool_Name>`.
 > - justification of the selected confidence level.
 >
 > The results may be documented using
-> `LLVM-QUAL-TPL-003 - Tool Evaluation Report`.
+> `LLVM-QUAL-TPL-003 - Tool Classification Report`.
 
 `<To be completed by the author>`
 ### Tool qualification activities, if applicable
 
 > [!TIP]
-> If the tool classification or evaluation concludes that qualification
+> If the tool classification concludes that qualification
 > activities are required and feasible, define:
 >
 > - the planned qualification method(s);
