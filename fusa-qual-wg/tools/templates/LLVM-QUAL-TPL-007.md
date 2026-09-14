@@ -49,6 +49,6 @@ versions, providers, and available documentation visible in one place.
 > is not available or does not apply, state this explicitly instead of leaving
 > the field blank.
 
-| Tool name | Version(s) | Provider / developer | Documentation | Confidence decision | Usage plan | Classification | Qualification | Safety manual | License and notes (optional) |
-|---|---|---|---|---|---|---|---|---|
+| Tool name | Version(s) | Provider / Developer | Documentation | Confidence decision | Usage plan | Classification | Qualification | Safety manual | License and notes (optional) |
+|---|---|---|---|---|---|---|---|---|---|
 | `<Tool_Name>` | `<Tool_Version_or_Versions>` | `<In-house_Team_Commercial_Vendor_or_OSS_Project>` | User manual: `<Link_or_Status>`<br><br>Release notes: `<Link_or_Status>`<br><br>Other: `<Link_or_Status>` | Need for confidence: `<Yes_No_or_To_Be_Determined>`<br><br>Decision: `<Link_or_Status>`<br><br>Justification / disclaimer: `<Link_or_Status>` | `<Link_or_Status>` | `<Link_or_Status>` | Qualification needed: `<Yes_No_or_To_Be_Determined>`<br><br>Tool qualification report: `<Link_or_Status>` | `<Link_or_Status>` | License: `<License_or_Link>`<br><br>Notes: `<Other_Relevant_Information>` |
