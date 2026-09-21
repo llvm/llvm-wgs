@@ -80,7 +80,6 @@ This section defines the scope of usage for which confidence in the use of
 > usage of the tool, such as:
 >
 > - user manuals;
-> - usage guides;
 > - installation, setup, and administration guides;
 > - configuration guides;
 > - release notes; and
