@@ -1,18 +1,18 @@
 flowchart TD
     A([Start])
-    B[/"Tools List" <br/> <span style='color:blue'>LLVM-QUAL-TPL-007</span>/]
+    B[/"<b>Tools List</b>" <br/> <span style='color:blue'>LLVM-QUAL-TPL-007</span>/]
     C["Check the need to provide evidence of tool usage confidence" <br/> <span style='color:blue'>LLVM-QUAL-TPL-001</span>]
     D{"Needed?"}
     E["Provide argument / justification" <br/> <span style='color:blue'>LLVM-QUAL-TPL-006</span>]
-    F["Define usage of the tool for the specific project[4]"]
-    G["Write tool evaluation report" <br/> <span style='color:blue'>LLVM-QUAL-TPL-003</span>]
+    F["Write <b>Tool Usage Plan</b> <br/> <span style='color:blue'>LLVM-QUAL-TPL-002</span>"]
+    G["Write <b>Tool Classification Report</b>" <br/> <span style='color:blue'>LLVM-QUAL-TPL-003</span>]
     H{"Qualification of the tool needed?"}
     I["Check available qualification evidence"]
     J["Extract use constraints, restrictions, and conditions of usage"]
     K{"Suitable?"}
     L["Perform additional qualification activities, as necessary"]
-    M["Write tool qualification report[3] <br/> <span style='color:blue'>LLVM-QUAL-TPL-004</span>"]
-    N["Update tools list with additional artifacts[2] <br/> <span style='color:blue'>LLVM-QUAL-TPL-007</span>"]
+    M["Write <b>Tool Qualification Report</b>[3] <br/> <span style='color:blue'>LLVM-QUAL-TPL-004</span>"]
+    N["Update <b>Tools List</b> with additional artifacts[2] <br/> <span style='color:blue'>LLVM-QUAL-TPL-007</span>"]
     O["Integrate tool, as defined[2]"]
     P([End])
 
@@ -37,7 +37,7 @@ flowchart TD
 
     subgraph Legend [" "]
         direction TB
-        L1["<b>[1]</b> For in-house software, the user and the<br>developer are in the same organization<br><br><b>[2]</b> This is done at the project or organization<br>level<br><br><b>[3]</b> Summary that gives the assessors the<br>proof that all the tests / verifications claimed<br>to be done were run<br><br><b>[4]</b> e.g. decide execution environment and<br>configuration options"]
+        L1["<b>[1]</b> For in-house software, the user and the<br>developer are in the same organization<br><br><b>[2]</b> This is done at the project or organization<br>level<br><br><b>[3]</b> Summary that gives the assessors the<br>proof that all the tests / verifications claimed<br>to be done were run<br>"]
     end
 
     style Legend fill:none,stroke:none
