@@ -3,14 +3,12 @@
 > **Document identifier:** `LLVM-QUAL-TPL-005`  
 > **Usage guide:** [LLVM-QUAL-TPL-005-guide.md](LLVM-QUAL-TPL-005-guide.md)
 >
-> This template is provided for guidance and does not replace applicable
-> safety or assurance standards.
+> This template is provided for guidance and does not replace applicable safety or assurance standards.
 
 # Safety Manual for `<Tool_Name>`
 
 > [!TIP]
-> Text between angle brackets, such as `<Tool_Name>`, is a placeholder to be
-> replaced with tool-specific information.
+> Text between angle brackets, such as `<Tool_Name>`, is a placeholder to be replaced with tool-specific information.
 >
 > Remove the instructional notes and tips when publishing a completed document.
 
@@ -21,8 +19,8 @@
 | Date | `<YYYY-MM-DD>` |
 
 > [!TIP]
-> List the roles involved in this document as applicable, for example authors,
-> reviewers, or approvers. Add or remove rows as needed.
+> List the roles involved in this document as applicable, for example authors, reviewers, or approvers.
+> Add or remove rows as needed.
 
 | Role | Name |
 |---|---|
@@ -30,11 +28,8 @@
 
 ## Purpose
 
-This safety manual communicates the information needed to use `<Tool_Name>`
-within the stated boundary for safety-related development.
-It identifies supported and excluded usages, required setup and operating
-conditions, mandatory checks, complementary measures, known anomalies, and
-responsibilities.
+This safety manual communicates the information needed to use `<Tool_Name>` within the stated boundary for safety-related development.
+It identifies supported and excluded usages, required setup and operating conditions, mandatory checks, complementary measures, known issues, and responsibilities.
 
 ## Scope
 
@@ -58,9 +53,8 @@ responsibilities.
 ### Supported and excluded usages
 
 > [!IMPORTANT]
-> Do not describe a use as supported merely because the tool can technically
-> perform it. State only the usages for which the necessary behavior,
-> conditions, controls, and evidence are established.
+> Do not describe a use as supported merely because the tool can technically perform it.
+> State only the usages for which the necessary behavior, conditions, controls, and evidence are established.
 
 | Item | Applicable information |
 | --- | --- |
@@ -80,20 +74,14 @@ responsibilities.
 #### Expected outputs
 
 > [!TIP]
-> If needed, summarize outputs or intermediate artifacts that must not be relied upon
-> (e.g., diagnostic-only, temporary, or stale outputs), or reference the external document
-> listing or describing those outputs or artifacts.
+> If needed, summarize outputs or intermediate artifacts that must not be relied upon (e.g., diagnostic-only, temporary, or stale outputs), or reference the external document listing or describing those outputs or artifacts.
 
 `<Description of outputs (e.g., artifacts, diagnostics, status, logs, other results), permitted reliance (e.g., who or what uses the output and how it may be relied upon), and required subsequent check or control (e.g., review, test, comparison, independent verification, other controls)>`
 
 > [!IMPORTANT]
-> The following sections usually present mandatory usage conditions that users
-> must satisfy for the stated usage or confidence boundary to remain applicable.
+> The following sections usually present mandatory usage conditions that users must satisfy for the stated usage or confidence boundary to remain applicable.
 >
-> User actions affecting installation, configuration, execution, or result
-> handling normally originate from the prevention, detection, or correction
-> measures identified in LLVM-QUAL-TPL-003, or from limitations, restrictions,
-> conditions, anomalies, and unresolved findings identified in LLVM-QUAL-TPL-004.
+> User actions affecting installation, configuration, execution, or result handling normally originate from the prevention, detection, or correction measures identified in LLVM-QUAL-TPL-003, or from limitations, restrictions, conditions, anomalies, and unresolved findings identified in LLVM-QUAL-TPL-004.
 > If needed, explain the consequences if a mandatory condition is not satisfied.
 
 ## Installation and preparation for use
@@ -105,8 +93,7 @@ responsibilities.
 | `SM-INST-<ID>` | `<Obtain, install, identify, authenticate, or verify the tool or dependency>` | `<Procedure or controlled reference>` | `<Expected version, checksum, signature, status, log, or record>` | `<Do not use / Correct and repeat / Escalate / Other>` |
 
 > [!TIP]
-> If applicable, identify test suites to be rerun (e.g., installation and environment
-> verification tests) and expected-result baseline, re-execution triggers, and action on failure>
+> If applicable, identify test suites to be rerun (e.g., installation and environment verification tests) and expected-result baseline, re-execution triggers, and action on failure>
 
 ### User competence and procedural prerequisites
 
@@ -143,13 +130,11 @@ responsibilities.
 ### Anomalous operating conditions
 
 > [!NOTE]
-> Record established behavior only. If behavior has not been established, say
-> so and define a conservative user response.
+> Record established behavior only.
+> If behavior has not been established, say so and define a conservative user response.
 
 > [!TIP]
-> Recovery and return-to-service instructions can be procedures, required cleanups or
-> state restoration, re-execution conditions, and checks before results may again be
-> accepted.
+> Recovery and return-to-service instructions can be procedures, required cleanups or state restoration, re-execution conditions, and checks before results may again be accepted.
 
 | Condition | Expected or observed tool behavior | How the user can detect it | Required user response or recovery | Validity of existing and new outputs |
 | --- | --- | --- | --- | --- |
@@ -158,18 +143,15 @@ responsibilities.
 ## Known issues, limitations, and workarounds
 
 > [!TIP]
-> Include adverse information relevant to the stated usage, including open
-> issues. Link to the upstream issue where useful, but preserve enough
-> version-specific information for the manual to remain understandable if that
-> issue later changes or becomes unavailable.
+> Include adverse information relevant to the stated usage, including open issues.
+> Link to the upstream issue where useful, but preserve enough version-specific information for the manual to remain understandable if that issue later changes or becomes unavailable.
 
 | Anomaly ID | Affected baseline and scope | Behavior and possible impact | Required restriction or verified workaround | Status, fix, and controlled reference |
 | --- | --- | --- | --- | --- |
 | `AN-<ID>` | `<Versions, configurations, platforms, inputs, functions, or use cases>` | `<Symptom, incorrect or missing behavior, detectability, and impact>` | `<Do not use / Additional check / Workaround and its limitations>` | `<Open / Fixed in version / Accepted limitation, with issue, advisory, test, or release-note reference>` |
 
 > [!NOTE]
-> Instead of the previous table, another practice could be to reference a dedicated
-> issue tracker or database where the tool user can consult the necessary information.
+> Instead of the previous table, another practice could be to reference a dedicated issue tracker or database where the tool user can consult the necessary information.
 
 ## Support and reporting
 
@@ -192,10 +174,8 @@ responsibilities.
 ## Responsibilities and limits of responsibility
 
 > [!IMPORTANT]
-> Allocate responsibilities explicitly. A tool developer or provider can supply
-> reusable information and evidence, but normally cannot determine whether every
-> downstream usage satisfies a project's standards, safety requirements, or
-> acceptance obligations.
+> Allocate responsibilities explicitly.
+> A tool developer or provider can supply reusable information and evidence, but normally cannot determine whether every downstream usage satisfies a project's standards, safety requirements, or acceptance obligations.
 
 | Role | Responsibilities within this manual's boundary |
 | --- | --- |
@@ -206,20 +186,14 @@ responsibilities.
 
 ## Validity, change management, and approval
 
-This manual is valid only for the tool, usage, configuration, environment,
-assumptions, and controls identified above.
+This manual is valid only for the tool, usage, configuration, environment, assumptions, and controls identified above.
 
-Review the manual and the underlying usage or confidence argument when any of
-the following changes:
+Review the manual and the underlying usage or confidence argument when any of the following changes:
 
 - the tool version, revision, build, source, enabled feature set, or dependency;
-- the intended or given use, input, processing, output, output consumer, or
-  reliance on the output;
-- the configuration, platform, execution environment, infrastructure, or
-  resource assumption;
+- the intended or given use, input, processing, output, output consumer, or reliance on the output;
+- the configuration, platform, execution environment, infrastructure, or resource assumption;
 - an installation, execution, verification, complementary, or recovery measure;
-- a known anomaly, limitation, security issue, workaround, correction, or
-  support status relevant to the stated usage;
-- the applicable standard, edition, integrity level, project process, or
-  approval basis; or
+- a known anomaly, limitation, security issue, workaround, correction, or support status relevant to the stated usage;
+- the applicable standard, edition, integrity level, project process, or approval basis; or
 - `<Additional project-specific trigger>`.
