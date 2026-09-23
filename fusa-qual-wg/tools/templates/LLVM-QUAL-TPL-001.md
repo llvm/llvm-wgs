@@ -3,14 +3,12 @@
 > **Document identifier:** `LLVM-QUAL-TPL-001`  
 > **Usage guide:** [LLVM-QUAL-TPL-001-guide.md](LLVM-QUAL-TPL-001-guide.md)
 >
-> This template is provided for guidance and does not replace applicable
-> safety standards.
+> This template is provided for guidance and does not replace applicable safety standards.
 
 # Determination of Need for Confidence in the Usage of `<Tool_Name>`
 
 > [!TIP]
-> Text between angle brackets, such as `<Tool_Name>`, is a placeholder to be
-> replaced with tool-specific information.
+> Text between angle brackets, such as `<Tool_Name>`, is a placeholder to be replaced with tool-specific information.
 >
 > Remove the instructional notes and tips when publishing a completed document.
 
@@ -21,8 +19,8 @@
 | Date | `<YYYY-MM-DD>` |
 
 > [!TIP]
-> List the roles involved in this document as applicable, for example authors,
-> reviewers, or approvers. Add or remove rows as needed.
+> List the roles involved in this document as applicable, for example authors, reviewers, or approvers.
+> Add or remove rows as needed.
 
 | Role | Name |
 |---|---|
@@ -37,15 +35,11 @@
 
 ## Introduction
 
-This questionnaire is intended to determine whether it is necessary to provide
-evidence of confidence in the use of `<Tool_Name>` with respect to the
-`<Standard>` functional safety standard.
+This questionnaire is intended to determine whether it is necessary to provide evidence of confidence in the use of `<Tool_Name>` with respect to the `<Standard>` functional safety standard.
 
-The outcome of this analysis is a Yes/No decision supported by documented
-rationale and stated assumptions.
+The outcome of this analysis is a Yes/No decision supported by documented rationale and stated assumptions.
 
-This template supports an initial determination step and does not replace tool
-evaluation or qualification activities defined in functional safety standards.
+This template supports an initial determination step and does not replace tool evaluation or qualification activities defined in functional safety standards.
 
 ## Questionnaire
 
@@ -53,15 +47,11 @@ evaluation or qualification activities defined in functional safety standards.
 > Before completing the questionnaire, document:
 >
 > 1. A description of the software tool and its intended or given usage.
-> 2. Assumptions about the development process in which the software tool will
->    be used, including reviews, checks, or verification activities applied to
->    relevant tool outputs.
+> 2. Assumptions about the development process in which the software tool will be used, including reviews, checks, or verification activities applied to relevant tool outputs.
 >
-> The questions below are derived from functional safety standards such as
-> IEC 61508:2010, Part 3, Annex H, and ISO 26262:2018, Part 8, 11.4.1.
+> The questions below are derived from functional safety standards such as IEC 61508:2010, Part 3, Annex H, and ISO 26262:2018, Part 8, 11.4.1.
 >
-> See [LLVM-QUAL-TPL-001-guide.md](LLVM-QUAL-TPL-001-guide.md) for detailed
-> guidance.
+> See [LLVM-QUAL-TPL-001-guide.md](LLVM-QUAL-TPL-001-guide.md) for detailed guidance.
 >
 > Remove this instruction when publishing a completed document.
 
@@ -75,32 +65,28 @@ evaluation or qualification activities defined in functional safety standards.
 
 ### Decision logic
 
-- If **A1 = Yes**, **A2 = Yes**, and **A3 = No**, evidence of confidence in the
-  usage of the software tool is required.
+- If **A1 = Yes**, **A2 = Yes**, and **A3 = No**, evidence of confidence in the usage of the software tool is required.
 - In all other cases, such evidence is not required.
 
-This decision reflects whether a tool malfunction could directly and
-undetectably affect a safety-related activity.
+This decision reflects whether a tool malfunction could directly and undetectably affect a safety-related activity.
 
 ### Decision
 
 **Further activities to establish confidence required:** `<Yes / No>`
 
 > [!TIP]
-> The summary rationale is optional. Remove this field if it is not needed.
+> The summary rationale is optional.
+> Remove this field if it is not needed.
 
 **Summary rationale:**
 
 `<Short summary of the main reasons for the decision>`
 
 > [!NOTE]
-> If evidence of confidence is required, this determination is expected to be
-> followed by further activities such as tool specification, tool evaluation,
-> and, where applicable, tool qualification.
+> If evidence of confidence is required, this determination is expected to be followed by further activities such as tool specification, tool evaluation, and, where applicable, tool qualification.
 
 ## Validity and limitations
 
 The conclusion is valid under the assumptions documented in this questionnaire.
 
-Any significant change in tool usage, development process, or verification
-activities may require this determination to be revisited and updated.
+Any significant change in tool usage, development process, or verification activities may require this determination to be revisited and updated.
