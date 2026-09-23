@@ -3,14 +3,12 @@
 > **Document identifier:** `LLVM-QUAL-TPL-004`  
 > **Usage guide:** [LLVM-QUAL-TPL-004-guide.md](LLVM-QUAL-TPL-004-guide.md)
 >
-> This template is provided for guidance and does not replace applicable
-> safety standards.
+> This template is provided for guidance and does not replace applicable safety standards.
 
 # Tool Qualification Report for `<Tool_Name>`
 
 > [!TIP]
-> Text between angle brackets, such as `<Tool_Name>`, is a placeholder to be
-> replaced with tool-specific information.
+> Text between angle brackets, such as `<Tool_Name>`, is a placeholder to be replaced with tool-specific information.
 >
 > Remove the instructional notes and tips when publishing a completed document.
 
@@ -21,8 +19,8 @@
 | Date | `<YYYY-MM-DD>` |
 
 > [!TIP]
-> List the roles involved in this document as applicable, for example authors,
-> reviewers, or approvers. Add or remove rows as needed.
+> List the roles involved in this document as applicable, for example authors, reviewers, or approvers.
+> Add or remove rows as needed.
 
 | Role | Name |
 |---|---|
@@ -39,40 +37,29 @@
 | Qualification perspective | `<Upstream project / Tool provider / Downstream distributor / Integrator / Project-specific user / Other>` |
 
 > [!NOTE]
-> The referenced Tool Usage Plan is the source for the tool identity, version,
-> configuration, environment, intended or given usages, assumptions, constraints,
-> planned approaches, independence arrangements, and acceptance criteria.
+> The referenced Tool Usage Plan is the source for the tool identity, version, configuration, environment, intended or given usages, assumptions, constraints, planned approaches, independence arrangements, and acceptance criteria.
 >
-> The Tool Classification Report is the source for the use-case classifications,
-> malfunction analyses, control assumptions, and identified qualification needs.
+> The Tool Classification Report is the source for the use-case classifications, malfunction analyses, control assumptions, and identified qualification needs.
 >
 > Reference those sources instead of duplicating them here.
 
 > [!IMPORTANT]
-> This template assumes that the qualification activities are performed in
-> accordance with the Tool Usage Plan referenced above.
+> This template assumes that the qualification activities are performed in accordance with the Tool Usage Plan referenced above.
 >
-> One TPL-004 report is governed by one TPL-002 revision. If a different
-> Tool Usage Plan applies to another tool version or usage boundary, prepare a
-> separate TPL-004 report for that plan.
+> One TPL-004 report is governed by one TPL-002 revision.
+> If a different Tool Usage Plan applies to another tool version or usage boundary, prepare a separate TPL-004 report for that plan.
 >
-> If a change to any of these planned elements is required, TPL-002 should
-> be updated before the affected qualification activity continues or the 
-> qualification conclusion is established.
-> Changes affecting the classification basis, malfunction analysis, or
-> required controls shall also be reflected in TPL-003.
+> If a change to any of these planned elements is required, TPL-002 should be updated before the affected qualification activity continues or the qualification conclusion is established.
+> Changes affecting the classification basis, malfunction analysis, or required controls shall also be reflected in TPL-003.
 >
-> Unexpected deviations encountered during execution are expected to be
-> recorded in this report, then either be resolved by performing the activity
-> in accordance with the plan or addressed through a plan update before the
-> qualification conclusion is established.
+> Unexpected deviations encountered during execution are expected to be recorded in this report, then either be resolved by performing the activity in accordance with the plan or addressed through a plan update before the qualification conclusion is established.
 
 ## Qualification activity summary
 
 > [!TIP]
-> Summarize each qualification activity and its current status here. Use the
-> standard-specific activity name from the plan. Record the detailed execution
-> and results in the corresponding activity record.
+> Summarize each qualification activity and its current status here.
+> Use the standard-specific activity name from the plan.
+> Record the detailed execution and results in the corresponding activity record.
 
 | Activity ID and name | Reference | Status or result |
 | --- | --- | --- |
@@ -81,9 +68,8 @@
 ## Evidence inventory and applicability
 
 > [!NOTE]
-> List the controlled evidence actually used by this report. A link to changing
-> content, an unbounded branch, a transient dashboard, or an unsupported
-> assertion is not a controlled evidence baseline.
+> List the controlled evidence actually used by this report.
+> A link to changing content, an unbounded branch, a transient dashboard, or an unsupported assertion is not a controlled evidence baseline.
 
 | Evidence ID | Evidence item and exact baseline | Source or owner | Activity, objective, or concern supported | Applicability and limitations | Controlled location |
 | --- | --- | --- | --- | --- | --- |
@@ -97,9 +83,8 @@
 ### Coverage
 
 > [!NOTE]
-> An individual activity can pass while an overall qualification need remains
-> only partially covered. Integrate the results against the objectives and
-> the concerns established by TPL-003.
+> An individual activity can pass while an overall qualification need remains only partially covered.
+> Integrate the results against the objectives and the concerns established by TPL-003.
 
 | Objective or concern | Qualification activities | Evidence | Coverage conclusion and residual action |
 | --- | --- | --- | --- |
@@ -111,7 +96,8 @@
 ### Issues and findings
 
 > [!TIP]
-> Include adverse evidence. Do not report only favorable results.
+> Include adverse evidence.
+> Do not report only favorable results.
 
 | Finding ID and type | Description and affected scope | Qualification impact and disposition | Required control or follow-up | Status and evidence |
 | --- | --- | --- | --- | --- |
@@ -120,10 +106,9 @@
 ## Qualification conclusions
 
 > [!IMPORTANT]
-> Complete a separate conclusion for each applicable standard. Do not infer
-> compliance with one standard from qualification under another.
-> Use "qualified" only when the applicable criteria have been satisfied 
-> for the stated boundary.
+> Complete a separate conclusion for each applicable standard.
+> Do not infer compliance with one standard from qualification under another.
+> Use "qualified" only when the applicable criteria have been satisfied for the stated boundary.
 
 ### `<Standard and edition>`
 
@@ -152,9 +137,8 @@
 
 > [!IMPORTANT]
 > Copy the complete activity chapter below for each qualification activity.
-> The Tool Usage Plan remains authoritative for the selected approach
-> and intended activity. This report records what was actually executed,
-> the evidence obtained, and the resulting conclusion.
+> The Tool Usage Plan remains authoritative for the selected approach and intended activity.
+> This report records what was actually executed, the evidence obtained, and the resulting conclusion.
 
 ### `QMA-<ID>` — `<Qualification activity name>`
 
@@ -197,10 +181,7 @@
 
 ## Validity and user information
 
-This qualification conclusion is valid only for the defined usage and
-classification boundaries, the executed tool and evidence baselines, and the
-mandatory conditions identified by the referenced work products and this
-report.
+This qualification conclusion is valid only for the defined usage and classification boundaries, the executed tool and evidence baselines, and the mandatory conditions identified by the referenced work products and this report.
 
 **Report-specific limitations or additional conditions requiring review or re-qualification:**  
 `<None / Identify limitations or triggers arising from the qualification results>`
