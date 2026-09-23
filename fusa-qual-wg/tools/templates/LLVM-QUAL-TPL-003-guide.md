@@ -3,7 +3,8 @@
 
 ## Purpose
 
-LLVM-QUAL-TPL-003 supports the classification of a software tool for one or more defined usages under an applicable functional safety standard. The classification is supported by a structured analysis of:
+LLVM-QUAL-TPL-003 supports the classification of a software tool for one or more defined usages under an applicable functional safety standard.
+The classification is supported by a structured analysis of:
 
 - the defined tool use case;
 - its inputs, processing, outputs, and intended reliance;
@@ -12,7 +13,8 @@ LLVM-QUAL-TPL-003 supports the classification of a software tool for one or more
 - prevention and detection measures or controls; and
 - the evidence and assumptions supporting confidence in those measures or controls.
 
-The factual analysis is intentionally standard-neutral. The final classification is expressed using the concepts and levels defined by each applicable standard.
+The factual analysis is intentionally standard-neutral.
+The final classification is expressed using the concepts and levels defined by each applicable standard.
 
 The template records the classification that determines or informs subsequent confidence-building, qualification, usage-control, and user-information activities.
 
@@ -26,9 +28,11 @@ The term *tool classification* is used as a standard-neutral umbrella for determ
 - Under ISO 26262, the analysis determines Tool Impact (TI), Tool Error Detection (TD), and the resulting Tool Confidence Level (TCL) as TCL1, TCL2, or TCL3.
 - Under another standard, the result is expressed using that standard's own scheme.
 
-These schemes overlap in purpose but are not directly equivalent. Do not translate one standard's result into another standard's result without performing the analysis required by the second standard.
+These schemes overlap in purpose but are not directly equivalent.
+Do not translate one standard's result into another standard's result without performing the analysis required by the second standard.
 
-Always record the exact standard and edition used. If an organization (e.g., downstream) has an approved interpretation, tailoring, or procedure for classification, reference it explicitly.
+Always record the exact standard and edition used.
+If an organization (e.g., downstream) has an approved interpretation, tailoring, or procedure for classification, reference it explicitly.
 
 ## Fundamental principle: classify the usage
 
@@ -41,17 +45,21 @@ The same tool can:
 - produce informational output that is completely and independently checked in a third use case; and
 - exercise different features, configurations, or processing paths in each case.
 
-Those uses can have different malfunctions, effects, measures or controls, and classification results. Therefore, classify each use case or each group of sufficiently similar use cases before deriving an overall result where the applicable standard or process requires one.
+Those uses can have different malfunctions, effects, measures or controls, and classification results.
+Therefore, classify each use case or each group of sufficiently similar use cases before deriving an overall result where the applicable standard or process requires one.
 
 ### Generic tool-developer classification
 
-A tool developer may classify defined intended usages for a bounded set of versions, configurations, features, inputs, outputs, and assumed downstream controls. Where the developer does not know the final project context, assumptions should be explicit and reasonably conservative.
+A tool developer may classify defined intended usages for a bounded set of versions, configurations, features, inputs, outputs, and assumed downstream controls.
+Where the developer does not know the final project context, assumptions should be explicit and reasonably conservative.
 
-A generic report should not claim that one result covers every possible use of the tool. It should identify excluded uses and explain the limits of reuse.
+A generic report should not claim that one result covers every possible use of the tool.
+It should identify excluded uses and explain the limits of reuse.
 
 ### Project-specific user or integrator classification
 
-A tool user or integrator may classify a given usage in a specific project. A developer's existing classification can be used as an input, but the user should confirm that:
+A tool user or integrator may classify a given usage in a specific project.
+A developer's existing classification can be used as an input, but the user should confirm that:
 
 - the tool identity and configuration match;
 - the project use case is within the developer's scope;
@@ -63,17 +71,20 @@ A narrower project use may support a more specific conclusion than a generic dev
 
 ## What this analysis is — and is not
 
-The recommended method is a qualitative, use-case-based malfunction-and-effect analysis. It is **FMEA-like**, but it is not intended to be a complete product or process FMEA.
+The recommended method is a qualitative, use-case-based malfunction-and-effect analysis.
+It is **FMEA-like**, but it is not intended to be a complete product or process FMEA.
 
 The useful analytical chain is:
 
 > Defined use case → potential (credible) malfunction → potential effect → error propagation → measures or controls → standard-specific classification → follow-up action
 
-TPL-003 should identify behavior relevant to the defined usage and the consequences of erroneous results. Investigation of internal root causes, component-level verification coverage, development-process evidence, or qualification-test completeness normally belongs to the qualification strategy and TPL-004.
+TPL-003 should identify behavior relevant to the defined usage and the consequences of erroneous results.
+Investigation of internal root causes, component-level verification coverage, development-process evidence, or qualification-test completeness normally belongs to the qualification strategy and TPL-004.
 
 ## Use TPL-002 as the classification basis
 
-TPL-003 should not repeat an inventory of classification inputs. Reference the applicable controlled revision of TPL-002, which should identify the tool and its usage-planning basis, including relevant supporting information and evidence sources.
+TPL-003 should not repeat an inventory of classification inputs.
+Reference the applicable controlled revision of TPL-002, which should identify the tool and its usage-planning basis, including relevant supporting information and evidence sources.
 
 Within TPL-003:
 
@@ -90,11 +101,13 @@ Every use-case chapter begins by establishing a clear boundary:
 
 > Inputs → processing → outputs → consumers and reliance → subsequent measures or controls
 
-This is an analysis-focused characterization, not a second usage specification. Reference the corresponding use case in TPL-002 and include only the details needed to understand the malfunctions, effects, controls, and classification rationale.
+This is an analysis-focused characterization, not a second usage specification.
+Reference the corresponding use case in TPL-002 and include only the details needed to understand the malfunctions, effects, controls, and classification rationale.
 
 ### Description and objective
 
-Describe what the user is trying to accomplish, not merely the name of the tool command. A useful description identifies the supported lifecycle activity, task, decision, or work product.
+Describe what the user is trying to accomplish, not merely the name of the tool command.
+A useful description identifies the supported lifecycle activity, task, decision, or work product.
 
 ### Inputs
 
@@ -112,7 +125,8 @@ Record assumptions concerning validity, completeness, format, provenance, allowe
 
 ### Processing
 
-Describe the externally meaningful transformation, analysis, generation, verification, or decision. The processing description should be detailed enough to identify different types of erroneous behavior, but it does not normally need to expose the tool's internal architecture.
+Describe the externally meaningful transformation, analysis, generation, verification, or decision.
+The processing description should be detailed enough to identify different types of erroneous behavior, but it does not normally need to expose the tool's internal architecture.
 
 ### Outputs and intended reliance
 
@@ -127,15 +141,19 @@ Identify every relevant output, including:
 - logs, status codes, and metadata; and
 - information used by another person or automated tool to make a decision.
 
-For each output, identify its consumer and how strongly the consumer relies on it. An informational output interpreted by a competent user may have a different effect path from an output that automatically releases, rejects, or transforms a safety-related artifact.
+For each output, identify its consumer and how strongly the consumer relies on it.
+An informational output interpreted by a competent user may have a different effect path from an output that automatically releases, rejects, or transforms a safety-related artifact.
 
 ### Subsequent controls
 
-Describe reviews, tests, comparisons, independent calculations, redundant tools, consistency checks, or other measures applied before the output is relied upon. Avoid vague statements such as “the result is tested later”. Identify what is checked, by what means, when, and against which acceptance criteria.
+Describe reviews, tests, comparisons, independent calculations, redundant tools, consistency checks, or other measures applied before the output is relied upon.
+Avoid vague statements such as “the result is tested later”.
+Identify what is checked, by what means, when, and against which acceptance criteria.
 
 ## Select the analysis granularity per use case
 
-The template supports two granularities. A single report may combine them.
+The template supports two granularities.
+A single report may combine them.
 
 | Granularity | Analysis unit | Use when |
 | --- | --- | --- |
@@ -146,9 +164,11 @@ The template supports two granularities. A single report may combine them.
 
 Use-case-level analysis is appropriate when treating the use as one unit does not hide a materially different malfunction, effect, reliance path, control, or classification result.
 
-Use-case level does not mean that only one malfunction is considered. Identify and analyze as many credible malfunctions as are needed to support the classification of the complete use case.
+Use-case level does not mean that only one malfunction is considered.
+Identify and analyze as many credible malfunctions as are needed to support the classification of the complete use case.
 
-This is not a shortcut that requires less rigor. The report should state why the use case is an adequate analysis boundary.
+This is not a shortcut that requires less rigor.
+The report should state why the use case is an adequate analysis boundary.
 
 ### Function or feature-level analysis
 
@@ -163,7 +183,8 @@ Decompose a use case when one or more of the following apply:
 - the high-level analysis produces a classification that is difficult to justify; or
 - separate classifications could be meaningful because the functions and outputs remain separable in actual usage.
 
-The functions should be relevant to the classification and meaningful in the context of the tool usage, such as parsing, code generation, optimization, diagnostic checking, report generation, requirements import, test execution, result evaluation, or coverage calculation. Do not decompose into internal implementation functions merely because they exist in the source code.
+The functions should be relevant to the classification and meaningful in the context of the tool usage, such as parsing, code generation, optimization, diagnostic checking, report generation, requirements import, test execution, result evaluation, or coverage calculation.
+Do not decompose into internal implementation functions merely because they exist in the source code.
 
 ### A practical sufficiency test
 
@@ -178,24 +199,31 @@ If any of these differ materially, decompose the relevant portion of the use cas
 
 ### Mixed and partially refined analyses
 
-It is acceptable to decompose only the functions that need finer treatment. For example, a compiler use case might analyze code generation and diagnostic enforcement separately while treating several reporting-only functions as one group.
+It is acceptable to decompose only the functions that need finer treatment.
+For example, a compiler use case might analyze code generation and diagnostic enforcement separately while treating several reporting-only functions as one group.
 
-Record whether the function results remain separate or are consolidated into one use-case classification. Do not leave the aggregation rule implicit.
+Record whether the function results remain separate or are consolidated into one use-case classification.
+Do not leave the aggregation rule implicit.
 
 ### Select the malfunction-record presentation
 
-The analysis boundary and the record presentation are separate choices. At either use-case or function/feature level, the author may use:
+The analysis boundary and the record presentation are separate choices.
+At either use-case or function/feature level, the author may use:
 
 - **Structured malfunction subsections**, which are preferable when the effect path, controls, confidence rationale, or evidence needs explanation; or
 - **A compact malfunction table**, which is convenient when several records can be expressed accurately in short entries and compared using the same fields.
 
-The compact table should not recreate the unreadable wide table that the chapter-based structure is intended to avoid. If cells become paragraph-heavy, controls need separate explanation, or evidence and assumptions are difficult to trace, use structured subsections instead.
+The compact table should not recreate the unreadable wide table that the chapter-based structure is intended to avoid.
+If cells become paragraph-heavy, controls need separate explanation, or evidence and assumptions are difficult to trace, use structured subsections instead.
 
-The template may be adapted to the user's working style. A report may use different presentations for different use cases, but the presentation should be consistent within a classification unit, and each malfunction should be recorded only once.
+The template may be adapted to the user's working style.
+A report may use different presentations for different use cases, but the presentation should be consistent within a classification unit, and each malfunction should be recorded only once.
 
 ## Identify potential (credible) malfunctions or erroneous behavior
 
-A use case or function may have one or more malfunction records. Each record describes a relevant departure from the expected behavior of the defined use. Consider, where relevant:
+A use case or function may have one or more malfunction records.
+Each record describes a relevant departure from the expected behavior of the defined use.
+Consider, where relevant:
 
 - an incorrect output;
 - an incomplete or truncated output;
@@ -215,15 +243,18 @@ Distinguish between:
 2. the tool's failure to detect invalid usage when detection is part of its intended behavior; and
 3. user misuse that violates an explicit and adequately communicated constraint.
 
-Misuse should not automatically be recorded as a tool malfunction. It can nevertheless expose a need for stronger prevention, documentation, or user-interface controls.
+Misuse should not automatically be recorded as a tool malfunction.
+It can nevertheless expose a need for stronger prevention, documentation, or user-interface controls.
 
-Do not attempt to enumerate every theoretically possible internal fault. Select credible malfunction descriptions that are sufficiently complete to support the effect and classification analysis.
+Do not attempt to enumerate every theoretically possible internal fault.
+Select credible malfunction descriptions that are sufficiently complete to support the effect and classification analysis.
 
 ## Analyze the effect and propagation path
 
 ### Potential effect
 
-Describe what the malfunction could do to the supported activity, work product, verification result, or decision. Examples include:
+Describe what the malfunction could do to the supported activity, work product, verification result, or decision.
+Examples include:
 
 - introducing an error into an artifact;
 - corrupting or omitting information;
@@ -233,11 +264,13 @@ Describe what the malfunction could do to the supported activity, work product, 
 - breaking traceability or configuration consistency; or
 - causing a required activity to be skipped or performed on the wrong item.
 
-Keep the effect distinct from the internal root cause. “An optimizer pass contains a defect” is a cause statement; “the generated object code does not preserve the specified program behavior” is an externally meaningful malfunction and effect statement.
+Keep the effect distinct from the internal root cause.
+“An optimizer pass contains a defect” is a cause statement; “the generated object code does not preserve the specified program behavior” is an externally meaningful malfunction and effect statement.
 
 ### Error propagation or reliance path
 
-Explain how the erroneous result could reach something safety-related. Identify:
+Explain how the erroneous result could reach something safety-related.
+Identify:
 
 - the output carrying the error;
 - the downstream consumer;
@@ -249,11 +282,13 @@ If the effect cannot propagate under the stated conditions, document why and ide
 
 ## Describe control measures
 
-The guide uses **control measures** as an umbrella term. Divide them into the categories below so their role remains clear.
+The guide uses **control measures** as an umbrella term.
+Divide them into the categories below so their role remains clear.
 
 ### Prevention measures
 
-Prevention measures or controls reduce the opportunity for an erroneous result or invalid usage to occur. Examples include:
+Prevention measures or controls reduce the opportunity for an erroneous result or invalid usage to occur.
+Examples include:
 
 - restricting tool versions, targets, options, features, or input subsets;
 - schema, type, range, or configuration validation;
@@ -265,7 +300,8 @@ Prevention measures or controls reduce the opportunity for an erroneous result o
 
 ### Detection (and correction) measures
 
-Detection and correction measures or controls reveal and address an erroneous result before it is relied upon. Examples include:
+Detection and correction measures or controls reveal and address an erroneous result before it is relied upon.
+Examples include:
 
 - independent review against defined criteria;
 - comparison with an independently implemented tool or calculation;
@@ -278,13 +314,15 @@ Detection and correction measures or controls reveal and address an erroneous re
 
 ### Usage constraints and containment
 
-Usage constraints and containment measures can limit where or how the output is used. They should not be presented as prevention or detection unless they actually prevent the behavior or reveal its result.
+Usage constraints and containment measures can limit where or how the output is used.
+They should not be presented as prevention or detection unless they actually prevent the behavior or reveal its result.
 
 Examples include prohibiting automatic acceptance, requiring human confirmation, restricting the output to informational use, or preventing the output from directly modifying a controlled artifact.
 
 ## Assess confidence in the controls
 
-Do not list a control without analyzing why it addresses the specific malfunction. Consider:
+Do not list a control without analyzing why it addresses the specific malfunction.
+Consider:
 
 - **Relevance:** Does the control address this malfunction and its effect path?
 - **Coverage:** Does it cover the relevant inputs, functions, configurations, and outputs?
@@ -308,25 +346,31 @@ These statuses do not replace the classification levels defined by the applicabl
 
 ## Derive the standard-specific classification
 
-Perform the neutral analysis first, then apply the selected standard's criteria. This keeps the reasoning reusable while preserving the differences between standards.
+Perform the neutral analysis first, then apply the selected standard's criteria.
+This keeps the reasoning reusable while preserving the differences between standards.
 
 ### IEC 61508
 
-For the exact edition selected by the project, determine the tool class using the standard's criteria and terminology. The analysis should make visible whether the tool usage:
+For the exact edition selected by the project, determine the tool class using the standard's criteria and terminology.
+The analysis should make visible whether the tool usage:
 
 - has no direct or indirect influence on executable software or data;
 - supports testing or verification and could fail to reveal a defect; or
 - generates or transforms an output that contributes directly or indirectly to executable software or data and could introduce a defect.
 
-These relationships support reasoning about T1, T2, or T3. Apply the standard's exact definitions and requirements rather than treating the bullets above as a substitute for the standard.
+These relationships support reasoning about T1, T2, or T3.
+Apply the standard's exact definitions and requirements rather than treating the bullets above as a substitute for the standard.
 
-Control measures can determine the confidence-building strategy and evidence required for the classified use. Do not assume that a downstream control changes the tool class unless the applicable standard and approved interpretation support that conclusion.
+Control measures can determine the confidence-building strategy and evidence required for the classified use.
+Do not assume that a downstream control changes the tool class unless the applicable standard and approved interpretation support that conclusion.
 
 ### EN 50716
 
-For the exact edition selected by the project, determine the applicable tool class using its criteria and terminology. As with IEC 61508, the use-case characterization should identify the relationship between the tool output and executable software or data, and whether a verification tool could fail to reveal a defect.
+For the exact edition selected by the project, determine the applicable tool class using its criteria and terminology.
+As with IEC 61508, the use-case characterization should identify the relationship between the tool output and executable software or data, and whether a verification tool could fail to reveal a defect.
 
-Record the EN 50716 result separately even where its class names resemble those used by IEC 61508. Similar labels do not by themselves establish equivalence of definitions, obligations, or required evidence.
+Record the EN 50716 result separately even where its class names resemble those used by IEC 61508.
+Similar labels do not by themselves establish equivalence of definitions, obligations, or required evidence.
 
 ### ISO 26262
 
@@ -336,13 +380,16 @@ For the exact edition selected by the project, record the required intermediate 
 - **Tool Error Detection (TD):** the degree of confidence in measures that prevent or detect errors in the tool output; and
 - **Tool Confidence Level (TCL):** the result derived from TI and TD using the standard's rules.
 
-The template's *potential effect* analysis supports TI reasoning. The prevention, detection, correction, and confidence analysis supports TD reasoning.
+The template's *potential effect* analysis supports TI reasoning.
+The prevention, detection, correction, and confidence analysis supports TD reasoning.
 
-Do not assume that a listed downstream verification or test automatically establishes a particular TD result. The rationale should address the specific malfunction, coverage, independence, timing, and evidence.
+Do not assume that a listed downstream verification or test automatically establishes a particular TD result.
+The rationale should address the specific malfunction, coverage, independence, timing, and evidence.
 
 ### Other standards or organizational schemes
 
-Add the required classification elements and results to the same use-case conclusion. If the scheme introduces additional concepts, define them in the report and explain how the neutral malfunction-and-effect analysis supports them.
+Add the required classification elements and results to the same use-case conclusion.
+If the scheme introduces additional concepts, define them in the report and explain how the neutral malfunction-and-effect analysis supports them.
 
 ### Multiple applicable standards
 
@@ -363,11 +410,13 @@ If functions were analyzed separately, choose and justify one of these approache
 2. **Function-group classification:** combine functions that share substantially the same effect paths, controls, and classification result.
 3. **Use-case classification:** consolidate the findings for the complete use case according to the applicable standard, normally accounting for the result-driving malfunction and the least effective relevant control.
 
-At report level, an overall tool result should be stated only if required or useful. Preserve the use-case results and the assumptions behind them even when an overall result is reported.
+At report level, an overall tool result should be stated only if required or useful.
+Preserve the use-case results and the assumptions behind them even when an overall result is reported.
 
 ## Determine follow-up actions
 
-TPL-003 should make the consequence of the classification explicit. Possible follow-up includes:
+TPL-003 should make the consequence of the classification explicit.
+Possible follow-up includes:
 
 - no additional action beyond maintaining the documented assumptions and controls;
 - strengthening a prevention or detection control;
@@ -378,14 +427,17 @@ TPL-003 should make the consequence of the classification explicit. Possible fol
 - resolving an open anomaly or uncertainty before the output is relied upon; or
 - repeating part or all of the classification at project level.
 
-An undetermined result should lead to investigation or a conservative interim restriction. It should not be silently treated as a favorable classification.
+An undetermined result should lead to investigation or a conservative interim restriction.
+It should not be silently treated as a favorable classification.
 
 ## Illustrative example of choosing the granularity
 
 Consider the use case:
 
 > **UC-01 — Compile C++ source files into target object files.**  
-> Inputs include source files, headers, compiler options, target description, and linked assumptions about the language subset. The primary output is object code consumed by a linker. Diagnostics may also be relied upon to reject prohibited constructs.
+> Inputs include source files, headers, compiler options, target description, and linked assumptions about the language subset.
+> The primary output is object code consumed by a linker.
+> Diagnostics may also be relied upon to reject prohibited constructs.
 
 A use-case-level analysis may be sufficient if all exercised functions are treated as one object-code generation activity, share the same downstream controls, and lead to the same classification.
 
@@ -397,9 +449,12 @@ A function-level analysis may be preferable if the organization relies different
 - diagnostic enforcement; and
 - dependency-file generation.
 
-For example, incorrect target code generation can introduce erroneous executable behavior, whereas a missing diagnostic can fail to prevent use of a prohibited construct. Dependency information may influence build completeness rather than instruction semantics. These behaviors can have different outputs, propagation paths, controls, and classification implications.
+For example, incorrect target code generation can introduce erroneous executable behavior, whereas a missing diagnostic can fail to prevent use of a prohibited construct.
+Dependency information may influence build completeness rather than instruction semantics.
+These behaviors can have different outputs, propagation paths, controls, and classification implications.
 
-The analysis does not need to enumerate individual compiler passes. It should decompose only to the level needed to support a credible, reviewable classification argument.
+The analysis does not need to enumerate individual compiler passes.
+It should decompose only to the level needed to support a credible, reviewable classification argument.
 
 ## Review and completeness checklist
 
@@ -427,7 +482,8 @@ Before completing the report, confirm that:
 
 ## Reuse, maintenance, and re-evaluation
 
-A classification can be reused only while the scope and assumptions defined in the referenced TPL-002 and the applicable use-case analyses remain valid. Review or repeat the analysis when there is a relevant change to:
+A classification can be reused only while the scope and assumptions defined in the referenced TPL-002 and the applicable use-case analyses remain valid.
+Review or repeat the analysis when there is a relevant change to:
 
 - the tool version, revision, build, dependencies, configuration, or enabled functions;
 - the host, target, execution environment, or integration interface;
@@ -438,14 +494,5 @@ A classification can be reused only while the scope and assumptions defined in t
 - the applicable standard, edition, or organizational interpretation; or
 - the evidence supporting the classification or control-confidence rationale.
 
-Where only one use case or function is affected, update and re-review the localized chapter and the classification summary. Also check whether the change affects the report-level aggregation or another use case that shares the same control or assumption.
-
-## Normative references to consult
-
-Use the edition applicable to the organization and project. At the time this guide was drafted, relevant published references included:
-
-- IEC 61508-3:2010, *Functional safety of electrical/electronic/programmable electronic safety-related systems — Part 3: Software requirements*;
-- EN 50716:2023, *Railway applications — Requirements for software development*; and
-- ISO 26262-8:2018, *Road vehicles — Functional safety — Part 8: Supporting processes*.
-
-The standards themselves remain authoritative for definitions, classification rules, required confidence measures, independence, work products, and approval obligations.
+Where only one use case or function is affected, update and re-review the localized chapter and the classification summary.
+Also check whether the change affects the report-level aggregation or another use case that shares the same control or assumption.

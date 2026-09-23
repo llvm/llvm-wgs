@@ -3,13 +3,13 @@
 > **Document identifier:** `LLVM-QUAL-TPL-003`  
 > **Usage guide:** [LLVM-QUAL-TPL-003-guide.md](LLVM-QUAL-TPL-003-guide.md)
 >
-> This template is provided for guidance and does not replace applicable
-> safety standards.
+> This template is provided for guidance and does not replace applicable safety standards.
 
 # Tool Classification Report for `<Tool_Name>`
 
 > [!TIP]
-> Replace text shown as `<placeholder>` with the applicable information. Remove unused alternatives and instructional callouts when completing the report.
+> Replace text shown as `<placeholder>` with the applicable information.
+> Remove unused alternatives and instructional callouts when completing the report.
 
 | Document information | Value |
 | --- | --- |
@@ -26,7 +26,8 @@
 | Related Tool Usage Plan | `<Reference to LLVM-QUAL-TPL-002>`
 
 > [!TIP]
-> The referenced Tool Usage Plan is the authoritative source for the tool identity, version, configuration, environment, intended or given usages, assumptions, constraints, and other usage-planning information. Do not duplicate that information here.
+> The referenced Tool Usage Plan is the authoritative source for the tool identity, version, configuration, environment, intended or given usages, assumptions, constraints, and other usage-planning information.
+> Do not duplicate that information here.
 
 ## Classification scope and basis
 
@@ -38,12 +39,15 @@
 The scope of this report consists of the use cases listed in Section [Classification summary](#classification-summary) and defined in the referenced Tool Usage Plan.
 
 **Classification-specific scope adjustment, if any:**  
-`<Record only an adjustment needed for this classification. Otherwise state "None". Update TPL-002 if the intended or given usage itself changes.>`
+`<Record only an adjustment needed for this classification.`
+`Otherwise state "None".`
+`Update TPL-002 if the intended or given usage itself changes.>`
 
 ### Applicable standards and classification schemes
 
 > [!TIP]
-> Record the exact standard edition used. If several standards apply, derive and document each result separately.
+> Record the exact standard edition used.
+> If several standards apply, derive and document each result separately.
 
 | Standard and edition | Applicable clause or scheme | Expected result (optional) |
 | --- | --- | --- |
@@ -61,7 +65,9 @@ The analysis is performed at the use-case level unless decomposition into releva
 ## Classification summary
 
 > [!TIP]
-> Keep this table concise. Detailed rationale belongs in the corresponding use-case chapter. Add one row per use case or independently classified function group.
+> Keep this table concise.
+> Detailed rationale belongs in the corresponding use-case chapter.
+> Add one row per use case or independently classified function group.
 
 | ID and use case | Analysis granularity | Standard-specific result | Further action | Status |
 | --- | --- | --- | --- | --- |
@@ -76,7 +82,9 @@ The analysis is performed at the use-case level unless decomposition into releva
 ## Use-case classification analyses
 
 > [!IMPORTANT]
-> Copy the complete use-case chapter below for every use case. Select either use-case-level analysis or function/feature-level analysis within each chapter, and remove the unused option. A single report may use different granularities for different use cases.
+> Copy the complete use-case chapter below for every use case.
+> Select either use-case-level analysis or function/feature-level analysis within each chapter, and remove the unused option.
+> A single report may use different granularities for different use cases.
 
 ### `<UC-ID>` - `<Use-case name>`
 
@@ -122,7 +130,9 @@ The analysis is performed at the use-case level unless decomposition into releva
 #### Malfunction analysis
 
 > [!TIP]
-> Analyze one or more credible potential malfunctions at either granularity. Select the analysis boundary independently from the record presentation: detailed malfunction subsections and a compact table are both acceptable. Adapt the structure consistently to the complexity and preferences of the author, and remove unused guidance.
+> Analyze one or more credible potential malfunctions at either granularity.
+> Select the analysis boundary independently from the record presentation: detailed malfunction subsections and a compact table are both acceptable.
+> Adapt the structure consistently to the complexity and preferences of the author, and remove unused guidance.
 
 **Option A — Use-case-level analysis**
 
@@ -132,7 +142,8 @@ The analysis is performed at the use-case level unless decomposition into releva
 **Option B — Function or feature-level analysis**
 
 > [!TIP]
-> Add and repeat the following subsection when decomposition into relevant functions or features is useful. Place the malfunction records within the corresponding function or feature subsection.
+> Add and repeat the following subsection when decomposition into relevant functions or features is useful.
+> Place the malfunction records within the corresponding function or feature subsection.
 
 ##### `<Function ID>` - `<Function or feature name>`
 
@@ -148,12 +159,16 @@ The analysis is performed at the use-case level unless decomposition into releva
 **Malfunction record presentation (applicable to either option)**
 
 > [!TIP]
-> Choose either Format 1 or Format 2. For Option A, place the records directly under the complete use case. For Option B, place them within each relevant function or feature subsection. A report may use the detailed format where explanation is needed and the compact format for simpler analyses.
+> Choose either Format 1 or Format 2.
+> For Option A, place the records directly under the complete use case.
+> For Option B, place them within each relevant function or feature subsection.
+> A report may use the detailed format where explanation is needed and the compact format for simpler analyses.
 
 **Format 1 — Structured malfunction subsections**
 
 > [!TIP]
-> Copy the following subsection for each credible malfunction. Adjust the heading level when the record is nested under a function or feature subsection.
+> Copy the following subsection for each credible malfunction.
+> Adjust the heading level when the record is nested under a function or feature subsection.
 
 ##### Malfunction record `<M-ID>` - `<Short malfunction name>`
 
@@ -183,7 +198,9 @@ The analysis is performed at the use-case level unless decomposition into releva
 **Format 2 — Compact malfunction table**
 
 > [!TIP]
-> Use this format when each entry can remain concise. Add one row per malfunction. If the cells become paragraph-heavy or obscure the reasoning, it is recommended to use Format 1 instead.
+> Use this format when each entry can remain concise.
+> Add one row per malfunction.
+> If the cells become paragraph-heavy or obscure the reasoning, it is recommended to use Format 1 instead.
 
 | ID, malfunction, and relevant conditions | Potential effect and propagation | Prevention measures | Detection measures | Confidence | Remaining concern and action |
 | --- | --- | --- | --- | --- | --- |
