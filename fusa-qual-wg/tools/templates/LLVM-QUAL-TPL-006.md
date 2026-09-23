@@ -3,14 +3,12 @@
 > **Document identifier:** `LLVM-QUAL-TPL-006`  
 > **Usage guide:** [LLVM-QUAL-TPL-006-guide.md](LLVM-QUAL-TPL-006-guide.md)  
 >
-> This template is provided for guidance and does not replace applicable
-> safety standards.
+> This template is provided for guidance and does not replace applicable safety standards.
 
 # Safety Considerations for `<Tool_Name>`
 
 > [!TIP]
-> Text between angle brackets, such as `<Tool_Name>`, is a placeholder to be
-> replaced with tool-specific information.
+> Text between angle brackets, such as `<Tool_Name>`, is a placeholder to be replaced with tool-specific information.
 >
 > Remove the instructional notes and tips when publishing a completed document.
 
@@ -21,8 +19,8 @@
 | Date | `<YYYY-MM-DD>` |
 
 > [!TIP]
-> List the roles involved in this document as applicable, for example authors,
-> reviewers, or approvers. Add or remove rows as needed.
+> List the roles involved in this document as applicable, for example authors, reviewers, or approvers.
+> Add or remove rows as needed.
 
 | Role | Name |
 |---|---|
@@ -38,13 +36,10 @@
 ## Safety considerations
 
 > [!TIP]
-> Write the safety considerations based on the rationale and stated assumptions
-> documented for A1, A2, and A3 using `LLVM-QUAL-TPL-001`.
+> Write the safety considerations based on the rationale and stated assumptions documented for A1, A2, and A3 using `LLVM-QUAL-TPL-001`.
 >
-> The text should be understandable on its own, without requiring the reader
-> to examine the complete determination. See
-> [LLVM-QUAL-TPL-006-guide.md](LLVM-QUAL-TPL-006-guide.md) for detailed
-> guidance.
+> The text should be understandable on its own, without requiring the reader to examine the complete determination.
+> See [LLVM-QUAL-TPL-006-guide.md](LLVM-QUAL-TPL-006-guide.md) for detailed guidance.
 >
 > Remove this instruction when publishing the completed document.
 
