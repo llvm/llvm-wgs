@@ -5,28 +5,21 @@
 > **Related template:** `LLVM-QUAL-TPL-004`  
 > **Central guide:** [`LLVM-QUAL-TPL-004-guide.md`](LLVM-QUAL-TPL-004-guide.md)  
 > **Qualification-approaches companion:** [`LLVM-QUAL-TPL-004-qualification-approaches-guide.md`](LLVM-QUAL-TPL-004-qualification-approaches-guide.md)  
-> This companion is informative. It compares concepts to support interpretation;
-> it does not replace any standard, regulatory guidance, certification
-> authority, or documented organizational interpretation.
+> This companion is informative.
+> It compares concepts to support interpretation; it does not replace any standard, regulatory guidance, certification authority, or documented organizational interpretation.
 
 ## Purpose and limits of this comparison
 
-The standards covered here do not all define software-tool qualification
-in the same way:
+The standards covered here do not all define software-tool qualification in the same way:
 
-- IEC 61508 (E/E/PE systems) uses tool classes, conformance evidence, 
-  SIL-graded techniques and measures, and effective controls;
-- EN 50716 (railways) uses tool classes and an evidence-and-control model
-  focused on avoiding, detecting, or handling tool-induced failures;
-- ISO 26262 (automotive) defines a tool-confidence classification and
-  named software-tool qualification methods;
+- IEC 61508 (E/E/PE systems) uses tool classes, conformance evidence, SIL-graded techniques and measures, and effective controls;
+- EN 50716 (railways) uses tool classes and an evidence-and-control model focused on avoiding, detecting, or handling tool-induced failures;
+- ISO 26262 (automotive) defines a tool-confidence classification and named software-tool qualification methods;
 - IEC 62304 (medical) does not define a comparable tool-qualification scheme; and
-- DO-178C and DO-330 (airborne) define qualification as the process used
-  to obtain certification credit through a TQL-dependent, objective-based lifecycle.
+- DO-178C and DO-330 (airborne) define qualification as the process used to obtain certification credit through a TQL-dependent, objective-based lifecycle.
 
-Accordingly, this guide set uses **qualification approach** as an umbrella
-expression. A selected approach whose execution or evidence is recorded in
-TPL-004 can be a:
+Accordingly, this guide set uses **qualification approach** as an umbrella expression.
+A selected approach whose execution or evidence is recorded in TPL-004 can be a:
 
 - qualification method;
 - standard-recognized technique or measure;
@@ -36,52 +29,38 @@ TPL-004 can be a:
 - reuse and applicability assessment for existing evidence.
 
 Retain the terminology of the applicable standard in the report.
-Similar labels, such as "T3" or "validation", do not establish equivalence
-across standards.
+Similar labels, such as "T3" or "validation", do not establish equivalence across standards.
 
 ## Meaning of tool qualification or confidence under each standard
 
 ### IEC 61508 (E/E/PE systems)
 
-IEC 61508-3 does not organize tool confidence as a menu of qualification methods
-comparable to ISO 26262. Its support-tool provisions are better understood as a 
-structured argument about selection, reliance, conformance, and control.
+IEC 61508-3 does not organize tool confidence as a menu of qualification methods comparable to ISO 26262.
+Its support-tool provisions are better understood as a structured argument about selection, reliance, conformance, and control.
 
 For a bounded tool usage, the practical reasoning is:
 
 1. justify selection of the tool;
 2. classify the usage as T1, T2, or T3;
-3. define or identify the specification, product documentation, instructions,
-   and constraints needed for relevant T2 and T3 usages;
-4. assess reliance on the tool and the failure mechanisms that could affect
-   the safety-related software;
-5. for relevant T3 usage, establish evidence that the tool conforms to its
-   specification or documentation;
-6. use an appropriate combination of tool validation and a history of successful
-   use in similar applications and environments where applicable;
-7. where adequate conformance evidence is unavailable, implement effective measures
-   to control failures attributable to the tool; and
-8. configuration-manage the tool, version, configuration, options, scripts,
-   and qualification status.
+3. define or identify the specification, product documentation, instructions, and constraints needed for relevant T2 and T3 usages;
+4. assess reliance on the tool and the failure mechanisms that could affect the safety-related software;
+5. for relevant T3 usage, establish evidence that the tool conforms to its specification or documentation;
+6. use an appropriate combination of tool validation and a history of successful use in similar applications and environments where applicable;
+7. where adequate conformance evidence is unavailable, implement effective measures to control failures attributable to the tool; and
+8. configuration-manage the tool, version, configuration, options, scripts, and qualification status.
 
-IEC 61508-3 Annex A also identifies **certified tools and certified translators**
-and **tools and translators with increased confidence from use** as techniques
-or measures. The certificate still needs to be interpreted together with its scope,
-supporting assessment, restrictions, and requirements.
+IEC 61508-3 Annex A also identifies **certified tools and certified translators** and **tools and translators with increased confidence from use** as techniques or measures.
+The certificate still needs to be interpreted together with its scope, supporting assessment, restrictions, and requirements.
 
-From an IEC 61508 perspective, a TPL-004 conclusion should therefore explain why
-the conformance evidence and effective controls are adequate for the stated T class,
-SIL context, tool baseline, functions, environment, and reliance.
+From an IEC 61508 perspective, a TPL-004 conclusion should therefore explain why the conformance evidence and effective controls are adequate for the stated T class, SIL context, tool baseline, functions, environment, and reliance.
 
-Relevant provisions include IEC 61508-3:2010, Clause 7.4.4 and Annex A,
-including Table A.3. Consult the controlled copy used by the project.
+Relevant provisions include IEC 61508-3:2010, Clause 7.4.4 and Annex A, including Table A.3.
+Consult the controlled copy used by the project.
 
 ### EN 50716 (railways)
 
-EN 50716 uses an evidence-and-control model for support tools. Its central concern
-is whether a tool can introduce an error or fail to detect an error in safety-related
-software activities, and whether that failure is prevented, detected, or otherwise
-adequately handled.
+EN 50716 uses an evidence-and-control model for support tools.
+Its central concern is whether a tool can introduce an error or fail to detect an error in safety-related software activities, and whether that failure is prevented, detected, or otherwise adequately handled.
 
 For a bounded tool usage, the practical reasoning includes:
 
@@ -90,30 +69,22 @@ For a bounded tool usage, the practical reasoning includes:
 3. define the relevant tool specification, manual, usage instructions, and constraints;
 4. establish output-conformance evidence, failure-detection evidence, or both;
 5. select suitable evidence or controls for the applicable SIL and use;
-6. validate the relevant tool functions and operating conditions where tool validation
-   is selected;
-7. consider history of successful use in sufficiently comparable applications and environments
-   where applicable;
-8. use independent output verification, manual-process equivalence, or tool diversity
-   where these form part of the accepted approach;
-9. justify applicable process-compliance evidence or another appropriate method
-   where the standard permits it; and
+6. validate the relevant tool functions and operating conditions where tool validation is selected;
+7. consider history of successful use in sufficiently comparable applications and environments where applicable;
+8. use independent output verification, manual-process equivalence, or tool diversity where these form part of the accepted approach;
+9. justify applicable process-compliance evidence or another appropriate method where the standard permits it; and
 10. configuration-manage the complete tool baseline and reassess changes.
 
-A TPL-004 conclusion under EN 50716 should state how the selected evidence and controls
-demonstrate that the relevant tool-induced failures are acceptably avoided, detected,
-or handled for the stated T class, SIL, usage, and conditions.
+A TPL-004 conclusion under EN 50716 should state how the selected evidence and controls demonstrate that the relevant tool-induced failures are acceptably avoided, detected, or handled for the stated T class, SIL, usage, and conditions.
 
-Relevant provisions include EN 50716:2023, Clause 6.7 and related SIL-dependent
-provisions. Consult the controlled copy used by the project.
+Relevant provisions include EN 50716:2023, Clause 6.7 and related SIL-dependent provisions.
+Consult the controlled copy used by the project.
 
 ### ISO 26262 (automotive)
 
 ISO 26262-8 defines a distinct "confidence in the use of software tools" process.
-TPL-003 records the Tool Impact, Tool Error Detection, resulting Tool Confidence Level,
-and applicable ASIL boundary for each defined use case.
-Where qualification is required, TPL-004 records the selected method or combination
-and its results.
+TPL-003 records the Tool Impact, Tool Error Detection, resulting Tool Confidence Level, and applicable ASIL boundary for each defined use case.
+Where qualification is required, TPL-004 records the selected method or combination and its results.
 
 ISO 26262:2018 identifies four software-tool qualification method families:
 
@@ -122,17 +93,14 @@ ISO 26262:2018 identifies four software-tool qualification method families:
 - validation of the software tool; and
 - development in accordance with a safety standard.
 
-Method selection depends on the TCL and applicable ASIL. Consult the exact
-recommendation tables and required method combinations in the applicable edition.
+Method selection depends on the TCL and applicable ASIL.
+Consult the exact recommendation tables and required method combinations in the applicable edition.
 
-Qualification remains usage-specific. The result applies to the defined tool functions,
-version, configuration, environment, inputs, outputs, assumptions, and complementary measures.
-A provider package or previous qualification can support the result only after applicability
-has been demonstrated.
+Qualification remains usage-specific.
+The result applies to the defined tool functions, version, configuration, environment, inputs, outputs, assumptions, and complementary measures.
+A provider package or previous qualification can support the result only after applicability has been demonstrated.
 
-A TPL-004 conclusion under ISO 26262 should state which qualification method combination
-was applied, how it satisfies the TCL/ASIL-dependent expectation, what evidence supports it,
-and which usage conditions remain mandatory.
+A TPL-004 conclusion under ISO 26262 should state which qualification method combination was applied, how it satisfies the TCL/ASIL-dependent expectation, what evidence supports it, and which usage conditions remain mandatory.
 
 Relevant provisions include ISO 26262-8:2018, Clause 11.
 
@@ -147,64 +115,40 @@ It does not define a peer software-tool qualification framework with:
 - a catalogue of acceptable tool qualification methods; or
 - a prescribed tool qualification report.
 
-Its software safety Classes A, B, and C apply to the medical-device software,
-not to the development or verification tools.
+Its software safety Classes A, B, and C apply to the medical-device software, not to the development or verification tools.
 
-Confidence in tools used in medical-device work is normally established through
-the wider quality-management and regulatory framework.
-Depending on the jurisdiction and tool purpose, this can require risk-based validation
-of software used in production or the quality management system, control of suppliers,
-configuration and change control, and objective evidence that the software performs
-as intended.
+Confidence in tools used in medical-device work is normally established through the wider quality-management and regulatory framework.
+Depending on the jurisdiction and tool purpose, this can require risk-based validation of software used in production or the quality management system, control of suppliers, configuration and change control, and objective evidence that the software performs as intended.
 
-For example, current FDA Computer Software Assurance guidance addresses software used
-in medical-device production or the quality management system.
-It supports a risk-based approach and a range of assurance activities, but it does not
-turn those activities into IEC 62304 qualification methods and does not apply
-as a complete tool-assurance framework for medical-device software development tools.
+For example, current FDA Computer Software Assurance guidance addresses software used in medical-device production or the quality management system.
+It supports a risk-based approach and a range of assurance activities, but it does not turn those activities into IEC 62304 qualification methods and does not apply as a complete tool-assurance framework for medical-device software development tools.
 
-If TPL-004 is used in a medical-device context, the report should therefore identify
-the actual regulatory, QMS, or organizational requirement that creates the validation
-obligation.
+If TPL-004 is used in a medical-device context, the report should therefore identify the actual regulatory, QMS, or organizational requirement that creates the validation obligation.
 
 ### DO-178C / DO-330 (airborne)
 
-DO-178C defines tool qualification in terms of obtaining "certification credit"
-for a software tool in the context of a specific airborne system.
-Qualification becomes relevant when the project relies on a tool to eliminate, reduce,
-or automate lifecycle processes and the relevant errors are not independently detected
-by another process.
+DO-178C defines tool qualification in terms of obtaining "certification credit" for a software tool in the context of a specific airborne system.
+Qualification becomes relevant when the project relies on a tool to eliminate, reduce, or automate lifecycle processes and the relevant errors are not independently detected by another process.
 
 The tool usage is evaluated against three criteria:
 
-- **Criterion 1:** the tool output is part of the airborne software and can introduce
-  an error;
-- **Criterion 2:** the tool automates verification and its result is used to eliminate
-  or reduce other verification or development processes; and
-- **Criterion 3:** the tool can fail to detect an error within the intended usage without
-  meeting the stronger Criterion 2 conditions.
+- **Criterion 1:** the tool output is part of the airborne software and can introduce an error;
+- **Criterion 2:** the tool automates verification and its result is used to eliminate or reduce other verification or development processes; and
+- **Criterion 3:** the tool can fail to detect an error within the intended usage without meeting the stronger Criterion 2 conditions.
 
-The tool criterion and airborne software level determine a Tool Qualification Level
-from TQL-1 through TQL-5. Consult DO-178C and the applicable certification-authority
-guidance for the exact mapping.
+The tool criterion and airborne software level determine a Tool Qualification Level from TQL-1 through TQL-5.
+Consult DO-178C and the applicable certification-authority guidance for the exact mapping.
 
-DO-330 then supplies a complete, TQL-dependent set of qualification objectives, activities,
-independence expectations, and lifecycle data. Qualification is therefore not performed by
-choosing one alternative method such as validation or prior use. Operational requirements
-and verification are central, while progressively stronger development and verification
-objectives apply at higher TQLs.
+DO-330 then supplies a complete, TQL-dependent set of qualification objectives, activities, independence expectations, and lifecycle data.
+Qualification is therefore not performed by choosing one alternative method such as validation or prior use.
+Operational requirements and verification are central, while progressively stronger development and verification objectives apply at higher TQLs.
 
-Independent verification of the relevant tool output can change the need for qualification
-because it changes the certification credit claimed from the tool. If the independent process
-fully performs the activity otherwise eliminated, reduced, or automated, qualification may be
-unnecessary. This is a decision about reliance and credit, not merely a compensating test
-added after qualification.
+Independent verification of the relevant tool output can change the need for qualification because it changes the certification credit claimed from the tool.
+If the independent process fully performs the activity otherwise eliminated, reduced, or automated, qualification may be unnecessary.
+This is a decision about reliance and credit, not merely a compensating test added after qualification.
 
-A TPL-004 conclusion under DO-178C/DO-330 should state the intended use, criterion,
-airborne software level, TQL, applicable DO-330 objective set, lifecycle data, deviations,
-change-impact analysis, and certification-authority coordination.
-Vendor qualification data is reusable only after the applicant establishes applicability
-to the certification project.
+A TPL-004 conclusion under DO-178C/DO-330 should state the intended use, criterion, airborne software level, TQL, applicable DO-330 objective set, lifecycle data, deviations, change-impact analysis, and certification-authority coordination.
+Vendor qualification data is reusable only after the applicant establishes applicability to the certification project.
 
 ## Comparison of confidence approaches and concepts
 
@@ -230,16 +174,12 @@ The following table is an interpretive map.
 
 Tool-validation discussions often use the word *coverage* for different questions:
 
-1. **Requirements or behavior coverage** asks which required or expected tool behaviors
-   are addressed by tests and other evidence.
-2. **Input and problem-space coverage** asks which use cases, feature
-   interactions, input classes, boundaries, configurations, targets, invalid or
-   unusual conditions, and known malfunction classes were exercised.
-3. **Structural coverage of the tool implementation** measures which implementation
-   elements were exercised, such as statements, decision outcomes, conditions, or functions.
+1. **Requirements or behavior coverage** asks which required or expected tool behaviors are addressed by tests and other evidence.
+2. **Input and problem-space coverage** asks which use cases, feature interactions, input classes, boundaries, configurations, targets, invalid or unusual conditions, and known malfunction classes were exercised.
+3. **Structural coverage of the tool implementation** measures which implementation elements were exercised, such as statements, decision outcomes, conditions, or functions.
 
-These measures are complementary. A complete requirements-to-test matrix can still be weak
-if the requirements are incomplete, the tests are superficial, or the oracle is wrong.
+These measures are complementary.
+A complete requirements-to-test matrix can still be weak if the requirements are incomplete, the tests are superficial, or the oracle is wrong.
 High structural coverage can still miss required behavior.
 Neither metric alone establishes "adequate validation".
 
@@ -255,14 +195,13 @@ Neither metric alone establishes "adequate validation".
 
 ### What to record when structural coverage is not required
 
-Absence of a structural-coverage mandate does not reduce tool validation
-to one row per written requirement. Record how the validation addresses:
+Absence of a structural-coverage mandate does not reduce tool validation to one row per written requirement.
+Record how the validation addresses:
 
 - the completeness and testability of the qualification requirements;
 - every function and output within the qualified boundary;
 - feature and option interactions relevant to the usage;
-- input classes, boundaries, invalid inputs, and unusual or error-related
-  conditions;
+- input classes, boundaries, invalid inputs, and unusual or error-related conditions;
 - host, target, dependencies, configuration, and operational environment;
 - TPL-003 malfunctions and error-propagation paths;
 - known issues and defect-regression scenarios;
@@ -272,21 +211,16 @@ to one row per written requirement. Record how the validation addresses:
 - remaining gaps, uncertainty, and downstream controls.
 
 If a percentage is reported, define its denominator and exclusions.
-“100% requirements coverage” is not meaningful when requirements were omitted,
-grouped too coarsely, or mapped to tests that do not contain effective checks.
+“100% requirements coverage” is not meaningful when requirements were omitted, grouped too coarsely, or mapped to tests that do not contain effective checks.
 
 ### Structural-coverage terminology
 
 Use structural-coverage terms precisely:
 
-- **statement coverage** measures executed statements and is not necessarily
-  identical to source-line coverage;
-- **decision or branch coverage** measures decision outcomes and does not mean
-  that every possible execution path was tested;
-- **MC/DC** demonstrates the independent effect of each condition on a decision
-  outcome under the applicable definition; and
-- **function or method coverage** shows that functions were invoked but says little
-  about internal decisions or behavior adequacy.
+- **statement coverage** measures executed statements and is not necessarily identical to source-line coverage;
+- **decision or branch coverage** measures decision outcomes and does not mean that every possible execution path was tested;
+- **MC/DC** demonstrates the independent effect of each condition on a decision outcome under the applicable definition; and
+- **function or method coverage** shows that functions were invoked but says little about internal decisions or behavior adequacy.
 
 Structural coverage should be recorded when it is:
 
@@ -299,9 +233,9 @@ When it is not applicable, state that explicitly and identify the standard-speci
 
 ## Using the same evidence under several standards
 
-Shared factual evidence can reduce duplicated work. For example, one controlled
-validation execution may provide useful evidence under IEC 61508, EN 50716, and
-ISO 26262. Reuse does not make the standards interchangeable.
+Shared factual evidence can reduce duplicated work.
+For example, one controlled validation execution may provide useful evidence under IEC 61508, EN 50716, and ISO 26262.
+Reuse does not make the standards interchangeable.
 
 For each applicable standard:
 
@@ -314,23 +248,3 @@ For each applicable standard:
 
 Do not create a combined “highest tool qualification level”.
 SIL, ASIL, TCL, T1/T2/T3, software levels, and TQL express different concepts.
-
-## References to consult
-
-Use the exact editions adopted by the organization, project, regulator,
-or certification authority. Relevant sources include:
-
-- IEC 61508-3:2010 — Software requirements;
-- EN 50716:2023 — Railway applications — Requirements for software development;
-- ISO 26262-8:2018 — Supporting processes;
-- IEC 62304:2006 and Amendment 1:2015 — Medical device software lifecycle processes;
-- FDA Computer Software Assurance for Production and Quality Management System Software, February 2026;
-- RTCA DO-178C / EUROCAE ED-12C, *Software Considerations in Airborne Systems and Equipment Certification*;
-- RTCA DO-330 / EUROCAE ED-215, *Software Tool Qualification Considerations*;
-- FAA AC 20-115D;
-- EASA AMC 20-115D;
-- RTCA/EUROCAE FAS FTP1055 — Tool Qualification Impacts (an informational paper rather than regulatory guidance).
-
-The standards and authority-approved means of compliance remain authoritative
-for definitions, required objectives, method selection, independence, lifecycle data,
-confirmation measures, assessment, and approval.

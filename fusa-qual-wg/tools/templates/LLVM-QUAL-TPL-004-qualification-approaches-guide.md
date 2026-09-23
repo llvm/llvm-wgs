@@ -5,65 +5,47 @@
 > **Related template:** `LLVM-QUAL-TPL-004`  
 > **Central guide:** [`LLVM-QUAL-TPL-004-guide.md`](LLVM-QUAL-TPL-004-guide.md)  
 > **Standards and test-coverage companion:** [`LLVM-QUAL-TPL-004-standards-guide.md`](LLVM-QUAL-TPL-004-standards-guide.md)  
-> This companion is informative. Apply the terminology, selection rules, rigor,
-> work products, and any review or approval expectations required by the
-> applicable standard and organization.
+> This companion is informative.
+> Apply the terminology, selection rules, rigor, work products, and any review or approval expectations required by the applicable standard and organization.
 
 ## Purpose
 
-This companion provides practical guidance for defining qualification
-activities in TPL-002, preparing any supporting procedures, performing and
-reviewing the planned activities, and recording their execution and results in
-TPL-004.
+This companion provides practical guidance for defining qualification activities in TPL-002, preparing any supporting procedures, performing and reviewing the planned activities, and recording their execution and results in TPL-004.
 
 It is not a transcription of method-selection tables or normative requirements.
-Its purpose is to help contributors turn a selected approach into reviewable
-evidence that is useful in an upstream open-source project, a downstream
-distribution, a qualification support package, or a project-specific integration.
-Selection, scope, objectives, responsibilities, procedures, and acceptance criteria
-belong in the single applicable TPL-002.
+Its purpose is to help contributors turn a selected approach into reviewable evidence that is useful in an upstream open-source project, a downstream distribution, a qualification support package, or a project-specific integration.
+Selection, scope, objectives, responsibilities, procedures, and acceptance criteria belong in the single applicable TPL-002.
 TPL-004 references that plan and records what was actually executed.
 
 ## Distinguish the kinds of qualification activity
 
-Standards organize tool confidence differently. Before defining an activity in
-TPL-002, identify what kind of activity it is. TPL-004 should preserve the
-standard-specific name and basis by reference:
+Standards organize tool confidence differently.
+Before defining an activity in TPL-002, identify what kind of activity it is.
+TPL-004 should preserve the standard-specific name and basis by reference:
 
-- A **qualification method** is a method named or selected under the applicable standard,
-  such as an ISO 26262 software-tool qualification method.
-- A **standard-recognized technique or measure** is a technique or measure to which
-  a standard assigns an assurance role, such as certified tools and translators under IEC 61508.
-- A **conformance-evidence route** demonstrates that relevant tool behavior conforms
-  to its specification or product documentation.
-- An **effective control or mitigation route** prevents, detects, corrects, or contains
-  tool-induced failures when direct qualification or conformance evidence is not used
-  or is insufficient.
-- An **objective-based qualification lifecycle** satisfies a prescribed set of objectives,
-  activities, independence expectations, and lifecycle data, as in DO-330.
-- A **supporting confidence activity** strengthens the argument but does not independently
-  satisfy a standard-specific route.
+- A **qualification method** is a method named or selected under the applicable standard, such as an ISO 26262 software-tool qualification method.
+- A **standard-recognized technique or measure** is a technique or measure to which a standard assigns an assurance role, such as certified tools and translators under IEC 61508.
+- A **conformance-evidence route** demonstrates that relevant tool behavior conforms to its specification or product documentation.
+- An **effective control or mitigation route** prevents, detects, corrects, or contains tool-induced failures when direct qualification or conformance evidence is not used or is insufficient.
+- An **objective-based qualification lifecycle** satisfies a prescribed set of objectives, activities, independence expectations, and lifecycle data, as in DO-330.
+- A **supporting confidence activity** strengthens the argument but does not independently satisfy a standard-specific route.
 - An **evidence source** provides artifacts that can support one or more activities.
-- An **applicability assessment** determines whether existing evidence covers the current
-  tool baseline and usage.
-- A **qualification conclusion** integrates the applicable activities, evidence, findings,
-  restrictions, and any required reviews.
+- An **applicability assessment** determines whether existing evidence covers the current tool baseline and usage.
+- A **qualification conclusion** integrates the applicable activities, evidence, findings, restrictions, and any required reviews.
 
-For example, an upstream regression suite is an evidence source. Selecting relevant tests,
-mapping them to qualification requirements, executing them against the controlled tool baseline,
-and assessing the results can form part of tool validation.
+For example, an upstream regression suite is an evidence source.
+Selecting relevant tests, mapping them to qualification requirements, executing them against the controlled tool baseline, and assessing the results can form part of tool validation.
 Linking to the suite is not itself tool validation.
 
-A certificate is both an attestation and a source of assessed evidence. Under IEC 61508
-it can also support a named technique or measure. Its qualification value still depends
-on the scheme, underlying assessment, scope, and applicability.
+A certificate is both an attestation and a source of assessed evidence.
+Under IEC 61508 it can also support a named technique or measure.
+Its qualification value still depends on the scheme, underlying assessment, scope, and applicability.
 
 ## Select and combine approaches
 
-Approach selection and its rationale should be established in TPL-002 before
-the affected work is performed. Use this section when preparing or reviewing
-TPL-002. In TPL-004, do not repeat the selection argument; reference the single
-applicable TPL-002 revision and assess the execution and results.
+Approach selection and its rationale should be established in TPL-002 before the affected work is performed.
+Use this section when preparing or reviewing TPL-002.
+In TPL-004, do not repeat the selection argument; reference the single applicable TPL-002 revision and assess the execution and results.
 
 ### Begin with the standard-specific need
 
@@ -79,9 +61,7 @@ Then determine whether the proposed activity and evidence address that need.
 
 ### Avoid circular reasoning and double counting
 
-A control already used to establish the TPL-003 classification should not be
-presented again as independent qualification evidence without explaining
-the relationship.
+A control already used to establish the TPL-003 classification should not be presented again as independent qualification evidence without explaining the relationship.
 
 Also check for less visible common cause, for example:
 
@@ -89,37 +69,32 @@ Also check for less visible common cause, for example:
 - the tool and checker share a parser, library, algorithm, model, or requirement error;
 - service-history defects are detected using only the tool's own diagnostics;
 - a process assessment relies only on self-authored policies; or
-- a certificate and qualification kit rely on the same underlying tests,
-  process records, or assessment and are incorrectly counted as independent
-  evidence; or
+- a certificate and qualification kit rely on the same underlying tests, process records, or assessment and are incorrectly counted as independent evidence; or
 - several activities rely on the same incomplete requirements or incorrect oracle.
 
 ### Combine activities by contribution, not by count
 
-Two weak activities do not automatically form a strong argument. Explain which
-uncertainty each activity addresses and which assumptions it shares with the others.
+Two weak activities do not automatically form a strong argument.
+Explain which uncertainty each activity addresses and which assumptions it shares with the others.
 
 A complementary combination might use:
 
 - process evidence to show systematic prevention and correction of development faults;
-- focused validation to check the functions, configurations, and unusual or
-  error-related conditions relevant to the project;
+- focused validation to check the functions, configurations, and unusual or error-related conditions relevant to the project;
 - service-history evidence to examine realistic workloads and long-term defect experience; and
-- independent output verification to detect specified residual malfunction classes in
-  the downstream workflow.
+- independent output verification to detect specified residual malfunction classes in the downstream workflow.
 
 The applicable standard determines whether that combination is acceptable.
 
 ## Validation of the software tool
 
-Validation provides direct evidence that the tool behaves as required within
-the qualified boundary. Its standard-specific role is explained in the
-[standards companion](LLVM-QUAL-TPL-004-standards-guide.md).
+Validation provides direct evidence that the tool behaves as required within the qualified boundary.
+Its standard-specific role is explained in the [standards companion](LLVM-QUAL-TPL-004-standards-guide.md).
 
 ### Define the validation basis
 
-Validation requires an expected-behavior baseline. Depending on the tool,
-it can include:
+Validation requires an expected-behavior baseline.
+Depending on the tool, it can include:
 
 - tool or qualification requirements;
 - a product or user manual;
@@ -130,18 +105,14 @@ it can include:
 - safety-relevant restrictions or prohibited uses.
 
 A manual is not automatically an adequate requirements specification.
-Assess whether its statements are precise, complete, testable, versioned,
-and relevant to the qualified functions.
+Assess whether its statements are precise, complete, testable, versioned, and relevant to the qualified functions.
 
-For a large general-purpose tool, derive a bounded set of qualification requirements
-from the defined use cases while retaining traceability to authoritative specifications
-and documentation.
+For a large general-purpose tool, derive a bounded set of qualification requirements from the defined use cases while retaining traceability to authoritative specifications and documentation.
 Mark undefined, implementation-defined, unsupported, and deliberately unspecified behavior.
 
 ### Design validation around the qualified use
 
-Cover the functions, feature interactions, inputs, configurations, targets,
-output properties, and failure concerns relevant to the claim.
+Cover the functions, feature interactions, inputs, configurations, targets, output properties, and failure concerns relevant to the claim.
 Useful techniques can include:
 
 - representative use cases;
@@ -154,11 +125,13 @@ Useful techniques can include:
 - regression tests for relevant known defects; and
 - focused tests derived from TPL-003 malfunctions and propagation paths.
 
-Explain why the selection is adequate. A large test count does not establish coverage.
+Explain why the selection is adequate.
+A large test count does not establish coverage.
 
 ### Establish trustworthy test oracles
 
-An oracle determines whether the output is correct. Possible oracles include:
+An oracle determines whether the output is correct.
+Possible oracles include:
 
 - a precise external specification;
 - an independently calculated expected result;
@@ -168,13 +141,12 @@ An oracle determines whether the output is correct. Possible oracles include:
 - execution of generated code against independently defined behavior; or
 - expert review against explicit criteria.
 
-Analyze common cause between the tool, requirements, test generator, oracle,
-and expected results. Different executable names do not establish independence.
+Analyze common cause between the tool, requirements, test generator, oracle, and expected results.
+Different executable names do not establish independence.
 
 ### Control the validation harness and supporting tools
 
-Harnesses, scripts, comparators, emulators, target loaders, result parsers, and
-report generators can corrupt inputs or misinterpret results. 
+Harnesses, scripts, comparators, emulators, target loaders, result parsers, and report generators can corrupt inputs or misinterpret results.
 Establish confidence through measures appropriate to their reliance, such as:
 
 - simplicity and review;
@@ -194,12 +166,10 @@ Distinguish:
 - input and problem-space coverage; and
 - structural coverage of the tool implementation.
 
-The [test-coverage chapter](LLVM-QUAL-TPL-004-standards-guide.md#test-coverage-expectations-for-software-tools)
-explains the expectations and exceptions across IEC 61508, EN 50716, ISO 26262, IEC 62304, and DO-178C/DO-330.
+The [test-coverage chapter](LLVM-QUAL-TPL-004-standards-guide.md#test-coverage-expectations-for-software-tools) explains the expectations and exceptions across IEC 61508, EN 50716, ISO 26262, IEC 62304, and DO-178C/DO-330.
 
 Record the denominator, exclusions, and gaps for every reported coverage measure.
-Structural coverage does not replace behavior coverage, and a complete
-requirements-to-test mapping does not demonstrate that the requirements are complete.
+Structural coverage does not replace behavior coverage, and a complete requirements-to-test mapping does not demonstrate that the requirements are complete.
 
 ### Record execution and discrepancies
 
@@ -215,16 +185,13 @@ Retain enough information to identify:
 - tool failures, incorrect outputs, or other unexpected behavior observed; and
 - the activity conclusion and limitations.
 
-Do not remove skipped or flaky cases silently from the denominator. For each
-observed failure or incorrect behavior, analyze the effect on the qualified
-usages and define corrective action, restriction, or a measure to avoid,
-detect, correct, or contain it.
+Do not remove skipped or flaky cases silently from the denominator.
+For each observed failure or incorrect behavior, analyze the effect on the qualified usages and define corrective action, restriction, or a measure to avoid, detect, correct, or contain it.
 
 ### Exercise invalid, unusual, and error-related conditions
 
-Standards may call these **anomalous operating conditions**. They are conditions
-outside the ordinary successful-use path and do not necessarily indicate a bug
-in the tool.
+Standards may call these **anomalous operating conditions**.
+They are conditions outside the ordinary successful-use path and do not necessarily indicate a bug in the tool.
 
 Consider expected behavior for:
 
@@ -237,8 +204,7 @@ Consider expected behavior for:
 - unsupported target and feature combinations; and
 - internal failure or inconsistent state.
 
-Expected behavior may be rejection, diagnostic reporting, safe termination,
-preservation of inputs, or another defined reaction.
+Expected behavior may be rejection, diagnostic reporting, safe termination, preservation of inputs, or another defined reaction.
 A visible crash and a plausible but incorrect artifact have different consequences.
 
 ### Reuse upstream tests critically
@@ -256,8 +222,7 @@ For an upstream or third-party suite, determine:
 ## Increased confidence from use and service-history evidence
 
 Use the exact standard-specific method or evidence-route name.
-This section uses **service-history evidence** only as a neutral umbrella
-for the practical issues shared by several standards.
+This section uses **service-history evidence** only as a neutral umbrella for the practical issues shared by several standards.
 
 ### Define the population and observation period
 
@@ -289,8 +254,8 @@ Analyze the effect of every material difference.
 
 ### Show that failures could have been observed
 
-“No reported failures” is meaningful only if the observation and reporting system
-could reveal the relevant failure class. Assess:
+“No reported failures” is meaningful only if the observation and reporting system could reveal the relevant failure class.
+Assess:
 
 - downstream tests, reviews, monitoring, or comparisons;
 - user competence and reporting incentives;
@@ -302,55 +267,37 @@ could reveal the relevant failure class. Assess:
 
 ### Analyze defects and changes
 
-Include confirmed and suspected defects, severity, affected features and
-configurations, discovery mechanism, detection latency, introduced and
-corrected versions, recurrence, regression prevention, unresolved issues, and
-changes that affect comparability.
+Include confirmed and suspected defects, severity, affected features and configurations, discovery mechanism, detection latency, introduced and corrected versions, recurrence, regression prevention, unresolved issues, and changes that affect comparability.
 
-A mature project with visible and corrected defects can provide stronger evidence
-than a project that merely asserts that no defects exist.
+A mature project with visible and corrected defects can provide stronger evidence than a project that merely asserts that no defects exist.
 
 ### Build on open-source project evidence effectively
 
-Open-source projects can provide rich and independently inspectable evidence,
-including development history, code reviews, continuous-integration results,
-regression tests, release records, issue discussions, known defects, and
-corrective changes. This transparency can be a significant strength when
-establishing confidence from use.
+Open-source projects can provide rich and independently inspectable evidence, including development history, code reviews, continuous-integration results, regression tests, release records, issue discussions, known defects, and corrective changes.
+This transparency can be a significant strength when establishing confidence from use.
 
-Popularity indicators such as downloads, stars, package statistics, project age,
-or reputation can provide useful context. On their own, however, they might not
-show which tool functions and configurations were exercised, whether the usage
-is comparable to the qualified use, or whether the relevant kinds of failure
-would have been detected. The same limitation applies to broad adoption claims
-made for proprietary tools.
+Popularity indicators such as downloads, stars, package statistics, project age, or reputation can provide useful context.
+On their own, however, they might not show which tool functions and configurations were exercised, whether the usage is comparable to the qualified use, or whether the relevant kinds of failure would have been detected.
+The same limitation applies to broad adoption claims made for proprietary tools.
 
-Use the available evidence according to what it demonstrates. Upstream project
-evidence may establish tool history, development activity, testing, defects,
-and corrective action. Downstream or integrator evidence may additionally
-demonstrate experience with a particular version, configuration, environment,
-and use case. These sources are complementary; neither is automatically more
-valuable than the other.
+Use the available evidence according to what it demonstrates.
+Upstream project evidence may establish tool history, development activity, testing, defects, and corrective action.
+Downstream or integrator evidence may additionally demonstrate experience with a particular version, configuration, environment, and use case.
+These sources are complementary; neither is automatically more valuable than the other.
 
-Where the available upstream evidence already establishes sufficient
-comparability, exposure, failure detection, and defect history for the intended
-use, additional downstream service-history evidence is not required merely
-because the tool is open source. Record any remaining gaps or uncertainty and
-address them through other qualification activities where necessary.
+Where the available upstream evidence already establishes sufficient comparability, exposure, failure detection, and defect history for the intended use, additional downstream service-history evidence is not required merely because the tool is open source.
+Record any remaining gaps or uncertainty and address them through other qualification activities where necessary.
 
 ### Define acceptance criteria and uncertainty
 
-Criteria can address minimum comparable exposure, acceptable unresolved defect classes,
-required observation mechanisms, maximum unassessed version difference, evidence completeness,
-and required supplementation by another activity.
+Criteria can address minimum comparable exposure, acceptable unresolved defect classes, required observation mechanisms, maximum unassessed version difference, evidence completeness, and required supplementation by another activity.
 
 State the remaining uncertainty, especially for latent malfunction classes.
 
 ## Evaluation of the tool development process
 
-ISO 26262 identifies evaluation of the tool development process as a
-qualification method. Process evidence can support other standards, but its
-role needs to be mapped to their own provisions.
+ISO 26262 identifies evaluation of the tool development process as a qualification method.
+Process evidence can support other standards, but its role needs to be mapped to their own provisions.
 
 ### Evaluate actual practice
 
@@ -359,8 +306,8 @@ Evaluate both:
 - the defined process; and
 - objective evidence that representative releases and changes followed it.
 
-A policy that is not followed provides weak evidence. Disciplined work that is
-not documented may also be difficult to assess or reuse.
+A policy that is not followed provides weak evidence.
+Disciplined work that is not documented may also be difficult to assess or reuse.
 
 ### Select assessment criteria
 
@@ -382,16 +329,14 @@ Map criteria to the applicable standard or documented procedure.
 
 ### Define sampling and evidence
 
-If complete review is impractical, sample safety-relevant changes, qualified-function changes,
-bug fixes, regression evidence, releases across the claimed period, rejected or reverted changes,
-emergency fixes, and work from different contributors or organizations.
+If complete review is impractical, sample safety-relevant changes, qualified-function changes, bug fixes, regression evidence, releases across the claimed period, rejected or reverted changes, emergency fixes, and work from different contributors or organizations.
 
 Explain why the sample is representative and which areas remain unassessed.
 
 ### Evaluate open-source development practices and public evidence
 
-For an open-source tool, evaluation of the development process can use publicly
-available and independently inspectable evidence. Relevant evidence may include:
+For an open-source tool, evaluation of the development process can use publicly available and independently inspectable evidence.
+Relevant evidence may include:
 
 - contribution and review practices;
 - maintainer responsibilities;
@@ -402,16 +347,13 @@ available and independently inspectable evidence. Relevant evidence may include:
 - documentation and communication of known issues; and
 - traceability between reported problems, corrective changes, and tests.
 
-The absence of a conventional supplier process or a single organizational owner
-does not mean that the development process cannot be evaluated. Assess the
-practices that the project actually follows and the evidence those practices
-produce.
+The absence of a conventional supplier process or a single organizational owner does not mean that the development process cannot be evaluated.
+Assess the practices that the project actually follows and the evidence those practices produce.
 
 Open-source transparency can make this evaluation particularly informative.
 However, transparency is not itself adequacy.
-Publicly visible activity does not by itself demonstrate that every
-practice is consistently applied. The evaluation should identify both the
-strengths of the observed process and any gaps relevant to the intended tool use.
+Publicly visible activity does not by itself demonstrate that every practice is consistently applied.
+The evaluation should identify both the strengths of the observed process and any gaps relevant to the intended tool use.
 
 Assess whether the practices:
 
@@ -421,26 +363,19 @@ Assess whether the practices:
 - identify exceptions and emergency paths; and
 - remain applicable to the claimed release.
 
-Different contributors reviewing one another can support independence,
-but organizational, requirement, implementation, and infrastructure common cause
-still need analysis.
+Different contributors reviewing one another can support independence, but organizational, requirement, implementation, and infrastructure common cause still need analysis.
 
 ### Record findings and effects
 
-For each finding, record the unmet criterion, affected releases and functions,
-whether the weakness could permit or conceal a relevant malfunction, corrective
-or compensating action, closure evidence, and effect on the planned objective
-and qualification conclusion.
+For each finding, record the unmet criterion, affected releases and functions, whether the weakness could permit or conceal a relevant malfunction, corrective or compensating action, closure evidence, and effect on the planned objective and qualification conclusion.
 
-Do not treat every difference from a conventional safety lifecycle as a nonconformity
-without analyzing the objective it serves.
+Do not treat every difference from a conventional safety lifecycle as a nonconformity without analyzing the objective it serves.
 Equally, do not treat community custom as a controlled process without evidence.
 
 ## Development in accordance with a safety or assurance standard
 
 This approach is strongest when planned from the beginning of tool development.
-Retrospectively reconstructing missing records is not equivalent to demonstrating
-that the lifecycle was followed.
+Retrospectively reconstructing missing records is not equivalent to demonstrating that the lifecycle was followed.
 
 ### Define the applicable lifecycle
 
@@ -454,33 +389,24 @@ Identify:
 
 ### Demonstrate implementation
 
-Reference controlled evidence for requirements, architecture, design,
-implementation, traceability, reviews, analyses, tests, configuration and
-change management, issue and defect handling, release decisions, and
-independent assessment or certification where applicable.
+Reference controlled evidence for requirements, architecture, design, implementation, traceability, reviews, analyses, tests, configuration and change management, issue and defect handling, release decisions, and independent assessment or certification where applicable.
 
 ### Treat tailoring and deviations explicitly
 
-For each material tailoring or deviation, state why the requirement or
-objective is not applicable or is met differently, how the decision was
-reviewed or accepted where required, what alternative evidence or control is
-used, and how the decision affects the boundary.
+For each material tailoring or deviation, state why the requirement or objective is not applicable or is met differently, how the decision was reviewed or accepted where required, what alternative evidence or control is used, and how the decision affects the boundary.
 
 ###  Existing open-source tools
 
-An existing general-purpose open-source project is unlikely to have been developed
-from inception under a functional safety standard.
+An existing general-purpose open-source project is unlikely to have been developed from inception under a functional safety standard.
 That does not prevent use of other applicable qualification approaches.
 
-A safety-focused downstream distribution can introduce a controlled lifecycle
-for its patches, builds, evidence, and releases.
+A safety-focused downstream distribution can introduce a controlled lifecycle for its patches, builds, evidence, and releases.
 It should not claim that this retrospectively changes the upstream development history.
 
 ## Independent output verification, diversity, and effective controls
 
-The standard-specific role can differ: classification input, qualification
-or conformance evidence, fallback control, supplementary measure, or a reason why
-qualification credit is not claimed. State the precise basis.
+The standard-specific role can differ: classification input, qualification or conformance evidence, fallback control, supplementary measure, or a reason why qualification credit is not claimed.
+State the precise basis.
 
 ### Define the checked property
 
@@ -498,39 +424,30 @@ Examples include:
 
 ### Establish coverage and timing
 
-Explain whether the control covers every artifact or a sample, every release
-or only qualification runs, all relevant functions and configurations,
-and each targeted TPL-003 malfunction.
+Explain whether the control covers every artifact or a sample, every release or only qualification runs, all relevant functions and configurations, and each targeted TPL-003 malfunction.
 State whether an error can propagate or become latent before the check occurs.
 
 ### Analyze independence and common cause
 
-Consider shared requirements, formalized properties, parsers, libraries, models,
-algorithms, code generators, input artifacts, configuration, developers, reviewers,
-organizations, infrastructure, and result-processing scripts.
+Consider shared requirements, formalized properties, parsers, libraries, models, algorithms, code generators, input artifacts, configuration, developers, reviewers, organizations, infrastructure, and result-processing scripts.
 
 ### Control discrepancies
 
-Define how mismatches are preserved, investigated, and addressed before the
-output is accepted. A warning no one reviews is not an effective control.
+Define how mismatches are preserved, investigated, and addressed before the output is accepted.
+A warning no one reviews is not an effective control.
 
 ### Verify the verifier
 
-The independent checker can introduce or miss errors. Establish sufficient confidence
-in the parts on which the qualification evidence relies.
+The independent checker can introduce or miss errors.
+Establish sufficient confidence in the parts on which the qualification evidence relies.
 
-This does not mean that every tool used to develop or test the tool under
-qualification must itself be qualified. Qualification is not automatically
-inherited or applied recursively. Confidence in a supporting tool may instead
-be established through focused testing, review, manual checks, trusted reference
-cases, a simple and transparent implementation, diversity, or other appropriate
-controls.
+This does not mean that every tool used to develop or test the tool under qualification must itself be qualified.
+Qualification is not automatically inherited or applied recursively.
+Confidence in a supporting tool may instead be established through focused testing, review, manual checks, trusted reference cases, a simple and transparent implementation, diversity, or other appropriate controls.
 
-Consider how an error in the supporting tool could affect the qualification
-evidence. If its output is relied upon without another activity capable of
-detecting relevant errors, assess whether the applicable standard's tool
-classification and qualification provisions apply. Otherwise, record the checks
-or controls used to make the resulting evidence trustworthy.
+Consider how an error in the supporting tool could affect the qualification evidence.
+If its output is relied upon without another activity capable of detecting relevant errors, assess whether the applicable standard's tool classification and qualification provisions apply.
+Otherwise, record the checks or controls used to make the resulting evidence trustworthy.
 
 ## Certification and its relationship with qualification
 
@@ -538,25 +455,20 @@ or controls used to make the resulting evidence trustworthy.
 
 - **Conformity assessment** demonstrates whether specified requirements are fulfilled.
   It can include testing, inspection, audit, evaluation, review, and surveillance.
-- **Certification** is third-party attestation under a defined certification scheme
-  that the assessed object conforms to specified requirements.
-- **Accreditation** is attestation concerning the competence and impartiality of a
-  conformity-assessment body. Accreditation of the body is not certification of the tool.
-- **Tool qualification** is the applicable-standard process for establishing or claiming
-  confidence or certification credit for a bounded tool usage.
+- **Certification** is third-party attestation under a defined certification scheme that the assessed object conforms to specified requirements.
+- **Accreditation** is attestation concerning the competence and impartiality of a conformity-assessment body.
+  Accreditation of the body is not certification of the tool.
+- **Tool qualification** is the applicable-standard process for establishing or claiming confidence or certification credit for a bounded tool usage.
 
 ### A certificate is not inherently a development-process audit
 
-Many functional-safety tool certification schemes do audit the tool-development
-and maintenance process. They can also review validation results, requirements
-traceability, known issues, service history, configuration management, and user
-restrictions. In that common situation, certification can encapsulate several
-underlying qualification methods or evidence routes.
+Many functional-safety tool certification schemes do audit the tool-development and maintenance process.
+They can also review validation results, requirements traceability, known issues, service history, configuration management, and user restrictions.
+In that common situation, certification can encapsulate several underlying qualification methods or evidence routes.
 
 Certification is not inherently equivalent to evaluation of the tool development process.
-The certification scheme decides what is assessed. A certificate can be based primarily
-on product testing, process audit, lifecycle compliance, use history, a combination
-of those elements, or another conformity-assessment design.
+The certification scheme decides what is assessed.
+A certificate can be based primarily on product testing, process audit, lifecycle compliance, use history, a combination of those elements, or another conformity-assessment design.
 
 The word *certified* alone therefore does not reveal what was demonstrated.
 
@@ -574,40 +486,28 @@ The word *certified* alone therefore does not reveal what was demonstrated.
 
 For every certificate or certification package, identify:
 
-1. **Underlying assurance activities:** What was actually examined—process, lifecycle,
-   validation, use history, controls, or a combination?
-2. **Independent assessment:** Who performed the assessment, under which scheme,
-   with what competence, independence, sampling, and evidence access?
-3. **Attestation:** What exact conformity claim does the certificate make,
-   and for which product, version, functions, environment, standard, integrity level,
-   and conditions?
-4. **Applicability:** Does that claim cover the current tool baseline, usage,
-   configuration, target, dependencies, reliance, and required downstream activities?
+1. **Underlying assurance activities:** What was actually examined—process, lifecycle, validation, use history, controls, or a combination?
+2. **Independent assessment:** Who performed the assessment, under which scheme, with what competence, independence, sampling, and evidence access?
+3. **Attestation:** What exact conformity claim does the certificate make, and for which product, version, functions, environment, standard, integrity level, and conditions?
+4. **Applicability:** Does that claim cover the current tool baseline, usage, configuration, target, dependencies, reliance, and required downstream activities?
 
-The assessment report, safety or qualification manual, certified version list,
-known-issues list, and scheme rules are often necessary to interpret the
-certificate correctly.
+The assessment report, safety or qualification manual, certified version list, known-issues list, and scheme rules are often necessary to interpret the certificate correctly.
 
 ### Standard-specific role of certification
 
 Apply the standards in the required comparison order:
 
 - **IEC 61508:** certified tools and translators are a named technique or measure.
-  The certificate does not remove the need to justify selection, identify the exact usage
-  and baseline, assess reliance and failure mechanisms, meet the applicable support-tool
-  provisions, and follow certificate conditions.
-- **EN 50716:** a certificate is normally third-party evidence to be mapped to the Clause 6.7
-  confidence and control argument. Confirm which functions, process areas, SIL, versions,
-  and local activities it covers.
+  The certificate does not remove the need to justify selection, identify the exact usage and baseline, assess reliance and failure mechanisms, meet the applicable support-tool provisions, and follow certificate conditions.
+- **EN 50716:** a certificate is normally third-party evidence to be mapped to the Clause 6.7 confidence and control argument.
+  Confirm which functions, process areas, SIL, versions, and local activities it covers.
 - **ISO 26262:** certification is not a fifth software-tool qualification method.
   Its underlying assessment can provide evidence for one or more of the four methods.
   The ISO method-selection and qualification-report obligations remain applicable.
 - **IEC 62304:** certification is not an IEC 62304 tool-qualification route.
-  Product, QMS, or supplier certificates can support the wider regulatory validation argument
-  only within their stated scope.
-- **DO-178C/DO-330:** commercial certification or a vendor qualification package does not
-  by itself grant certification credit. The applicant must establish project applicability
-  and satisfy the applicable DO-330 objectives and authority expectations.
+  Product, QMS, or supplier certificates can support the wider regulatory validation argument only within their stated scope.
+- **DO-178C/DO-330:** commercial certification or a vendor qualification package does not by itself grant certification credit.
+  The applicant must establish project applicability and satisfy the applicable DO-330 objectives and authority expectations.
 
 ### Avoid common certification errors
 
@@ -638,36 +538,27 @@ Record, where applicable:
 
 ### Perform a structured match
 
-Compare the external package with the current tool identity, binary or source
-baseline, usage, functions, configuration, environment, target, dependencies,
-classification, integrity level, output reliance, complementary measures,
-standard edition, known-issue status, and maintenance status.
+Compare the external package with the current tool identity, binary or source baseline, usage, functions, configuration, environment, target, dependencies, classification, integrity level, output reliance, complementary measures, standard edition, known-issue status, and maintenance status.
 
-Classify each difference as covered, requiring additional evidence or local activity,
-r outside the reusable boundary.
+For each identified difference, determine whether the existing evidence already addresses it, whether additional evidence or project-specific activity is needed, or whether the difference falls outside the scope for which the evidence can be reused.
 
 ### Complete local activities
 
-Qualification packages often require local installation verification, configuration checks,
-est execution, target-specific validation, or project tailoring.
+Qualification packages often require local installation verification, configuration checks, test execution, target-specific validation, or project tailoring.
 Record those activities and results in TPL-004.
 
 ### Check maintenance and withdrawal status
 
-Define how the evidence package is updated for releases, corrections, security fixes,
-certificate changes, qualification-package revisions, and withdrawn versions.
+Define how the evidence package is updated for releases, corrections, security fixes, certificate changes, qualification-package revisions, and withdrawn versions.
 Assign responsibility for monitoring those changes and triggering impact analysis.
 
 ## Activity-record checklist
 
-For every activity recorded in the **Detailed qualification activity results**
-section of the template, check that:
+For every activity recorded in the **Detailed qualification activity results** section of the template, check that:
 
-- [ ] the planned activity, objective, standard-specific basis, and acceptance
-      criteria are identifiable through TPL-002;
+- [ ] the planned activity, objective, standard-specific basis, and acceptance criteria are identifiable through TPL-002;
 - [ ] the applicable TPL-002 objectives and TPL-003 concerns are identified;
-- [ ] the applicable tool identity and the evidence, environment, and execution
-      context are identifiable and reviewable;
+- [ ] the applicable tool identity and the evidence, environment, and execution context are identifiable and reviewable;
 - [ ] actual performers, reviewers, independence, and execution dates are recorded;
 - [ ] execution deviations and plan changes remain visible;
 - [ ] the performed procedure is reproducible or reviewable;
@@ -677,7 +568,4 @@ section of the template, check that:
 - [ ] deviations and findings are linked to the common finding register;
 - [ ] the activity result is separated from its contribution to the integrated qualification conclusion;
 - [ ] common-cause and independence limitations are recorded; and
-- [ ] follow-up actions, user conditions, and information for a safety manual or
-      other suitable user documentation are identified.
-
-The acronym list for the guide set is maintained in the [central guide](LLVM-QUAL-TPL-004-guide.md#acronyms).
+- [ ] follow-up actions, user conditions, and information for a safety manual or other suitable user documentation are identified.
