@@ -1,0 +1,28 @@
+flowchart TD
+    A([Start])
+    B[/"High-level description of the tool and its usage"/]
+    C[/"Assumptions"/]
+    D["Check the need to provide evidence of tool usage confidence <br/> <span style='color:blue'>LLVM-QUAL-TPL-001</span>"]
+    E{"Needed?"}
+    F["Write <b>Tool Usage Plan</b> <br/> <span style='color:blue'>LLVM-QUAL-TPL-002</span>"]
+    G["Provide argument / justification <br/> <span style='color:blue'>LLVM-QUAL-TPL-006</span>"]
+    H["Write <b>Tool Classification Report</b> <br/> <span style='color:blue'>LLVM-QUAL-TPL-003</span>"]
+    I{"Qualification of the tool needed?"}
+    J["Perform tool qualification and write <b>Tool Qualification Report</b> <br/> <span style='color:blue'>LLVM-QUAL-TPL-004</span>"]
+    K["Provide means for verification of appropriate usage <br/> <span style='color:blue'>LLVM-QUAL-TPL-005</span>"]
+    L([End])
+
+    A --> B
+    A --> C
+    B --> D
+    C --> D
+    D --> E
+    E --> |Yes| F
+    E --> |No| G
+    F --> H
+    H --> I
+    I --> |Yes| J
+    I --> |No| K
+    J --> K
+    G --> L
+    K --> L

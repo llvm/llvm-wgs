@@ -1,0 +1,17 @@
+flowchart TD
+    A[/"High-level description of the tool and its usage"/]
+    B[/"Assumptions"/]
+    C{"Is the software tool used to support a safety-related activity or task?"}
+    D{"Does the activity or task rely on the correct functioning of the software tool?"}
+    E{"Are the relevant outputs completely and sufficiently examined or verified for the applicable process step(s)?"}
+    F["Yes, need to demonstrate tool usage confidence"]
+    G["No need, but provide a formal argument or a <b>Safety Considerations</b> <span style='color:blue'>LLVM-QUAL-TPL-006</span>"]
+
+    A --> C
+    B --> C
+    C --> |Yes| D
+    D --> |Yes| E
+    E --> |No| F
+    E --> |Yes| G
+    C --> |No| G
+    D --> |No| G
