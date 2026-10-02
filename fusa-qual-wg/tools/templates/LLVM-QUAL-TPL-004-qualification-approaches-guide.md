@@ -10,18 +10,20 @@
 
 ## Purpose
 
-This companion provides practical guidance for defining qualification activities in TPL-002, preparing any supporting procedures, performing and reviewing the planned activities, and recording their execution and results in TPL-004.
+This companion provides practical guidance for defining qualification activities in the Tool Usage Plan (`LLVM-QUAL-TPL-002`), preparing any supporting procedures, performing and reviewing the planned activities, and recording their execution and results in the Tool Qualification Report (`LLVM-QUAL-TPL-004`).
+
+This companion uses **usage plan** and **qualification report** for those documents below, and **classification report** for the Tool Classification Report (`LLVM-QUAL-TPL-003`).
 
 It is not a transcription of method-selection tables or normative requirements.
 Its purpose is to help contributors turn a selected approach into reviewable evidence that is useful in an upstream open-source project, a downstream distribution, a qualification support package, or a project-specific integration.
-Selection, scope, objectives, responsibilities, procedures, and acceptance criteria belong in the single applicable TPL-002.
-TPL-004 references that plan and records what was actually executed.
+Selection, scope, objectives, responsibilities, procedures, and acceptance criteria belong in the single applicable usage plan.
+The qualification report references that plan and records what was actually executed.
 
 ## Distinguish the kinds of qualification activity
 
 Standards organize tool confidence differently.
-Before defining an activity in TPL-002, identify what kind of activity it is.
-TPL-004 should preserve the standard-specific name and basis by reference:
+Before defining an activity in the usage plan, identify what kind of activity it is.
+The qualification report should preserve the standard-specific name and basis by reference:
 
 - A **qualification method** is a method named or selected under the applicable standard, such as an ISO 26262 software-tool qualification method.
 - A **standard-recognized technique or measure** is a technique or measure to which a standard assigns an assurance role, such as certified tools and translators under IEC 61508.
@@ -43,9 +45,9 @@ Its qualification value still depends on the scheme, underlying assessment, scop
 
 ## Select and combine approaches
 
-Approach selection and its rationale should be established in TPL-002 before the affected work is performed.
-Use this section when preparing or reviewing TPL-002.
-In TPL-004, do not repeat the selection argument; reference the single applicable TPL-002 revision and assess the execution and results.
+Approach selection and its rationale should be established in the usage plan before the affected work is performed.
+Use this section when preparing or reviewing the usage plan.
+In the qualification report, do not repeat the selection argument; reference the single applicable usage plan revision and assess the execution and results.
 
 ### Begin with the standard-specific need
 
@@ -53,7 +55,7 @@ Do not begin with “we have these tests” or “the supplier has a certificate
 Begin with:
 
 - the bounded qualification claim;
-- the TPL-003 classification concern or malfunction;
+- the classification concern or malfunction recorded in the classification report;
 - the applicable standard, integrity level, tool class, TCL, TQL, or other target; and
 - the uncertainty or failure mechanism that the activity must address.
 
@@ -61,7 +63,7 @@ Then determine whether the proposed activity and evidence address that need.
 
 ### Avoid circular reasoning and double counting
 
-A control already used to establish the TPL-003 classification should not be presented again as independent qualification evidence without explaining the relationship.
+A control already used to establish the classification recorded in the classification report should not be presented again as independent qualification evidence without explaining the relationship.
 
 Also check for less visible common cause, for example:
 
@@ -123,7 +125,7 @@ Useful techniques can include:
 - target- and environment-specific behavior;
 - stress, resource, interruption, or partial-failure conditions;
 - regression tests for relevant known defects; and
-- focused tests derived from TPL-003 malfunctions and propagation paths.
+- focused tests derived from malfunctions and propagation paths recorded in the classification report.
 
 Explain why the selection is adequate.
 A large test count does not establish coverage.
@@ -211,7 +213,7 @@ A visible crash and a plausible but incorrect artifact have different consequenc
 
 For an upstream or third-party suite, determine:
 
-- which qualification requirements and TPL-003 concerns it covers;
+- which qualification requirements and concerns from the classification report it covers;
 - whether its expected results and oracles are suitable;
 - whether its configuration matches the qualification boundary;
 - whether failing, unsupported, quarantined, and flaky cases are visible;
@@ -424,7 +426,7 @@ Examples include:
 
 ### Establish coverage and timing
 
-Explain whether the control covers every artifact or a sample, every release or only qualification runs, all relevant functions and configurations, and each targeted TPL-003 malfunction.
+Explain whether the control covers every artifact or a sample, every release or only qualification runs, all relevant functions and configurations, and each targeted malfunction from the classification report.
 State whether an error can propagate or become latent before the check occurs.
 
 ### Analyze independence and common cause
@@ -529,7 +531,7 @@ Record, where applicable:
 
 - certificate identifier, issuer, scheme, issue date, and validity;
 - assessment or certification report;
-- the applicable TPL-002 and qualification report;
+- the applicable usage plan and qualification report;
 - validation suite, procedures, and results;
 - safety, qualification, or user manual;
 - covered versions, builds, targets, functions, and usages;
@@ -545,7 +547,7 @@ For each identified difference, determine whether the existing evidence already 
 ### Complete local activities
 
 Qualification packages often require local installation verification, configuration checks, test execution, target-specific validation, or project tailoring.
-Record those activities and results in TPL-004.
+Record those activities and results in the qualification report.
 
 ### Check maintenance and withdrawal status
 
@@ -556,14 +558,14 @@ Assign responsibility for monitoring those changes and triggering impact analysi
 
 For every activity recorded in the **Detailed qualification activity results** section of the template, check that:
 
-- [ ] the planned activity, objective, standard-specific basis, and acceptance criteria are identifiable through TPL-002;
-- [ ] the applicable TPL-002 objectives and TPL-003 concerns are identified;
+- [ ] the planned activity, objective, standard-specific basis, and acceptance criteria are identifiable through the usage plan;
+- [ ] the applicable usage plan objectives and concerns from the classification report are identified;
 - [ ] the applicable tool identity and the evidence, environment, and execution context are identifiable and reviewable;
 - [ ] actual performers, reviewers, independence, and execution dates are recorded;
 - [ ] execution deviations and plan changes remain visible;
 - [ ] the performed procedure is reproducible or reviewable;
 - [ ] acceptance criteria were defined before interpreting results;
-- [ ] TPL-002 or its referenced procedures define coverage measures, denominators, expected results, oracles, assessment criteria, and their trust basis;
+- [ ] the usage plan or its referenced procedures define coverage measures, denominators, expected results, oracles, assessment criteria, and their trust basis;
 - [ ] passed, failed, skipped, unavailable, and adverse evidence is visible;
 - [ ] deviations and findings are linked to the common finding register;
 - [ ] the activity result is separated from its contribution to the integrated qualification conclusion;

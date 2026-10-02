@@ -6,12 +6,14 @@
 > This guide set is informative.
 > It does not replace the applicable safety or assurance standard, regulatory or certification guidance, a documented interpretation, or an organization's own processes.
 
-## Purpose and boundary of TPL-004
+## Purpose and boundary of the qualification report
 
-LLVM-QUAL-TPL-004 records the execution and results of qualification activities defined in one Tool Usage Plan.
+The Tool Qualification Report (`LLVM-QUAL-TPL-004`) records the execution and results of qualification activities defined in one Tool Usage Plan.
 It integrates the resulting evidence, findings, limitations, and conditions into a bounded, standard-specific qualification conclusion.
 
-TPL-004 is not another qualification plan.
+Below, this guide uses **usage plan** for the Tool Usage Plan (`LLVM-QUAL-TPL-002`), **classification report** for the Tool Classification Report (`LLVM-QUAL-TPL-003`), and **qualification report** for the Tool Qualification Report.
+
+The qualification report is not another qualification plan.
 It should not repeat:
 
 - the intended or given tool usage and usage boundary;
@@ -21,8 +23,8 @@ It should not repeat:
 - the classification and malfunction analysis; or
 - the planned change-management strategy.
 
-Those items remain in TPL-002, TPL-003, and any plans or procedures referenced by them.
-TPL-004 records what actually happened and whether the defined objectives and criteria were satisfied.
+Those items remain in the usage plan, the classification report, and any plans or procedures referenced by them.
+The qualification report records what actually happened and whether the defined objectives and criteria were satisfied.
 
 The report is not a substitute for the underlying evidence.
 It summarizes, references, and integrates controlled requirements, tests, execution records, process assessments, service-history analyses, certificates, findings, reviews, and other evidence without copying every artifact into one document.
@@ -33,7 +35,7 @@ Any additional review, assessment, approval, or certification process depends on
 
 ## Guide-set structure
 
-TPL-004 guidance is divided into three files:
+Guidance for the qualification report is divided into three files:
 
 1. **This central guide** explains the workflow boundary, use of the Tool Usage Plan, completion of the streamlined template, evidence integration, findings, conclusions, reuse, maintenance, and review checklist.
 2. The [qualification-approaches companion](LLVM-QUAL-TPL-004-qualification-approaches-guide.md) explains validation, service-history analysis, development-process evaluation, development under a safety or assurance standard, output verification and diversity, certification, and evidence reuse.
@@ -46,13 +48,13 @@ Consult only the companion sections relevant to the applicable standard and sele
 
 ### Default: follow the plan
 
-One TPL-004 report is governed by one referenced TPL-002 revision.
+One qualification report is governed by one referenced usage plan revision.
 That revision defines the tool version and usage boundary addressed by the report.
-If another TPL-002 applies to a different tool version or usage boundary, prepare a separate TPL-004 report.
-TPL-004 should also identify the corresponding TPL-003 revision.
+If another usage plan applies to a different tool version or usage boundary, prepare a separate qualification report.
+The qualification report should also identify the corresponding classification report revision.
 Use references precise enough to identify the versions on which the report is based; a changing branch or undated web page may not be sufficient.
 
-Hence, the streamlined template assumes that the qualification activities conform to the single referenced TPL-002 revision.
+Hence, the streamlined template assumes that the qualification activities conform to the single referenced usage plan revision.
 It therefore uses references instead of repeating planned content.
 
 Before recording the results, check that the following remain consistent with that plan:
@@ -69,13 +71,13 @@ If all remain unchanged, proceed directly to recording the execution and results
 
 ### When the plan needs to change
 
-If the team decides that a planned element needs to change, update TPL-002 before continuing the affected qualification activity or establishing the qualification conclusion.
+If the team decides that a planned element needs to change, update the usage plan before continuing the affected qualification activity or establishing the qualification conclusion.
 Review or approval of that update can follow the organization's or team's normal process.
 
-- Update TPL-002 when the usage, approach, scope, objective, responsibility, procedure, evidence, or acceptance strategy changes.
-- Update TPL-003 when the classification boundary or result, malfunction analysis, confidence in controls, required controls, or resulting qualification need changes.
+- Update the usage plan when the usage, approach, scope, objective, responsibility, procedure, evidence, or acceptance strategy changes.
+- Update the classification report when the classification boundary or result, malfunction analysis, confidence in controls, required controls, or resulting qualification need changes.
 
-TPL-004 then references the updated revision and, where available, the associated change record.
+The qualification report then references the updated revision and, where available, the associated change record.
 It does not restate the revised plan.
 
 ### When execution differs from the plan
@@ -124,7 +126,7 @@ See the detailed chapter on [certification and its relationship with qualificati
 Regression or conformance testing can contribute important evidence, but a qualification report also asks whether:
 
 - expected behaviors relevant to the qualified use were defined;
-- test scope is traceable to the defined objectives and TPL-003 concerns;
+- test scope is traceable to the defined objectives and concerns recorded in the classification report;
 - expected results and test oracles are trustworthy;
 - the actual environment is representative of the planned environment;
 - invalid, unusual, boundary, and other error-related conditions are addressed;
@@ -160,29 +162,29 @@ The standards companion may retain _anomaly_ or _anomalous operating conditions_
 
 ### Identification and inputs
 
-Identify the single TPL-002 revision governing the report and the corresponding TPL-003 revision.
+Identify the single usage plan revision governing the report and the corresponding classification report revision.
 Use a revision, commit, release, date, or other reference that lets a reader find the intended document rather than only naming a changing branch.
 
-The tool version is optional in TPL-004 because TPL-002 is the main source for the tool identity and baseline.
-Repeating it in TPL-004 can still be convenient for readers, provided the information remains consistent with TPL-002.
+The tool version is optional in the qualification report because the usage plan is the main source for the tool identity and baseline.
+Repeating it in the qualification report can still be convenient for readers, provided the information remains consistent with the usage plan.
 
 Use **Qualification perspective** to explain who is preparing the report, such as an upstream project, tool provider, distributor, integrator, or project-specific user.
 This helps readers understand which evidence and conclusions are within that contributor's knowledge and control.
 
 The role table is intentionally flexible.
 List authors, reviewers, approvers, or other roles only where they are useful.
-TPL-004 does not require document status, approval, or sign-off fields; an organization or team can add those fields according to its own process and the applicable standard.
+The qualification report does not require document status, approval, or sign-off fields; an organization or team can add those fields according to its own process and the applicable standard.
 
 ### Qualification activity summary
 
 For each activity:
 
 - use the activity name from the plan;
-- reference the planned activity or applicable TPL-002 section; and
+- reference the planned activity or applicable usage plan section; and
 - state its current status or final result.
 
-If TPL-002 assigns unique identifiers to qualification activities, preserve them.
-Otherwise assign a report identifier such as `QMA-01` and reference the corresponding TPL-002 section unambiguously.
+If the usage plan assigns unique identifiers to qualification activities, preserve them.
+Otherwise assign a report identifier such as `QMA-01` and reference the corresponding usage plan section unambiguously.
 
 ### Evidence inventory and applicability
 
@@ -205,7 +207,7 @@ A partial match can support a bounded portion of the argument, but it requires a
 
 ### Coverage and findings
 
-Trace the objectives and TPL-003 concerns to the activities and evidence that address them.
+Trace the objectives and concerns recorded in the classification report to the activities and evidence that address them.
 Record whether each is covered, partially covered, not covered, or not applicable, with a rationale and residual action.
 
 Review cross-activity dependencies and common-cause weaknesses.
@@ -239,7 +241,7 @@ Each conclusion should identify or reference:
 - the conclusion and its rationale;
 - mandatory conditions, limitations, exclusions, and unresolved items.
 
-The conclusion remains bounded by the TPL-002 and TPL-003 references and by the validity statement in the report.
+The conclusion remains bounded by the references to the usage plan and classification report and by the validity statement in the report.
 If the applicable standard, certification context, organization, or team requires confirmation, independent assessment, approval, or authority coordination, record that information in the evidence inventory or in additional fields chosen by the template user.
 
 For DO-178C/DO-330, distinguish the certification credit claimed from the applicable DO-330 qualification objectives.
@@ -248,7 +250,7 @@ A vendor certificate or existing qualification package does not by itself grant 
 ### Detailed qualification activity results
 
 Copy one complete result chapter for each qualification activity.
-Reference the TPL-002 content and record only execution-specific information:
+Reference the content from the usage plan and record only execution-specific information:
 
 - actual performers, reviewers, independence, and dates;
 - the execution or assessment environment;
@@ -269,7 +271,7 @@ The [qualification-approaches companion](LLVM-QUAL-TPL-004-qualification-approac
 Reference the change and re-evaluation conditions defined in the plan.
 Record only additional triggers or limitations discovered through the qualification results.
 
-Transfer user-relevant conditions into a safety manual such as TPL-005, or into other suitable user documentation.
+Transfer user-relevant conditions into a Safety Manual (`LLVM-QUAL-TPL-005`), or into other suitable user documentation.
 This can include supported baselines, mandatory configuration checks, required downstream verification, known issues, workarounds, unsupported uses, and conditions invalidating the evidence.
 
 ## Qualification perspectives and evidence layering
@@ -307,23 +309,23 @@ It is a reasoned selection of affected requirements, functions, configurations, 
 ## Illustrative compiler qualification structure
 
 For a bounded compiler usage, the plan might select validation and independent output verification.
-TPL-004 would then record, by reference rather than restating the strategy:
+The qualification report would then record, by reference rather than restating the strategy:
 
 1. the defined tool usage, such as language subset, compiler options, target, environment, and output reliance;
-2. the corresponding TPL-003 code-generation and diagnostic concerns;
+2. the corresponding code-generation and diagnostic concerns recorded in the classification report;
 3. the exact compiler build, validation suite, harness, target, and execution campaign actually used;
 4. validation results, requirements/behavior and problem-space coverage, skipped or failed cases, and observed issues;
 5. execution and results of the independent output-verification activity;
 6. applicability of upstream tests, certificates, prior reports, or other reused evidence;
-7. integrated coverage of the defined objectives and TPL-003 concerns; and
+7. integrated coverage of the defined objectives and concerns recorded in the classification report; and
 8. a bounded conclusion with required options, checks, restrictions, known issues, and change triggers.
 
 ## Review and completeness checklist
 
 Before considering the report complete, check that:
 
-- [ ] the single TPL-002 revision and corresponding TPL-003 revision are identified;
-- [ ] the recorded activities and results are consistent with TPL-002;
+- [ ] the single usage plan revision and corresponding classification report revision are identified;
+- [ ] the recorded activities and results are consistent with the usage plan;
 - [ ] plan changes were made before the affected activity continued or the conclusion was established, and were reviewed or approved if the team's process requires it;
 - [ ] unexpected execution deviations remain visible and are resolved or dispositioned;
 - [ ] every qualification activity has an execution and result record;
@@ -332,9 +334,9 @@ Before considering the report complete, check that:
 - [ ] acceptance criteria were defined before interpreting results;
 - [ ] achieved coverage, gaps, skipped work, and adverse evidence are visible;
 - [ ] findings and common-cause dependencies are assessed;
-- [ ] objectives and TPL-003 concerns are traced to activities, evidence, and conclusions;
+- [ ] objectives and concerns recorded in the classification report are traced to activities, evidence, and conclusions;
 - [ ] conclusions are stated separately for each applicable standard;
-- [ ] the conclusion does not exceed the boundary defined by TPL-002 and TPL-003;
+- [ ] the conclusion does not exceed the boundary defined by the usage plan and classification report;
 - [ ] mandatory conditions and known issues are passed to a safety manual or other suitable user documentation;
 - [ ] any review, assessment, approval, sign-off, or authority coordination required by the applicable context is complete; and
 - [ ] report-specific validity limitations and additional re-evaluation triggers are identified.

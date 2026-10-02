@@ -46,11 +46,11 @@
 > [!IMPORTANT]
 > This template assumes that the qualification activities are performed in accordance with the Tool Usage Plan referenced above.
 >
-> One TPL-004 report is governed by one TPL-002 revision.
-> If a different Tool Usage Plan applies to another tool version or usage boundary, prepare a separate TPL-004 report for that plan.
+> One qualification report is governed by one usage plan revision.
+> If a different Tool Usage Plan applies to another tool version or usage boundary, prepare a separate qualification report for that plan.
 >
-> If a change to any of these planned elements is required, TPL-002 should be updated before the affected qualification activity continues or the qualification conclusion is established.
-> Changes affecting the classification basis, malfunction analysis, or required controls shall also be reflected in TPL-003.
+> If a change to any of these planned elements is required, the usage plan should be updated before the affected qualification activity continues or the qualification conclusion is established.
+> Changes affecting the classification basis, malfunction analysis, or required controls shall also be reflected in the classification report.
 >
 > Unexpected deviations encountered during execution are expected to be recorded in this report, then either be resolved by performing the activity in accordance with the plan or addressed through a plan update before the qualification conclusion is established.
 
@@ -63,7 +63,7 @@
 
 | Activity ID and name | Reference | Status or result |
 | --- | --- | --- |
-| `QMA-<ID>` — `<Qualification activity>` | `<Applicable TPL-002 section or activity identifier>` | `<Planned / In progress / Complete — Pass / Complete — Conditional / Complete — Fail / Complete — Inconclusive>` |
+| `QMA-<ID>` — `<Qualification activity>` | `<Applicable Tool Usage Plan section or activity identifier>` | `<Planned / In progress / Complete — Pass / Complete — Conditional / Complete — Fail / Complete — Inconclusive>` |
 
 ## Evidence inventory and applicability
 
@@ -73,7 +73,7 @@
 
 | Evidence ID | Evidence item and exact baseline | Source or owner | Activity, objective, or concern supported | Applicability and limitations | Controlled location |
 | --- | --- | --- | --- | --- | --- |
-| `QE-<ID>` | `<Item, version, revision, commit, date, or execution identifier>` | `<Source>` | `<QMA, TPL-002 objective, or TPL-003 reference>` | `<Applicable scope, matches, gaps, restrictions, provenance, and review status>` | `<Reference>` |
+| `QE-<ID>` | `<Item, version, revision, commit, date, or execution identifier>` | `<Source>` | `<QMA, Tool Usage Plan objective, or Tool Classification Report reference>` | `<Applicable scope, matches, gaps, restrictions, provenance, and review status>` | `<Reference>` |
 
 **Evidence unavailable to downstream users or assessors:**  
 `<None / Identify restricted, proprietary, transient, or otherwise unavailable evidence and explain how reviewability is preserved>`
@@ -84,11 +84,11 @@
 
 > [!NOTE]
 > An individual activity can pass while an overall qualification need remains only partially covered.
-> Integrate the results against the objectives and the concerns established by TPL-003.
+> Integrate the results against the objectives and the concerns established by the classification report.
 
 | Objective or concern | Qualification activities | Evidence | Coverage conclusion and residual action |
 | --- | --- | --- | --- |
-| `<TPL-002 or TPL-003 reference>` | `<QMA references>` | `<QE references>` | `<Covered / Partially covered / Not covered / Not applicable, with rationale and required action>` |
+| `<Tool Usage Plan or Tool Classification Report reference>` | `<QMA references>` | `<QE references>` | `<Covered / Partially covered / Not covered / Not applicable, with rationale and required action>` |
 
 **Coverage gaps and cross-activity dependencies:**  
 `<None / Identify gaps, shared assumptions or evidence, common-cause concerns, impact, and resolution>`
@@ -144,7 +144,7 @@
 
 #### Execution identification
 
-**Activity and qualification-basis reference:** `<Applicable TPL-002 section or activity identifier, including its objective and standard-specific qualification basis>`
+**Activity and qualification-basis reference:** `<Applicable Tool Usage Plan section or activity identifier, including its objective and standard-specific qualification basis>`
 
 **Performed by:** `<Name(s), organization(s), and role(s)>`
 

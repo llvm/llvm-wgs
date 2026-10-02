@@ -18,8 +18,10 @@ The standards covered here do not all define software-tool qualification in the 
 - IEC 62304 (medical) does not define a comparable tool-qualification scheme; and
 - DO-178C and DO-330 (airborne) define qualification as the process used to obtain certification credit through a TQL-dependent, objective-based lifecycle.
 
+This companion uses **classification report** for the Tool Classification Report (`LLVM-QUAL-TPL-003`) and **qualification report** for the Tool Qualification Report (`LLVM-QUAL-TPL-004`).
+
 Accordingly, this guide set uses **qualification approach** as an umbrella expression.
-A selected approach whose execution or evidence is recorded in TPL-004 can be a:
+A selected approach whose execution or evidence is recorded in the qualification report can be a:
 
 - qualification method;
 - standard-recognized technique or measure;
@@ -52,7 +54,7 @@ For a bounded tool usage, the practical reasoning is:
 IEC 61508-3 Annex A also identifies **certified tools and certified translators** and **tools and translators with increased confidence from use** as techniques or measures.
 The certificate still needs to be interpreted together with its scope, supporting assessment, restrictions, and requirements.
 
-From an IEC 61508 perspective, a TPL-004 conclusion should therefore explain why the conformance evidence and effective controls are adequate for the stated T class, SIL context, tool baseline, functions, environment, and reliance.
+From an IEC 61508 perspective, a qualification conclusion should therefore explain why the conformance evidence and effective controls are adequate for the stated T class, SIL context, tool baseline, functions, environment, and reliance.
 
 Relevant provisions include IEC 61508-3:2010, Clause 7.4.4 and Annex A, including Table A.3.
 Consult the controlled copy used by the project.
@@ -75,7 +77,7 @@ For a bounded tool usage, the practical reasoning includes:
 9. justify applicable process-compliance evidence or another appropriate method where the standard permits it; and
 10. configuration-manage the complete tool baseline and reassess changes.
 
-A TPL-004 conclusion under EN 50716 should state how the selected evidence and controls demonstrate that the relevant tool-induced failures are acceptably avoided, detected, or handled for the stated T class, SIL, usage, and conditions.
+A qualification conclusion under EN 50716 should state how the selected evidence and controls demonstrate that the relevant tool-induced failures are acceptably avoided, detected, or handled for the stated T class, SIL, usage, and conditions.
 
 Relevant provisions include EN 50716:2023, Clause 6.7 and related SIL-dependent provisions.
 Consult the controlled copy used by the project.
@@ -83,8 +85,8 @@ Consult the controlled copy used by the project.
 ### ISO 26262 (automotive)
 
 ISO 26262-8 defines a distinct "confidence in the use of software tools" process.
-TPL-003 records the Tool Impact, Tool Error Detection, resulting Tool Confidence Level, and applicable ASIL boundary for each defined use case.
-Where qualification is required, TPL-004 records the selected method or combination and its results.
+The classification report records the Tool Impact, Tool Error Detection, resulting Tool Confidence Level, and applicable ASIL boundary for each defined use case.
+Where qualification is required, the qualification report records the selected method or combination and its results.
 
 ISO 26262:2018 identifies four software-tool qualification method families:
 
@@ -100,7 +102,7 @@ Qualification remains usage-specific.
 The result applies to the defined tool functions, version, configuration, environment, inputs, outputs, assumptions, and complementary measures.
 A provider package or previous qualification can support the result only after applicability has been demonstrated.
 
-A TPL-004 conclusion under ISO 26262 should state which qualification method combination was applied, how it satisfies the TCL/ASIL-dependent expectation, what evidence supports it, and which usage conditions remain mandatory.
+A qualification conclusion under ISO 26262 should state which qualification method combination was applied, how it satisfies the TCL/ASIL-dependent expectation, what evidence supports it, and which usage conditions remain mandatory.
 
 Relevant provisions include ISO 26262-8:2018, Clause 11.
 
@@ -123,7 +125,7 @@ Depending on the jurisdiction and tool purpose, this can require risk-based vali
 For example, current FDA Computer Software Assurance guidance addresses software used in medical-device production or the quality management system.
 It supports a risk-based approach and a range of assurance activities, but it does not turn those activities into IEC 62304 qualification methods and does not apply as a complete tool-assurance framework for medical-device software development tools.
 
-If TPL-004 is used in a medical-device context, the report should therefore identify the actual regulatory, QMS, or organizational requirement that creates the validation obligation.
+If the qualification report is used in a medical-device context, the report should therefore identify the actual regulatory, QMS, or organizational requirement that creates the validation obligation.
 
 ### DO-178C / DO-330 (airborne)
 
@@ -147,7 +149,7 @@ Independent verification of the relevant tool output can change the need for qua
 If the independent process fully performs the activity otherwise eliminated, reduced, or automated, qualification may be unnecessary.
 This is a decision about reliance and credit, not merely a compensating test added after qualification.
 
-A TPL-004 conclusion under DO-178C/DO-330 should state the intended use, criterion, airborne software level, TQL, applicable DO-330 objective set, lifecycle data, deviations, change-impact analysis, and certification-authority coordination.
+A qualification conclusion under DO-178C/DO-330 should state the intended use, criterion, airborne software level, TQL, applicable DO-330 objective set, lifecycle data, deviations, change-impact analysis, and certification-authority coordination.
 Vendor qualification data is reusable only after the applicant establishes applicability to the certification project.
 
 ## Comparison of confidence approaches and concepts
@@ -203,7 +205,7 @@ Record how the validation addresses:
 - feature and option interactions relevant to the usage;
 - input classes, boundaries, invalid inputs, and unusual or error-related conditions;
 - host, target, dependencies, configuration, and operational environment;
-- TPL-003 malfunctions and error-propagation paths;
+- malfunctions and error-propagation paths recorded in the classification report;
 - known issues and defect-regression scenarios;
 - the trustworthiness and independence of expected results or test oracles;
 - supporting tools, harnesses, comparators, and result processing;
