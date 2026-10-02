@@ -17,7 +17,7 @@ The list is intended to help a project answer practical questions such as:
 - Who provides or develops each tool?
 - Where can users find the applicable documentation?
 - Has the need for confidence been considered?
-- Which planning, evaluation, qualification, or usage information is available?
+- Which planning, classification/evaluation, qualification, or usage information is available?
 
 The list records outcomes and links to information produced through the different activities performed, when applicable.
 
@@ -100,7 +100,7 @@ Use a short, clear value, for example:
 - **Not available** - the information is not currently available; or
 - **Not applicable** - the information is not needed for the defined usage.
 
-For example, if the confidence decision concludes that further confidence activities are not needed, the usage plan, evaluation report, qualification report, and safety manual fields may be marked **Not applicable**, as appropriate.
+For example, if the confidence decision concludes that further confidence activities are not needed, the usage plan, classification report, qualification report, and safety manual fields may be marked **Not applicable**, as appropriate.
 
 ## Keep the list useful
 
