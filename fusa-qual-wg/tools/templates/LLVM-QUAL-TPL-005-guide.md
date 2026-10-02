@@ -6,10 +6,12 @@
 > This guide is informative.
 > It does not replace the applicable safety or assurance standard, regulatory or certification guidance, an approved interpretation, or an organization's safety processes.
 
-## Purpose and boundary of TPL-005
+## Purpose and boundary of the safety manual
 
-LLVM-QUAL-TPL-005 communicates the information that tool users need in order to use a tool within a stated boundary and, where applicable, keep the usage within its confidence or qualification boundary.
+The Safety Manual (`LLVM-QUAL-TPL-005`) communicates the information that tool users need in order to use a tool within a stated boundary and, where applicable, keep the usage within its confidence or qualification boundary.
 It brings together the supported scope, instructions, mandatory conditions, complementary measures, known issues, and responsibility boundaries that must remain visible during real use of the tool for safety-related development.
+
+Below, this guide uses *usage plan* for the Tool Usage Plan (`LLVM-QUAL-TPL-002`), *classification report* for the Tool Classification Report (`LLVM-QUAL-TPL-003`), *qualification report* for the Tool Qualification Report (`LLVM-QUAL-TPL-004`), and *safety manual* for the Safety Manual.
 
 The completed safety manual should answer practical questions such as:
 
@@ -22,8 +24,8 @@ The completed safety manual should answer practical questions such as:
 - How are malfunctions, fixes, and changes reported and communicated?
 - Which responsibilities belong to the developer or provider, user or integrator?
 
-TPL-005 is user information.
-It is not a second Tool Usage Plan, Tool Classification Report, or Tool Qualification Report.
+The safety manual is user information.
+It is not a second usage plan, classification report, or qualification report.
 It should communicate their user-relevant results without reproducing their complete planning, analysis, evidence, and approval records.
 
 A project may publish the completed content under another clear title, such as *Safety-Related Usage Guide* or *Tool Usage in Safety-Critical Contexts*.
@@ -34,20 +36,20 @@ Even a short manual should make the complete usage boundary, mandatory condition
 
 ## Position in the LLVM tool-confidence workflow
 
-TPL-005 may be useful whether or not qualification was required.
-TPL-002 may plan user-facing documentation and complementary measures independently of the selected qualification strategy.
-TPL-003 can identify restrictions and controls that must be communicated even when they reduce or remove a qualification need.
-TPL-004 can add conditions, issues, and change triggers discovered while executing qualification activities.
+The safety manual may be useful whether or not qualification was required.
+The usage plan may plan user-facing documentation and complementary measures independently of the selected qualification strategy.
+The classification report can identify restrictions and controls that must be communicated even when they reduce or remove a qualification need.
+The qualification report can add conditions, issues, and change triggers discovered while executing qualification activities.
 
 Where these approved work products exist, derive the manual from their current controlled revisions.
 If a proposed manual statement conflicts with the approved usage, classification, malfunction analysis, qualification scope, or conditions, update and approve the affected upstream work product first.
-Do not silently repair an inconsistency only in TPL-005.
+Do not silently repair an inconsistency only in the safety manual.
 
 ## Authors, users, and levels of reuse
 
 ### Tool developer, maintainer, or provider perspective
 
-An upstream project, supplier, or tool maintainer can use TPL-005 to publish reusable information for intended usages of the tool.
+An upstream project, supplier, or tool maintainer can use the safety manual to publish reusable information for intended usages of the tool.
 This is particularly useful for a general-purpose tool, such as a compiler, analyzer, test tool, or traceability tool, whose provider cannot see each downstream system or project.
 
 The provider can define:
@@ -64,7 +66,7 @@ The manual should explain this boundary technically and factually; it should not
 
 ### Tool user or integrator perspective
 
-A downstream project can use TPL-005 to turn developer information and its own tool-confidence work into project-specific instructions.
+A downstream project can use the safety manual to turn developer information and its own tool-confidence work into project-specific instructions.
 The resulting manual can identify the exact given usage, selected build, local configuration, project procedures, complementary measures, evidence-retention rules, and approval responsibilities.
 
 The project-specific manual may reference the upstream manual rather than copy it, but it must preserve the exact upstream revision used and make any added or changed project conditions clear.
@@ -134,9 +136,9 @@ A link to a changing branch, an undated web page, a transient CI dashboard, or t
 
 Before writing, identify the applicable:
 
-- approved Tool Usage Plan and usage boundary;
-- Tool Classification Report, malfunction concerns, and controls;
-- Tool Qualification Report, conditions, findings, and conclusion;
+- approved usage plan and usage boundary;
+- classification report, malfunction concerns, and controls;
+- qualification report, conditions, findings, and conclusion;
 - tool or operational requirements;
 - installation, configuration, administration, and user documentation;
 - supported platform and dependency information;
@@ -189,7 +191,7 @@ Separate:
 For each use case, identify accepted inputs, expected outputs, intended output consumers, permitted reliance, and subsequent controls.
 Inputs may need format, range, provenance, integrity, completeness, language-subset, or project-approval checks.
 Outputs may include generated artifacts, modified files, reports, diagnostics, logs, metadata, and status values.
-If preferred, reference the document and section that includes the information (e.g., Tool Usage Plan).
+If preferred, reference the document and section that includes the information (e.g., the usage plan).
 
 ### Installation and preparation
 
@@ -241,7 +243,7 @@ Examples include:
 - restriction to a verified language, feature, target, or option subset.
 
 Do not list a measure without explaining which usage or concern it addresses, when it is performed, and how completion is confirmed.
-Ensure it remains consistent with TPL-003: a control credited when classifying the tool must be implemented with the independence, coverage, timing, and evidence assumed by that analysis.
+Ensure it remains consistent with the classification report: a control credited when classifying the tool must be implemented with the independence, coverage, timing, and evidence assumed by that analysis.
 
 ### Anomalous operating conditions
 
@@ -334,5 +336,5 @@ Before publication or approval, confirm that:
 - [ ] developer or maintainer, user or integrator, and approval responsibilities are technically and fairly allocated;
 - [ ] statements do not overclaim qualification, certification, reliability, or whole-standard compliance;
 - [ ] online references are versioned or accompanied by enough controlled identity to remain reviewable;
-- [ ] the manual is consistent with approved TPL-002, TPL-003, and TPL-004 revisions, where applicable; and
+- [ ] the manual is consistent with the approved usage plan, classification report, and qualification report revisions, where applicable; and
 - [ ] validity, review, migration, and change-impact conditions are identified.
