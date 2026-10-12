@@ -54,6 +54,12 @@
 >
 > Unexpected deviations encountered during execution are expected to be recorded in this report, then either be resolved by performing the activity in accordance with the plan or addressed through a plan update before the qualification conclusion is established.
 
+> [!TIP]
+> Example identifier prefixes used in this template are `QMA` (Qualification Method or Activity), `QE` (Qualification Evidence), and `QF` (Qualification Finding).
+> These prefixes are examples, not terminology required by the standards.
+> If you use a different naming convention, update all related references consistently.
+> Keep identifiers stable and unique for each activity, evidence item, or finding.
+
 ## Qualification activity summary
 
 > [!TIP]

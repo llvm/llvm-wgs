@@ -6,6 +6,12 @@
 > This guide set is informative.
 > It does not replace the applicable safety or assurance standard, regulatory or certification guidance, a documented interpretation, or an organization's own processes.
 
+> [!TIP]
+> Example identifier prefixes used in this template are `QMA` (Qualification Method or Activity), `QE` (Qualification Evidence), and `QF` (Qualification Finding).
+> These prefixes are examples, not terminology required by the standards.
+> If you use a different naming convention, update all related references consistently.
+> Keep identifiers stable and unique for each activity, evidence item, or finding.
+
 ## Purpose and boundary of the qualification report
 
 The Tool Qualification Report (`LLVM-QUAL-TPL-004`) records the execution and results of qualification activities defined in one Tool Usage Plan.
@@ -184,12 +190,14 @@ For each activity:
 - state its current status or final result.
 
 If the usage plan assigns unique identifiers to qualification activities, preserve them.
-Otherwise assign a report identifier such as `QMA-01` and reference the corresponding usage plan section unambiguously.
+Otherwise assign a stable report identifier, such as `QMA-01`, and reference the corresponding usage plan section unambiguously.
+`QMA` means **Qualification Method or Activity**.
 
 ### Evidence inventory and applicability
 
-Assign a stable `QE` identifier to every evidence item used by the report.
+Assign a stable identifier, such as `QE-01`, to every evidence item used by the report.
 Identify an immutable version, revision, commit, report date, execution ID, or equivalent controlled baseline.
+`QE` means **Qualification Evidence**.
 
 The applicability field is a documented gap analysis.
 Compare the evidence context with the current qualification boundary, including:
@@ -223,8 +231,8 @@ Record adverse evidence, including:
 - execution deviations; and
 - unresolved qualification questions.
 
-Use a `QF` identifier when it is useful to link the same issue or finding from an activity, the coverage summary, and the qualification conclusion.
-`QF` means **Qualification Finding** and is an identifier provided by this template, not terminology required by the standards.
+Use a stable identifier, such as `QF-01`, when it is useful to link the same issue or finding from an activity, the coverage summary, and the qualification conclusion.
+`QF` means **Qualification Finding**.
 
 For an open finding, record enough information to understand its impact, rationale, planned follow-up or compensating measure, current status, and supporting evidence.
 Add an owner or decision authority where the team's process needs one.
