@@ -16,7 +16,7 @@ For example, a test result is more useful when a user can identify the version t
 [Standards](../../../standards.md) have different requirements, but they illustrate why development and management practices matter alongside the behavior of the software itself.
 
 There is a more direct connection for development tools such as compilers.
-The automotive functional safety standard [ISO 26262-8:2018, Clause 11.4.8](https://www.iso.org/standard/68390.html) identifies *evaluation of the tool development process* as one possible tool qualification method.
+The automotive functional safety standard ISO 26262-8:2018, Clause 11.4.8 identifies *evaluation of the tool development process* as one possible tool qualification method.
 When that method is applicable, evidence about how the relevant tool was developed can help a user assess whether an appropriate process was applied.
 Useful evidence might include documented review and testing practices, change and release records, and how known defects are handled.
 
