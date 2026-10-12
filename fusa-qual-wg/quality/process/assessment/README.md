@@ -11,7 +11,7 @@ It aims to make existing strengths, limitations, and open questions easier for L
 
 ## Why look at development practices?
 
-In a safety-related project, confidence depends partly on how work is planned, reviewed, tested, changed, and recorded.
+In a safety-related project, confidence depends partly on how development is planned and recorded, and how software is developed, reviewed, tested, changed, and documented.
 For example, a test result is more useful when a user can identify the version tested and understand what happens when that version changes.
 [Standards](../../../standards.md) have different requirements, but they illustrate why development and management practices matter alongside the behavior of the software itself.
 
