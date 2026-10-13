@@ -115,10 +115,10 @@ Identify the permitted option set or controlled configuration reference and the 
 
 For an anomalous condition, record separately:
 
-1. established tool behavior;
-2. how the user detects the condition;
-3. the required response or recovery; and
-4. the validity of outputs produced before, during, or after the condition.
+- established tool behavior;
+- how the user detects the condition;
+- the required response or recovery; and
+- the validity of outputs produced before, during, or after the condition.
 
 Do not promise fail-safe, deterministic, complete, or diagnosable behavior unless evidence supports the statement.
 If behavior is unknown or only partly characterized, say so and define a conservative user response, such as rejecting affected outputs and repeating the activity after the environment is restored.
