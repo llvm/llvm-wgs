@@ -43,7 +43,7 @@ For example, a sanitizer runtime used only during testing is part of a verificat
 
 Contributors can extend this shared model with a representative use of an LLVM component.
 Doing so makes plausible failure paths, reusable upstream quality work, and questions for users visible to the community.
-A downstream project can then use a relevant entry as a starting point for analyzing its own selected component and workflow.
+A downstream project can also use a relevant entry as a starting point for analyzing its own selected component and workflow.
 The entry itself does not establish whether that use is safety-relevant in a particular system.
 
 When proposing an entry, describe what is known and indicate which details depend on the downstream use:
