@@ -1,0 +1,58 @@
+[https\://discourse.llvm.org/t/library-layering-of-parser-and-sema/92573](https://discourse.llvm.org/t/library-layering-of-parser-and-sema/92573)  
+LLVM Code of Conduct: [https\://llvm.org/docs/CodeOfConduct.html](https://llvm.org/docs/CodeOfConduct.html)  
+Date: Nov 6, 2026
+
+Attendees:
+
+* Aaron Ballman (chair)  
+* Nhat Nguyen  
+* Chen Miao  
+* Corentin Jabot  
+* Ambrose Leeb  
+* Vlad Serebrennikov  
+* Hans Wennborg  
+* Gábor Horváth  
+* Valentyn Yukhymenko  
+* Vinay Deshmukh  
+* Eli Friedman  
+* Shafik Yaghmour
+
+Minutes:
+
+- Aaron: this is a meeting to discuss on sema and parser separation. We used to be very strict on that, but now languages moved a lot, and now C++, for example, has features specified via source rewrites. Recent examples is a template for, folks should familiar with C++11 range-based for. Today we are creating AST nodes manually when we do those rewrites, but it’s very fragile. There is an idea to generate the code and let parser construct the nodes. But it’s not possible now because of library layering. Maybe a different library for those rewrites.  
+- Corentin: Ambrose, my recollection of your PR is that you didn’t violate library layering.  
+- Ambrose: yes  
+- Aaron: the question is what we want to do in the future  
+- Ambrose: we already have callbacks that Sema gives Parser, so it’s not really clean  
+- Eli: John on the thread was a bit sceptical on layering, but he wasn’t sure we should do tokens. There’s two topics: do we want a hard library layering between parser and sema, and do we want sema to synthesize tokens. I don’t know that we need the hard library layering, but I don’t think we want sema to synthesize tokens because of lookup complexity, etc.  
+- Ambrose: regarding diagnostics, they are already a bit poor. For for loops. Everything is already pointing to the colon. If we have a string of source, diagnostics can point to it. When we instantiate templates, we already point to obscure library details. Regarding name lookup, we can use annotation tokens.  
+- Corentin: I agree with Eli there are two topics. The layering we have today is the right amount of layering; we do want a separation. But that separation is not going to get more strict; trying to separate parsing and sema in C++ is not really plausible (both need to happen). And that’s fine; we can cross the layers when we need to without combining the libraries. I think the status quo is fine. Any tooling that is going to use Sema is going to use parsing anyway; any tooling using parsing has to use Sema  
+- Ambrose: we have ParseScope, but it’s implementation only calls Sema functions (it doesn’t call into the parser). It belongs in Sema, but it’s only used in the parser and only needed within Parser.  
+- Ambrose: I was not able to find a tooling project online which uses sema without the parser and vice versa. Everyone seems to end up linking against the parser, though sometime indirectly  
+- Vlad: we had a few people not on the call who had opinions (John and Erich); I had an argument for the features defined in C++ as syntactic sugar, do we want to do something different than what the parser would do? I think we want to preserve name lookup results. Even if the standard says the code is equivalent, we can still do something different than actual parsing behavior.  
+- Vlad: I think having the library layering separation is still useful; it avoids Sema becoming a big ball of mud and forces us to think about separation of concerns.  
+- Aaron: I think the status quo of Parser to be separate makes sense. I’d like to see a good interface to gin up new AST nodes. It’s hard to tell what’s going on. There is a maintenance concern. There are long comments telling that something is lambda, etc. It would also help with potential token injection coming from WG21.  
+- Ambrose: agree that the separation makes sense. But separation of code \!= library layering. The new and old constexpr engine are in the same library but are still separate files. Regarding parsing being more expensive, I don’t think that’s going to matter in the long run. You are lexing tokens when you don’t have to, but I don’t think that’s going to impact overhead. Creating a lambda is a lot of effort, for example. Regarding the maintenance burden, I agree that manually generating AST nodes is more fragile and harder to get right. But I disagree that we should have a builder interface; that leaves us with three ways to do this. We have the parser. We have manual creation of AST nodes. And then we’d have a builder. So that’s a lot of code duplication; I don’t see the benefit of having a separate builder interface when the parser already knows how to build these things correctly. Getting the order right is hard – ActOnStartOfSwitch without ActOnEndOfSwitch (e.g.) will crash the compiler, but it’s easy to forget to call both as a pair. I don’t have much of an opinion about token injection from C++29; if that’s a major problem, it could be a sign the compiler is not designed correctly  
+- Corentin: I both agree and disagree with Aaron. A builder interface for C++ code would have to be as complicated as C++ is. The complexity of C++ cannot really be reduced. If we want a way to create AST nodes that is not directly creating AST nodes is to write C++ code and parse that. I don’t think there is a simple builder interface that could be viable. So I think it’s a good idea to parse the C++ code directly, though I was against the idea originally. After thinking on it though, it may be the only approach that makes sense. As for WG21 token injection, I think we can support it (though I’m opposed to the feature for other reasons than implementation concerns).  
+- Eli: could we implement a builder interface that’s suitable for the parser to use, so it’s more of a refactoring? A CRTP class which constructs the for loop and has callbacks to get the initial value, get the condition, get the increment, get the body. That class would call Sema to do the actual AST node construction. But it doesn’t feel good to take something which has structure and then throw away the structure and just handle raw tokens.  
+- Ambrose: I think that’s handled in the form of the parser; C++ code has a lot of structure and the parser is what interrogates that and produces an AST through Sema. Also, refactoring may be theoretically possible, but that sounds like a massive amount of effort and is anyone willing to do that work and would it buy us a lot in the end? I’m not convinced I could. The interface I was proposing was fairly simple: [https\://github.com/llvm/llvm-project/pull/208877/changes\#diff-18fbe7dc892da230169dec77d851a0ce59bd18d4e16645aad4b4d84d8b8729f5](https://github.com/llvm/llvm-project/pull/208877/changes#diff-18fbe7dc892da230169dec77d851a0ce59bd18d4e16645aad4b4d84d8b8729f5)  
+- Gabor: the AST importer also creates a lot of AST nodes; that might also benefit from an AST builder interface. I’m not certain that could ever use the parser to do its work.  
+- Ambrose: both the AST importer and serialization library are very different; those operate on an existing AST that’s already gone through Sema. But with this feature, we don’t have an AST to begin with; we need to create an AST either out of nothing or from code.  
+- Gabor: I think it’s more complicated. Getting invariants correct is still really hard and we’ve had a number of bugs from that.  
+- Vlad: Corentin and Eli both had points I agree with. Trying to establish some kind of builder is going to be a lot of effort; it shuffles complexity around. Maybe that’s what folks want though. Does anyone have a good description of the concerns Erich raised? If we pursue a builder, I would like to know how exactly we’re shuffling the complexity around. I think CIR had an idea where they want to be between the AST and LLVM IR. If we’re going for a builder interface, where does it want to sit?  
+- Corentin: an issue I have with the current way we do things is being confident that we have all of the implicit conversions and other implicit nodes are correct. It’s basically impossible to look at the code in a PR and say “you forgot an implicit conversion here because the standard has one”. By using code, we avoid that issue. And that’s the big selling point for what Ambrose would like with parsing C++ code; by going through the parser, we know we’ve gotten the correct AST.  
+- Ambrose: Doing XYZ::Create() is usually a bad idea (aside from things like integer literals, string literals, etc); instead you should be doing ActOnWhatever/BuildWhatever because of overload resolution, conversions, etc. It can be hard to know what sequence of calls made by Parser need to also be made by Sema if doing things manually.  
+- Vlad: even if we try to do a builder layer, how could it look? Thinking of lambdas, there are a lot of rules about whether something is or is not ODR used based on whether something is captured and whether that’s an evaluated context, etc. A builder for that seems like it would require a lot of parameters. The parser tracks a number of pieces of state that are required to correctly handle the semantics. So it’s not clear what the builder could abstract away.  
+- Ambrose: lambdas have to create a bunch of different nodes and the order of creation is very specific; if you get the order wrong, it won’t have the correct semantics. Trying to do that manually is hard; we already have a lot of bugs, and I expect it would be a nightmare to maintain. Builder or manual creation would have the same problems. I don’t see the downside to just using string injection.  
+- Vlad: I wonder if there are academics looking at Clang AST and C++ and have thoughts about representation. That’s why I was talking about theoretical ideas about representation. But otherwise I don’t see a solution we can come up with from a practical standpoint.  
+- **Aaron: I think we have a decision that Parser and Sema remain separate libraries**  
+- Aaron: now about calling Parser from Sema: there are people like John who said they are not comfortable.  
+- Ambrose: lookup is not possible in general, but there are some places where we do need to do lookup. We inject an expression directly via an annotation token, so there’s no lookup required to happen.  
+- Shafik: I would take John’s objection seriously ([https\://discourse.llvm.org/t/library-layering-of-parser-and-sema/92573/3](https://discourse.llvm.org/t/library-layering-of-parser-and-sema/92573/3)), but it’s not clear to me what the alternatives are. He’s saying don’t do this. But then what do we do instead? He and Doug have worked on this in Clang as well as in Swift, so there’s a lot of experience.  
+- Aaron: so this isn’t a general interface?  
+- Corentin: yes, not user-facing, only used for handling implementation-details.  
+- Ambrose: users who want to use clang as a library to parse things to AST, they can do that already… through the parser. No need to go through the Sema API.  
+- Vlad: Looking at John’s message; I do not doubt his experience but I don’t know that he fully appreciates the situation. His example is with MSVC and delayed template parsing. But I don’t think that’s the same kind of situation as what we’re trying to do here.  
+- Aaron: how do we handle diagnostics inside of the generated code?  
+- Corentin: treat it like it’s system header code; silences most things, but still get errors or important warnings.  
+- Aaron: I don’t think we have a firm agreement on the parsing from strings question, but it seems like there’s some sentiment for it and some concerns but the folks who have the concerns aren’t present. We should have another meeting but at a time when detractors can attend.
