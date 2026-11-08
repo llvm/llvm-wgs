@@ -49,14 +49,17 @@ Before completing the questionnaire, prepare the following information.
 
 ### 1. Description of the tool and its usage
 
-A description of:
+A high-level description of:
 
 - what the tool does;
 - how it is intended, or given, to be used;
+- what the relevant inputs and expected outputs are;
+- what toolchain, target, or effective options apply;
 - any usage constraints, such as restricted configurations or feature subsets; and
 - which development activities it supports
 
 is useful information to properly determine the tool-confidence need.
+Moreover, these elements could affect or limit where the conclusion applies.
 
 **Intended usage** typically applies to tools developed out of context, where the tool developer defines or assumes usage conditions.
 
@@ -97,8 +100,10 @@ Consider the reviews, checks, or verification activities that are performed or a
 If some tool-output errors could remain undetected after those activities, answer **No**.
 
 For example, source review can detect defects in the input to a compiler.
-Tests run on the generated executable can reveal compilation errors that affect the behavior exercised by those tests.
+Tests run on the generated executable can reveal miscompilations that affect the behavior exercised by those tests.
 Explain what the checks cover for the usage being assessed.
+Document which relevant output errors the checks could detect and which could remain undetected.
+That makes the distinction between reviewing source and testing generated behavior useful for deciding A3.
 
 ## How the decision is made
 
@@ -129,18 +134,18 @@ The determination may be reused across projects while the documented assumptions
 Any significant change in tool usage, development process, or verification activities may require the determination to be revisited and updated.
 
 For example, for a determination tied to a specific configuration, it could be useful to record or reference the assessed baseline, as applicable.
-The baseline description could include not only the tool version, but also effective options, execution environment and target, and the revision and configuration of the source or other inputs.
+The baseline description could include not only the tool version, but also I/O, effective options, execution environment and target, and the revision and configuration of the source or other inputs.
 When reusing the results of the determination, it would then be possible to analyze whether any differences affect its applicability to the intended tool use.
 
 ## References
 
-The questionnaire is derived from concepts in functional safety standards, including IEC 61508:2010 for E/E/PE systems, and ISO 26262:2018 (particularly in Part 8, 11.4.1) for automotive systems.
+The questionnaire is derived from concepts in functional safety standards, including IEC 61508:2010 (Part 3, §7.4.4) for E/E/PE systems, and ISO 26262:2018 (particularly in Part 8, §11.4.1) for automotive systems.
 
-In the case of airborne projects, DO-178C (§12.2.1) requires confidence in a software tool when the project uses the tool to eliminate, reduce, or automate a DO-178C process without verifying the tool’s output as specified in its §6.
-For example, in the case of a compiler generating a binary to be embedded in the final system, verifying the output would include requirements-based testing and structural coverage analysis as applicable.
+In the case of airborne projects, DO-178C (§12.2.1) requires _tool qualification_ when the project uses the tool to eliminate, reduce, or automate a DO-178C process without verifying the tool’s output as specified in its §6.
+For example, for a compiler used to build airborne software, the applicable Section 6 verification can include requirements-based testing of the resulting executable and structural coverage analysis.
 The decision applies to the intended use on the project.
 
 The A3 rationale identifies which outputs are checked, how they are checked, and what the checks cover.
 An airborne project can use that rationale as input when assessing whether its verification satisfies §6 for that use.
-If confidence is needed, DO-178C §12.2.2 and Table 12-1 use the applicable tool criterion and airborne software level to determine a Tool Qualification Level (TQL).
+If qualification is needed, DO-178C §12.2.2 and Table 12-1 use the applicable tool criterion and airborne software level to determine a Tool Qualification Level (TQL).
 DO-330 provides the objectives, activities, and life cycle data for that level.
