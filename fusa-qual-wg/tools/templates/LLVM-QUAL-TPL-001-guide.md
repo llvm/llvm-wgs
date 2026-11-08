@@ -8,10 +8,10 @@ LLVM-QUAL-TPL-001 helps determine whether evidence of confidence in the usage of
 
 The determination may be:
 
-1. **Generic**, performed by a tool provider while considering a worst-case usage scenario and the resulting tool evaluation or qualification needs; or
-2. **Project-specific**, performed by a tool user or integrator while considering a specific usage of the software tool for a given project, or when no evidence is available from the tool provider.
+1. **Generic**, performed by a tool developer while considering a worst-case usage scenario and the resulting tool evaluation or qualification needs; or
+2. **Project-specific**, performed by a tool user or integrator while considering a specific usage of the software tool for a given project, or when no evidence is available from the tool developer.
 
-Functional safety standards do not mandate that this determination be performed only by the tool provider.
+Functional safety standards do not mandate that this determination be performed only by the tool user.
 
 The template supports an early, structured Yes/No decision based on:
 
@@ -32,7 +32,7 @@ Use LLVM-QUAL-TPL-001 when:
 - you are a tool user or integrator who needs to perform a tool-confidence determination as part of a safety-related project; and
 - you want to clarify whether evidence of confidence in the usage of the tool is needed.
 
-A tool user or integrator may need to perform this determination even when the tool provider has already classified or qualified the software tool.
+A tool user or integrator may need to perform this determination even when the tool developer has already classified or qualified the software tool.
 
 Typical examples include:
 
@@ -49,26 +49,31 @@ Before completing the questionnaire, prepare the following information.
 
 ### 1. Description of the tool and its usage
 
-Describe:
+A high-level description of:
 
 - what the tool does;
 - how it is intended, or given, to be used;
+- what the relevant inputs and expected outputs are;
+- what toolchain, target, or effective options apply;
 - any usage constraints, such as restricted configurations or feature subsets; and
-- which development activities it supports.
+- which development activities it supports
 
-**Intended usage** typically applies to tools developed out of context, where the tool provider defines or assumes usage conditions.
+is useful information to properly determine the tool-confidence need.
+Moreover, these elements could affect or limit where the conclusion applies.
+
+**Intended usage** typically applies to tools developed out of context, where the tool developer defines or assumes usage conditions.
 
 **Given usage** typically applies to tools used in a defined project context, where the usage conditions are already known.
 
 ### 2. Assumptions about the development process
 
-Document relevant assumptions, for example:
+Relevant assumptions such as:
 
 - whether tool outputs are reviewed;
 - which checks or verification activities are applied; and
 - whether any outputs are trusted without further examination.
 
-These assumptions are important because the conclusion remains valid only while they hold.
+are also important inputs to the tool-confidence determination, because the conclusion remains valid only while they hold.
 
 ## How to answer the questionnaire
 
@@ -94,6 +99,12 @@ Determine whether the relevant tool outputs are completely and sufficiently exam
 Consider the reviews, checks, or verification activities that are performed or assumed.
 If some tool-output errors could remain undetected after those activities, answer **No**.
 
+For example, source review can detect defects in the input to a compiler.
+Tests run on the generated executable can reveal miscompilations that affect the behavior exercised by those tests.
+Explain what the checks cover for the usage being assessed.
+Document which relevant output errors the checks could detect and which could remain undetected.
+That makes the distinction between reviewing source and testing generated behavior useful for deciding A3.
+
 ## How the decision is made
 
 The answers are referred to as A1, A2, and A3.
@@ -110,22 +121,11 @@ If those assumptions do not hold in practice, the determination may need to be r
 
 If the answer is **Yes**, the determination normally serves as an entry point to further activities such as:
 
-- tool specification;
-- tool evaluation; and
+- planning the usage of the tool;
+- tool classification; and
 - where applicable, tool qualification.
 
 Those activities are outside the scope of LLVM-QUAL-TPL-001.
-
-## What this template does not do
-
-LLVM-QUAL-TPL-001 does not:
-
-- certify or qualify a tool;
-- replace applicable functional safety standards;
-- mandate a specific development process; or
-- impose industry-specific practices on open-source projects.
-
-It is guidance intended to support transparent and reasoned decisions.
 
 ## Reuse and maintenance
 
@@ -133,9 +133,19 @@ The determination may be reused across projects while the documented assumptions
 
 Any significant change in tool usage, development process, or verification activities may require the determination to be revisited and updated.
 
+For example, for a determination tied to a specific configuration, it could be useful to record or reference the assessed baseline, as applicable.
+The baseline description could include not only the tool version, but also I/O, effective options, execution environment and target, and the revision and configuration of the source or other inputs.
+When reusing the results of the determination, it would then be possible to analyze whether any differences affect its applicability to the intended tool use.
+
 ## References
 
-The questionnaire is derived from concepts in functional safety standards, including:
+The questionnaire is derived from concepts in functional safety standards, including IEC 61508:2010 (Part 3, §7.4.4) for E/E/PE systems, and ISO 26262:2018 (particularly in Part 8, §11.4.1) for automotive systems.
 
-- IEC 61508:2010, Part 3, Annex H; and
-- ISO 26262:2018, Part 8, 11.4.1.
+In the case of airborne projects, DO-178C (§12.2.1) requires _tool qualification_ when the project uses the tool to eliminate, reduce, or automate a DO-178C process without verifying the tool’s output as specified in its §6.
+For example, for a compiler used to build airborne software, the applicable Section 6 verification can include requirements-based testing of the resulting executable and structural coverage analysis.
+The decision applies to the intended use on the project.
+
+The A3 rationale identifies which outputs are checked, how they are checked, and what the checks cover.
+An airborne project can use that rationale as input when assessing whether its verification satisfies §6 for that use.
+If qualification is needed, DO-178C §12.2.2 and Table 12-1 use the applicable tool criterion and airborne software level to determine a Tool Qualification Level (TQL).
+DO-330 provides the objectives, activities, and life cycle data for that level.
