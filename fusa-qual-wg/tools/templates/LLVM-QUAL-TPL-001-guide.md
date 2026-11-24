@@ -71,7 +71,7 @@ Relevant assumptions such as:
 
 - whether tool outputs are reviewed;
 - which checks or verification activities are applied; and
-- whether any outputs are trusted without further examination.
+- whether any outputs are trusted without further examination
 
 are also important inputs to the tool-confidence determination, because the conclusion remains valid only while they hold.
 
