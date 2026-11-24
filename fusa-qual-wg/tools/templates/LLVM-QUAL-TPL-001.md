@@ -49,8 +49,6 @@ This template supports an initial determination step and does not replace tool e
 > 1. A description of the software tool and its intended or given usage.
 > 2. Assumptions about the development process in which the software tool will be used, including reviews, checks, or verification activities applied to relevant tool outputs.
 >
-> The questions below are derived from functional safety standards such as IEC 61508:2010, Part 3, Annex H, and ISO 26262:2018, Part 8, 11.4.1.
->
 > See [LLVM-QUAL-TPL-001-guide.md](LLVM-QUAL-TPL-001-guide.md) for detailed guidance.
 >
 > Remove this instruction when publishing a completed document.
